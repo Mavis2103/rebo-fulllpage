@@ -1,0 +1,163 @@
+@import 'color.scss'; // @use 'color';
+@import 'respronsive.scss';
+@import 'fonts.scss';
+
+* {
+	font-family: SofiaProLight;
+	font-size: 14px;
+}
+
+// tag H
+h2 {
+	font-size: 22pt;
+}
+
+h3 {
+	font-size: 18px;
+	margin-bottom: 0;
+}
+
+//Height
+.h-1000px {
+	height: 1000px;
+}
+
+// Rounded
+.rounded-15px {
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+}
+
+// Button
+.btn-red {
+	background-color: $red;
+}
+
+// Text
+.text-align-start {
+	text-align: start;
+}
+
+.text-align-end {
+	text-align: end;
+}
+
+.text-gray {
+	color: $gray-text;
+}
+
+// Background
+.bg-red {
+	background-color: $red;
+}
+
+.bg-shy-moment-blue {
+	background-color: $shy-moment-blue;
+}
+
+.bg-athens-gray {
+	background-color: $athens-gray;
+}
+
+.bg-green-darner-tail {
+	background-color: $green-darner-tail;
+}
+
+.bg-award {
+	background-color: $award;
+}
+
+.bg-growth {
+	background-color: $growth;
+}
+
+.bg-cornflower-blue {
+	background-color: $cornflower-blue;
+}
+
+.bg-gradient-gray-white {
+	background: rgb(215, 215, 215);
+	background: linear-gradient(90deg, rgba(215, 215, 215, 1) 0%, rgba(247, 247, 247, 1) 0%, rgba(247, 247, 247, 1) 33%, rgba(255, 255, 255, 1) 100%);
+}
+
+.bg-alpha-0 {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.bg-gray {
+	background-color: $gray;
+}
+
+.bg-alpha-0_5 {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bg-notify-warning {
+	background-color: $warning;
+}
+
+.bg-notify-msg {
+	background-color: $message;
+}
+
+//.overflow
+.overflow-scroll {
+	overflow: scroll;
+}
+
+// position
+.t-0 {
+	top: 0;
+}
+
+.b-0 {
+	bottom: 0;
+}
+
+.r-0 {
+	right: 0;
+}
+
+.l-0 {
+	left: 0;
+}
+
+.z-max {
+	z-index: 999;
+}
+
+.shadow-lite {
+	box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+// container
+.col-0 {
+	display: none;
+}
+
+.col-lg-2 {
+	@include responsive(lg) {
+		display: block;
+	}
+}
+
+@include responsive(md) {
+	.col-md-0 {
+		display: none;
+	}
+}
+
+@include responsive(sm) {
+	.col-sm-0 {
+		display: none;
+	}
+}
+
+@include responsive(lg) {
+	.col-lg-0 {
+		display: none;
+	}
+}

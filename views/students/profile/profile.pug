@@ -1,0 +1,16 @@
+.row.mt-4
+  section.col-12
+    .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
+      h3.font-weight-bold.title_feature Th&ocirc;ng tin c&aacute; nh&acirc;n
+.profile.row.mt-5
+  .col-12
+    .d-flex
+      label.profile-tab.mr-3(for='user-detail')
+        input#user-detail(type='radio', name='profile', checked='', hidden='')
+        h4 Th&ocirc;ng tin c&aacute; nh&acirc;n
+      label.profile-tab.mr-3(for='user-privacy')
+        input#user-privacy(type='radio', name='profile', hidden='')
+        h4 Quy&#x1EC1;n ri&ecirc;ng t&#x1B0;
+  .col-12
+    main#profile-content
+script(src='/javascripts/profile/profile.js', defer='')

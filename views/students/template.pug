@@ -1,0 +1,121 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  title REBO
+  // update the version number as needed
+  // <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
+  // include only the Firebase features as you need
+  // <script defer src="/__/firebase/7.15.5/firebase-auth.js"></script>
+  // <script defer src="/__/firebase/7.15.5/firebase-database.js"></script>
+  // <script defer src="/__/firebase/7.15.5/firebase-messaging.js"></script>
+  // <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
+  // initialize the SDK after all desired features are loaded
+  // <script defer src="/__/firebase/init.js"></script>
+  link(rel='stylesheet', href='/library/fa5/css/all.min.css')
+  link(rel='stylesheet', href='/library/fa5/css/brands.min.css')
+  link(rel='stylesheet', href='/library/fa5/css/solid.min.css')
+  link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
+  link(rel='stylesheet', href='/library/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/custom-bs4.min.css')
+  link(rel='stylesheet', href='/stylesheets/style.min.css')
+  link(rel='stylesheet', href='/stylesheets/style2.min.css')
+section.container-fluid
+  .row
+    section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
+      section.d-flex.justify-content-end.align-items-center.py-3
+        #expand(onclick='toggle()')
+          i.fas.fa-bars
+        input#darkmode.mr-4.shadow(type='checkbox', name='')
+        i.far.fa-comments.mr-4(aria-hidden='true')
+        i.far.fa-bell.mr-4(aria-hidden='true')
+        .ava-small.mr-4
+          img.w-100.rounded-circle(src='/images/60111.jpg', alt='')
+        h3.mb-0 Quan
+      .time.text-secondary.mr-3.text-align-end
+        span.hours 00
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
+        span.minutes 00
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
+        span.seconds 00
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;,Th&#x1EE9; 
+        span.day
+        |  ,
+        span.date 00
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
+        span.month 00
+        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
+        span.year 0000
+      .px-3
+        main#content= load
+    section#menu.col-0.col-lg-2.menu.border-right.order-lg-1
+      .row.mt-3.mb-3.px-3
+        .col-12.d-flex.align-items-center
+          .logo
+            img.w-100.rounded-circle(src='/images/appicon.png', alt='')
+      .row
+        .col-12
+          ul.list-group
+            label(for='dashboard')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#dashboard(type='radio', name='clicked', hidden='', checked='')
+                i.fas.fa-chart-bar
+                h5.mb-0.ml-3 T&#x1ED5;ng Quan
+            label(for='classes')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#classes(type='radio', name='clicked', hidden='')
+                i.fas.fa-chalkboard-teacher
+                h5.mb-0.ml-3 L&#x1EDB;p H&#x1ECD;c
+            label(for='messages')
+              li#msg.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#messages(type='radio', name='clicked', hidden='')
+                i.far.fa-comments(aria-hidden='true')
+                h5.mb-0.ml-3 Tro&#x300; chuy&ecirc;&#x323;n
+            label(for='lesson')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#lesson(type='radio', name='clicked', hidden='')
+                i.far.fa-edit
+                h5.mb-0.ml-3 B&agrave;i h&#x1ECD;c
+            label(for='tool')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#tool(type='radio', name='clicked', hidden='')
+                i.fas.fa-tools
+                h5.mb-0.ml-3 Công cụ
+            label(for='library')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#library(type='radio', name='clicked', hidden='')
+                i.far.fa-folder
+                h5.mb-0.ml-3 Th&#x1B0; vi&ecirc;&#x323;n cu&#x309;a t&ocirc;i
+            label(for='profile')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#profile(type='radio', name='clicked', hidden='')
+                i.far.fa-user-circle
+                h5.mb-0.ml-3 Th&ocirc;ng tin ca&#x301; nh&acirc;n
+            label(for='support')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#support(type='radio', name='clicked', hidden='')
+                i.far.fa-smile-beam
+                h5.mb-0.ml-3 H&ocirc;&#x303; tr&#x1A1;&#x323;
+            label(for='setting')
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                input#setting(type='radio', name='clicked', hidden='')
+                i.fas.fa-sliders-h
+                h5.mb-0.ml-3 C&agrave;i &dstrok;&#x1EB7;t
+      .row.my-3
+        .col-12
+          .mascot.mx-auto.position-relative
+            img.w-100(src='/images/60111.jpg', alt='Mascot')
+          .card.shadow-lg.border-0.rounded-15px.pt-5
+            .card-body.text-center
+              h3.card-title.font-weight-bolder
+                | Invite Friends
+              p.card-text.text-gray
+                | Get Free Months of Premium
+              a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Get the link
+script(defer='', src='/library/Chart.min.js')
+script(src='/library/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='/library/bootstrap/js/bootstrap.bundle.min.js')
+script(src='https://unpkg.com/@popperjs/core@2')
+script(src='/library/bootstrap/js/bootstrap.min.js', defer='')
+script(src='/javascripts/load.js', defer='')
+script(src='/javascripts/event.js', defer='')

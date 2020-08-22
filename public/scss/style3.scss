@@ -1,0 +1,51 @@
+@import 'color.scss';
+@import 'respronsive.scss';
+
+.main {
+	background-color: $athens-gray;
+}
+
+.lesson-detail {
+	margin-left: 275px;
+
+	.welcomeBanner {
+		.welcomeBanner__detail {
+			.welcomeBanner__info {
+				.welcomeBanner__processBar {
+					input[type='range'] {
+						// width: 370px;
+					}
+				}
+
+				.welcomeBanner__percent {
+				}
+			}
+
+			.welcomeBanner__img {
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	.lessonDetail {
+		.lessonDetail__header {
+			border-bottom: 1px solid gainsboro;
+
+			.lessonDetail__btn {
+				border-radius: 50px;
+				background-color: $shy-moment-blue;
+			}
+
+			.lessonDetail__time {
+				p {
+					width: 180px;
+					margin-bottom: -10px;
+					background-color: white;
+				}
+			}
+		}
+	}
+}

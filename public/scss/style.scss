@@ -1,0 +1,371 @@
+@import 'color.scss';
+@import 'respronsive.scss';
+@import 'fonts.scss';
+
+::selection {
+    background-color: $clear;
+}
+
+::-moz-selection {
+    background-color: $clear;
+}
+
+.dark {
+    background-color: $bg-dark-mode;
+    color: white;
+}
+
+#darkmode::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    transition: all 0.9s;
+    background-color: #fac824;
+}
+
+#darkmode {
+    -webkit-appearance: none;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50px;
+    outline: none;
+    transition: background-color 0.9s;
+}
+
+input:checked {
+    background-color: black;
+    transition: background-color 0.9s;
+}
+
+input:checked::before {
+    transform: translate(100%);
+    transition: all 0.9s;
+    background-color: #f0f2f3;
+}
+
+.title_feature {
+    font-size: 2em;
+
+    @include responsive(sm) {
+        font-size: 2.5em;
+    }
+
+    font-family: SofiaProBold;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.medal {
+    width: 80px;
+    height: 80px;
+}
+
+.ava-small {
+    width: 35px;
+    height: 35px;
+}
+
+.process-bar,
+.exp {
+    width: 100px;
+
+    .progress {
+        height: 7px;
+    }
+}
+
+.exp {
+    width: 150px;
+}
+
+.lesson-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.menu {
+    background-color: white;
+
+    .mascot {
+        width: 150px;
+        height: 150px;
+        bottom: -50px;
+        z-index: 999;
+    }
+
+    li:hover {
+        // background-color: $gray;
+        cursor: pointer;
+        color: $shy-moment-blue;
+    }
+
+    .list-group {
+
+        input:checked~h5,
+        input:checked~i {
+            color: $cornflower-blue;
+        }
+
+        input:checked~h5 {
+            font-family: SofiaProBold;
+        }
+
+        input:checked~h5::before {
+            content: '';
+            width: 5px;
+            height: 20px;
+            background-color: $cornflower-blue;
+            border-radius: 100px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+    }
+
+    @include responsive(l-lg) {
+        // position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+#expand {
+    display: none;
+    width: 50px;
+    height: 50px;
+    // background-color: $red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    & i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+    }
+
+    @include responsive(l-lg) {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+.basic-info.fixed-top {
+    right: 0%;
+}
+
+.dashboard {
+    .award {
+        height: 180px;
+    }
+
+    .welcome {
+        & img {
+            width: 200px;
+        }
+    }
+
+    .process-bar,
+    .exp {
+        input {
+            width: 100px;
+            height: 5px;
+
+            @include responsive(l-md) {
+                width: 200px;
+            }
+
+            @include responsive(l-sm) {
+                width: 100px;
+            }
+        }
+    }
+}
+
+.library {
+    section {
+        position: relative;
+    }
+
+    .fa-folder {
+        font-size: 1.3em;
+    }
+
+    .folder-height {
+        height: 50px;
+    }
+
+    .folder_text-ellipsis {
+        width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .more {
+        position: relative;
+        z-index: 0;
+    }
+
+    .more>.more-bg {
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        width: 20px;
+        height: 30px;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    .folder_popup {
+        position: absolute;
+        z-index: 999;
+        width: 170px;
+        height: 120px;
+        background-color: white;
+        top: 50px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+
+            i {
+                width: 50px;
+                font-size: 1em;
+                text-align: center;
+            }
+        }
+
+        a:hover {
+            cursor: pointer;
+            background-color: $green-darner-tail;
+            color: white;
+        }
+    }
+}
+
+.library_card {
+    .card-img-top {
+        object-fit: cover;
+    }
+
+    &--height {
+        height: 170px;
+    }
+
+    h5 {
+        color: $green-darner-tail;
+    }
+
+    .process-bar,
+    .exp {
+        input {
+            width: 100px;
+            height: 5px;
+        }
+    }
+}
+
+.profile {
+    .avatar_user {
+        $avatar_user: 100px;
+        position: relative;
+        width: $avatar_user;
+        height: $avatar_user;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 100px;
+        }
+
+        i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 100px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        i:hover {
+            cursor: pointer;
+        }
+    }
+
+    .form-control {
+        font-family: SofiaProBold;
+        font-size: 1.2em;
+        border: 0;
+    }
+
+    .profile-tab {
+        h4 {
+            padding-bottom: 10px;
+        }
+
+        input:checked~h4 {
+            color: $cornflower-blue;
+            font-family: SofiaProBold;
+            position: relative;
+        }
+
+        input:checked~h4::before {
+            content: '';
+            width: 100%;
+            height: 4px;
+            background-color: $cornflower-blue;
+            position: absolute;
+            bottom: 0;
+            border-radius: 10px 10px 0 0;
+        }
+    }
+
+    .profile-tab:hover {
+        cursor: pointer;
+    }
+}

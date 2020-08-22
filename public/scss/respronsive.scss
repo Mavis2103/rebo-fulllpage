@@ -1,0 +1,57 @@
+// $xl:1200px;
+// $l-xl:1199.98px;
+// $lg:992px;
+// $l-lg:991.98px;
+// $md:768px;
+// $l-md:767.98px;
+// $sm:576px;
+// $l-sm:575.98px;
+// $xs:499px;
+$xl: 75em;
+$l-xl: 74.99875em;
+$lg: 62em;
+$l-lg: 61.99875em;
+$md: 48em;
+$l-md: 47.99875em;
+$sm: 36em;
+$l-sm: 35.99875em;
+$xs: 31.1875em;
+@mixin responsive($canvas) {
+	@if $canvas==md {
+		@media only screen and (min-width: $md) {
+			@content;
+		}
+	} @else if $canvas==sm {
+		@media only screen and (min-width: $sm) {
+			@content;
+		}
+	} @else if $canvas==lg {
+		@media only screen and (min-width: $lg) {
+			@content;
+		}
+	} @else if $canvas==xl {
+		@media only screen and (min-width: $xl) {
+			@content;
+		}
+	} @else if $canvas==xs {
+		@media only screen and (min-width: $xs) {
+			@content;
+		}
+	} @else if $canvas==l-xl {
+		@media only screen and (max-width: $l-xl) {
+			@content;
+		}
+	} @else if $canvas==l-lg {
+		@media only screen and (max-width: $l-lg) {
+			@content;
+		}
+	} @else if $canvas==l-md {
+		@media only screen and (max-width: $l-md) {
+			@content;
+		}
+	} @else if $canvas==l-sm {
+		@media only screen and (max-width: $l-sm) {
+			@content;
+		}
+	}
+}

@@ -1,0 +1,131 @@
+.row.dashboard.mt-4
+  section.col-12
+    .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
+      h3.font-weight-bold.title_feature T&#x1ED5;ng quan
+  section.col-lg-12.mx-auto.mt-5
+    .welcome.bg-green-darner-tail.rounded-15px.shadow
+      .row.p-5
+        .col-12.col-sm-6.text-white.position-relative
+          h4.font-weight-bold Xin cha&#x300;o Qu&acirc;n
+          p
+            | You&apos;ve learned 80% of your goal this week! 
+            br
+            | Keep it up and improve your results!
+        .col-12.col-sm-6.position-relative
+          img(src='/images/undraw_book_lover_mkck.svg', alt='')
+  section.col-12
+    .row.mt-5
+      .col-md-7
+        .w-100.h-100.mr-md-5.bg-white.rounded-15px.shadow
+          h2.font-weight-bold.pt-3.pl-3 You&apos;ve got 82 Points
+          .col-lg-12.mt-2
+            .d-flex.justify-content-between
+              h3.mb-0.font-weight-bold Time spendings
+              .d-flex.align-items-center
+                p.mb-0.mr-3 Tu&acirc;&#x300;n tr&#x1B0;&#x1A1;&#x301;c
+                i.fas.fa-chevron-down
+            .chart.bg-white.mt-3.h-auto
+              canvas#chart-time_spending.w-100
+      .col-md.mt-md-0.mt-5
+        .w-100.col-md.bg-white.pt-3.pb-2.rounded-15px.shadow
+          .d-flex.justify-content-between
+            h3.mb-0.font-weight-bold Latest results
+            .d-flex.align-items-center
+              p.mb-0.mr-3 More
+              i.fa.fa-arrow-right(aria-hidden='true')
+          .results.mt-3
+            ul.list-group
+              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4
+                p.mb-0
+                  | Unit 5 - 
+                  span.text-gray Technology
+                div
+                  .process-bar
+                    .progress
+                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                  p.mb-0.text-align-end 25%
+              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4
+                p.mb-0
+                  | Unit 5 -
+                  span.text-gray Information Technology
+                div
+                  .process-bar
+                    .progress
+                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                  p.mb-0.text-align-end 25%
+              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4
+                p.mb-0
+                  | Unit 5 - 
+                  span.text-gray Technology
+                div
+                  .process-bar
+                    .progress
+                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                  p.mb-0.text-align-end 5%
+              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4
+                p.mb-0
+                  | Unit 5 - 
+                  span.text-gray Technology
+                div
+                  .process-bar
+                    .progress
+                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                  p.mb-0.text-align-end 25%
+              li.list-group-item.px-0.border-0.d-flex.align-items-center.justify-content-between.py-4
+                p.mb-0
+                  | Unit 5 - 
+                  span.text-gray Technology
+                div
+                  .process-bar
+                    .progress
+                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                  p.mb-0.text-align-end 25%
+  section.col-12
+    .row.mt-5
+      .col-md-7
+        .growth.bg-growth.rounded-15px.p-3.shadow
+          h3.font-weight-bold Growth
+          .chart-growth.bg-gray.h-auto.mt-4
+            canvas#chart-growth.w-100.bg-growth
+      .col-md-5.flex-wrap.award.mt-3.mt-md-0
+        .bg-award.col.rounded-15px.py-3.shadow
+          h3.font-weight-bold Awards
+          .d-flex.align-items-center.mt-4
+            .medal.bg-award
+              img.w-100.h-100(src='/images/medal-svgrepo-com.svg', alt='')
+            .level.ml-3
+              h3.font-weight-bold Level 20
+              p.text-gray Congratulations! You&apos;re at 71
+              .exp
+                .progress
+                  .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+  section.col-lg-12
+    .my-5.p-3.rounded-15px.bg-white.shadow
+      .d-flex.justify-content-between
+        h3.mb-0.font-weight-bold Your courses
+        .d-flex.align-items-center
+          p.mb-0.mr-3 More
+          i.fa.fa-arrow-right(aria-hidden='true')
+      .row.mt-4
+        .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
+          .card.bg-cornflower-blue.d-flex.flex-row.rounded-15px.text-white
+            .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center
+              | B2
+            .card-body
+              p.mb-1 Business English
+              h3 Grammar
+        .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
+          .card.bg-red.d-flex.flex-row.rounded-15px.text-white
+            .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center
+              | B2
+            .card-body
+              p.mb-1 Business English
+              h3 Grammar
+        .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
+          .card.bg-shy-moment-blue.d-flex.flex-row.rounded-15px.text-white
+            .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center
+              | C1
+            .card-body
+              p.mb-1 Business English
+              h3 Grammar
+script(src='/javascripts/chart.js')

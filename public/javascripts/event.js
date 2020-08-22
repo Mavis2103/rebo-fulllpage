@@ -1,0 +1,25 @@
+function toggle() {
+	$('#menu').toggle();
+	$('#content').toggle();
+}
+document.getElementById('darkmode').addEventListener('click', function () {
+	document.getElementById('main').classList.toggle('dark');
+});
+var date = function date() {
+	const date = new Date();
+	var seconds = document.getElementsByClassName('seconds')[0];
+	var minutes = document.getElementsByClassName('minutes')[0];
+	var hours = document.getElementsByClassName('hours')[0];
+	var day = document.getElementsByClassName('day')[0];
+	var dates = document.getElementsByClassName('date')[0];
+	var month = document.getElementsByClassName('month')[0];
+	var year = document.getElementsByClassName('year')[0];
+	seconds.innerHTML = date.getSeconds();
+	minutes.innerHTML = date.getMinutes();
+	hours.innerHTML = date.getHours();
+	day.innerHTML = date.getDay() + 1;
+	dates.innerHTML = date.getDate();
+	month.innerHTML = date.getMonth() + 1; // 0-11
+	year.innerHTML = date.getFullYear();
+};
+setTimeout(setInterval(date, 1000), date());

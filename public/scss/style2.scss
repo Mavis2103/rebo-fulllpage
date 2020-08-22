@@ -1,0 +1,692 @@
+@import 'color.scss';
+@import 'respronsive.scss';
+$animationTime: 1.5s;
+$howManySteps: 10;
+$animationTime2: 1.5s;
+$howManySteps2: 10;
+
+body {
+    overflow-x: hidden;
+}
+
+.lesson {
+    .categories {
+        flex-wrap: wrap;
+
+        .btn.bg-white {
+            border-radius: 50px;
+            width: 100%;
+            height: 40px;
+            padding: 0;
+
+            .categories__title {
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 40px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .todayLesson {
+        a {
+            color: black;
+        }
+
+        &__card {
+            .todayLesson__img {
+                border-radius: 15px;
+                object-fit: cover;
+                -webkit-border-radius: 15px;
+                -moz-border-radius: 15px;
+                -ms-border-radius: 15px;
+                -o-border-radius: 15px;
+            }
+
+            .todayLesson__info {
+                .todayLesson__title {
+                    &--small {
+                        @include responsive(md) {
+                            font-size: 1.2em;
+                        }
+
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .todayLesson__body {
+                    .todayLesson__author {
+                        h5 {
+                            color: $green-darner-tail;
+                        }
+                    }
+
+                    .todayLesson__process {
+                        display: inline;
+
+                        .text-gray {
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .registeredLesson {
+        a {
+            color: black;
+        }
+
+        .card.registeredLesson__card {
+            .registeredLesson__img {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .registeredLesson__body {
+                h4 {
+                    @include responsive(l-md) {
+                        font-size: 28px;
+                    }
+                }
+
+                h5 {
+                    color: $green-darner-tail;
+                }
+
+                .registeredLesson__regis {
+                    .registeredLesson__stars {
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        white-space: nowrap;
+
+                        i {
+                            @include responsive(lg) {
+                                font-size: 0.65em;
+                            }
+                        }
+                    }
+
+                    .registeredLesson__btn {
+                        white-space: nowrap;
+                        background-color: $shy-moment-blue;
+                        border-radius: 50px;
+                        width: 100px;
+
+                        @include responsive(lg) {
+                            width: 65px;
+                        }
+
+                        // @include responsive(xl) {
+                        //     width: 65px;
+                        // }
+                        @include responsive(md) {
+                            width: 70px;
+                        }
+
+                        .btn {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .title {
+        a {
+            color: black;
+        }
+    }
+}
+
+.lesson-detail {
+    margin-left: 2px; // temp
+    margin-right: 2px; // temp
+
+    .welcomeBanner {
+        .welcomeBanner__detail {
+            .welcomeBanner__info {
+                h2 {
+                    @include responsive(xl) {
+                        font-size: 32.5px;
+                    }
+                }
+
+                .welcomeBanner__process {
+                    .welcomeBanner__processBar {
+                        .progress-bar {
+                            background: none;
+
+                            input {
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                -ms-progress-appearance: none;
+                                background-color: blue;
+                                border-radius: 10px;
+                                outline: none;
+                                -webkit-border-radius: 10px;
+                                -moz-border-radius: 10px;
+                                -ms-border-radius: 10px;
+                                -o-border-radius: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .welcomeBanner__img {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+
+    // .lessonDetail {
+    //     .lessonDetail__header {
+    //         border-bottom: 1px solid gainsboro;
+    //         .lessonDetail__btn {
+    //             border-radius: 50px;
+    //             background-color: $shy-moment-blue;
+    //         }
+    //         .lessonDetail__time {
+    //             p {
+    //                 width: 180px;
+    //                 margin-bottom: -10px;
+    //                 background-color: white;
+    //             }
+    //         }
+    //     }
+    //     .lessonDetail__body {
+    //         background-color: $gray;
+    //         .lessonDetail__main {
+    //             width: 160px;
+    //             .lessonDetail__icon {
+    //                 background-color: $green-darner-tail;
+    //                 border-radius: 50%;
+    //                 i {
+    //                     padding: 15px;
+    //                     color: white;
+    //                     font-size: 18px;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    .activity {
+
+        // height: 198.2px;
+        .progressCard {
+            height: 90px;
+            background-color: $warning;
+
+            .progressCircle {
+                width: 100px;
+                height: 100px;
+                line-height: 60px;
+                margin: 0 auto;
+                background: none;
+                position: relative;
+                top: -8px;
+                margin: auto;
+
+                &::after {
+                    content: '';
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    border: 5px solid $gray;
+                    position: absolute;
+                    top: 10%;
+                    left: 6%;
+                }
+
+                span {
+                    width: 30px;
+                    height: 60px;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 23px;
+                    z-index: 1;
+                    transform-origin: center;
+                }
+
+                .progressCircle--left {
+                    left: 5.5px;
+                    top: 10px;
+
+                    @include responsive(l-xl) {}
+
+                    .progress-bar {
+                        left: 100%;
+                        border-top-right-radius: 80px;
+                        border-bottom-right-radius: 80px;
+                        border-left: 0;
+                        -webkit-transform-origin: center left;
+                        -moz-transform-origin: center left;
+                        -o-transform-origin: center left;
+                        -ms-transform-origin: center left;
+                        transform-origin: center left;
+                        // animation: loading-2 1.5s linear forwards 1.8s;
+                    }
+                }
+
+                .progressCircle--right {
+                    right: 21.5px;
+                    top: 10px;
+
+                    @include responsive(l-xl) {
+                        right: -4px;
+                    }
+
+                    .progress-bar {
+                        left: -100%;
+                        border-top-left-radius: 80px;
+                        border-bottom-left-radius: 80px;
+                        border-right: 0;
+                        -webkit-transform-origin: center right;
+                        -moz-transform-origin: center right;
+                        -o-transform-origin: center right;
+                        -ms-transform-origin: center right;
+                        transform-origin: center right;
+                        // animation: loading-1 1.8s linear forwards;
+                    }
+                }
+
+                .progress-bar {
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border: 5px solid blue;
+                    // position: absolute;
+                    top: 0;
+                }
+            }
+
+            @for $i from 1 through $howManySteps {
+                $stepName: ($i * (100 / $howManySteps));
+
+                //animation only the right side if below 50%
+                @if $i <=($howManySteps/2) {
+                    .progressCircle[data-percentage='#{$stepName}'] {
+                        .progressCircle--right .progress-bar {
+                            animation: loading-#{$i} $animationTime linear forwards;
+                        }
+
+                        .progressCircle--left .progress-bar {
+                            animation: 0;
+                        }
+                    }
+                }
+
+                //animation only the left side if above 50%
+                @if $i>($howManySteps/2) {
+                    .progressCircle[data-percentage='#{$stepName}'] {
+                        .progressCircle--right .progress-bar {
+                            animation: loading-#{$howManySteps/2} $animationTime linear forwards;
+                        }
+
+                        .progressCircle--left .progress-bar {
+                            animation: loading-#{$i - ($howManySteps/2)} $animationTime linear forwards $animationTime;
+                        }
+                    }
+                }
+            }
+
+            //animation
+            @for $i from 1 through ($howManySteps/2) {
+                $degrees: (180/ ($howManySteps/2));
+                $degrees: ($degrees * $i);
+
+                @keyframes loading-#{$i} {
+                    0% {
+                        -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        -webkit-transform: rotate($degrees);
+                        transform: rotate(#{$degrees}deg);
+                    }
+                }
+            }
+
+            .progressStatus {
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .progressCard2 {
+            height: 90px;
+            background-color: $shy-moment-blue;
+
+            .progressCircle2 {
+                width: 100px;
+                height: 100px;
+                line-height: 60px;
+                margin: 0 auto;
+                background: none;
+                position: relative;
+                top: -8px;
+                margin: auto;
+
+                &::after {
+                    content: '';
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    border: 5px solid $gray;
+                    position: absolute;
+                    top: 10%;
+                    left: 6%;
+                }
+
+                span {
+                    width: 30px;
+                    height: 60px;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 23px;
+                    z-index: 1;
+                }
+
+                .progressCircle--left2 {
+                    left: 5.95px;
+                    top: 10px;
+
+                    .progress-bar2 {
+                        left: 100%;
+                        border-top-right-radius: 80px;
+                        border-bottom-right-radius: 80px;
+                        border-left: 0;
+                        -webkit-transform-origin: center left;
+                        -moz-transform-origin: center left;
+                        -o-transform-origin: center left;
+                        -ms-transform-origin: center left;
+                        transform-origin: center left;
+                        // animation: loading-2 1.5s linear forwards 1.8s;
+                    }
+                }
+
+                .progressCircle--right2 {
+                    right: 33px;
+                    top: 10px;
+
+                    .progress-bar2 {
+                        left: -100%;
+                        border-top-left-radius: 80px;
+                        border-bottom-left-radius: 80px;
+                        border-right: 0;
+                        -webkit-transform-origin: center right;
+                        -moz-transform-origin: center right;
+                        -o-transform-origin: center right;
+                        -ms-transform-origin: center right;
+                        transform-origin: center right;
+                        // animation: loading-1 1.8s linear forwards;
+                    }
+                }
+
+                .progress-bar2 {
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border: 5px solid blue;
+                    // position: absolute;
+                    top: 0;
+                }
+            }
+
+            @for $i from 1 through $howManySteps {
+                $stepName: ($i * (100 / $howManySteps));
+
+                //animation only the right side if below 50%
+                @if $i <=($howManySteps/2) {
+                    .progressCircle2[data-percentage2='#{$stepName}'] {
+                        .progressCircle--right2 .progress-bar2 {
+                            animation: loading-#{$i} $animationTime linear forwards;
+                        }
+
+                        .progressCircle--left2 .progress-bar2 {
+                            animation: 0;
+                        }
+                    }
+                }
+
+                //animation only the left side if above 50%
+                @if $i>($howManySteps/2) {
+                    .progressCircle2[data-percentage2='#{$stepName}'] {
+                        .progressCircle--right2 .progress-bar2 {
+                            animation: loading-#{$howManySteps/2} $animationTime linear forwards; //set the animation to longest animation
+                        }
+
+                        .progressCircle--left2 .progress-bar2 {
+                            animation: loading-#{$i - ($howManySteps/2)} $animationTime linear forwards $animationTime;
+                        }
+                    }
+                }
+            }
+
+            //animation
+            @for $i from 1 through ($howManySteps/2) {
+                $degrees: (180/ ($howManySteps/2));
+                $degrees: ($degrees * $i);
+
+                @keyframes loading-#{$i} {
+                    0% {
+                        -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        -webkit-transform: rotate($degrees);
+                        transform: rotate(#{$degrees}deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slide__detail {
+    height: 50vh;
+
+    @include responsive(l-sm) {
+        height: 50vh;
+    }
+}
+
+.rateCard {
+    .history {
+        .historyDetail {
+            height: 439px;
+            overflow: auto;
+
+            .historyDetail__body {
+                background-color: $gray;
+
+                .historyDetail__main {
+                    width: 160px;
+                }
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: white;
+            }
+
+            &::-webkit-scrollbar {
+                width: 5px;
+                display: none;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                background-color: gainsboro;
+            }
+
+            &:hover {
+                &::-webkit-scrollbar {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .comments {
+        .commentsHeader {
+            .writeComment {
+                background-color: $cornflower-blue;
+                border-radius: 50px;
+
+                &__cmtBtn {
+                    color: white;
+                }
+            }
+
+            .modal {
+
+                // @include responsive(l-xl) {
+                //     width: auto;
+                //     height: auto;
+                //     transform: translateX(100%);
+                //     &::-webkit-scrollbar {
+                //         display: none;
+                //     }
+                // }
+                // @include responsive(l-lg) {
+                //     width: auto;
+                //     height: auto;
+                //     transform: translateX(80%);
+                //     &::-webkit-scrollbar {
+                //         display: none;
+                //     }
+                // }
+                // @include responsive(l-md) {
+                //     width: auto;
+                //     height: auto;
+                //     transform: translateX(60%);
+                //     &::-webkit-scrollbar {
+                //         display: none;
+                //     }
+                // }
+                // @include responsive(l-sm) {
+                //     width: auto;
+                //     height: auto;
+                //     transform: translateX(20%);
+                //     &::-webkit-scrollbar {
+                //         display: none;
+                //     }
+                // }
+                &-header {
+                    .close {
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+
+                &-body {
+                    .cmtStar {
+
+                        // background-color: $gray;
+                        img {
+                            width: 100%;
+                            height: 10vh;
+                            object-fit: cover;
+                        }
+
+                        &__rate {
+                            i {
+                                font-size: 35px;
+                            }
+                        }
+                    }
+
+                    .cmtContent {
+
+                        // background-color: $gray;
+                        textarea {
+                            background-color: whitesmoke;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+
+                &-footer {
+
+                    .cancelCmtBtn,
+                    .submitCmtBtn {
+                        border-radius: 50px;
+                        padding: 2px 15px 3px 15px;
+                        background-color: $growth;
+                        font-size: 18px;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .commentsDetail {
+            background-color: white;
+            height: 439px;
+            overflow: auto;
+
+            &__cmts {
+                background-color: $growth;
+
+                .commentsUser {
+                    &__ava {
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    &__info {
+                        .commentsDetail__nameNTime {
+                            height: 20.8px;
+                        }
+                    }
+                }
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: white;
+            }
+
+            &::-webkit-scrollbar {
+                width: 5px;
+                display: none;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                background-color: gainsboro;
+            }
+
+            &:hover {
+                &::-webkit-scrollbar {
+                    display: block;
+                }
+            }
+        }
+    }
+}
