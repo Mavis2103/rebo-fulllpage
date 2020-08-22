@@ -39,7 +39,7 @@ app.use(function (err, req, res, next) {
 });
 
 
-var port = 3000 || process.env.PORT;
+var port = process.env.PORT || 3000;
 var server = app.listen(port, function () {
   console.log("Server Started!");
 });
