@@ -38,8 +38,8 @@ app.use(function (err, req, res, next) {
   res.render("main/error");
 });
 
-app.listen(3000 || process.env.PORT, function () {
-  console.log("Example app listening on port 3000!");
+app.listen(3000, function () {
+  console.log("Server Started!");
 });
 
 module.exports = app;
