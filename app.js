@@ -38,7 +38,9 @@ app.use(function (err, req, res, next) {
   res.render("main/error");
 });
 
-app.listen(3000, function () {
+
+var port = process.env.PORT || 3000;
+var server = app.listen(port, function () {
   console.log("Server Started!");
 });
 
