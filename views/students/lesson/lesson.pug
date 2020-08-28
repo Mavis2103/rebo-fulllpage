@@ -4,195 +4,72 @@
       h3.font-weight-bold.title_feature B&agrave;i h&#x1ECD;c
   section.col-12.mt-5
     .row.categories
-      .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-        .btn.bg-white
-          p.categories__title
-            | Biology
-      .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-        .btn.bg-white
-          p.categories__title
-            | Math
-      .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-        .btn.bg-white
-          p.categories__title
-            | English
-      .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-        .btn.bg-white
-          p.categories__title
-            | Literature
-      .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-        .btn.bg-white
-          p.categories__title
-            | Chemistry
-      .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-        .btn.bg-white
-          p.categories__title
-            | Physic
+      each val in ['Sinh học','Toán','Tiếng Anh','Ngữ văn','Hóa học','Vật lý']
+        .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
+          .btn.bg-white
+            p.categories__title= val
   section.col-12
     .title.d-flex.justify-content-between.align-items-baseline
       h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c h&ocirc;m nay
       a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
     .row.todayLesson
-      .col-md-4.mb-3.mb-md-0
-        #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px
-          .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
-            .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
-              img.w-100.h-100.todayLesson__img(src='/images/60111.jpg', alt='')
-            .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
-              .todayLesson__title.d-flex.justify-content-between
-                h4.todayLesson__title--small
-                  | UX &amp; Web Design Master Course
-                i.fa.fa-ellipsis-v.mr-0
-              .todayLesson__body.d-flex.justify-content-between.w-100
-                .todayLesson__author
-                  p.text-gray.mb-0.text-nowrap T&aacute;c gi&#x1EA3;
-                  h5.mb-0 Khale
-                .todayLesson__process.d-flex.flex-column.justify-content-center
-                  .process-bar
-                    .progress
-                      .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.text-gray.mt-1.mb-0.text-nowrap.text-align-end
-                    | 85%
-      .col-md-4.mb-3.mb-md-0
-        #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px
-          .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
-            .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
-              img.w-100.h-100.todayLesson__img(src='/images/60111.jpg', alt='')
-            .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
-              .todayLesson__title.d-flex.justify-content-between
-                h4.todayLesson__title--small
-                  | UX &amp; Web Design Master Course
-                i.fa.fa-ellipsis-v.mr-0
-              .todayLesson__body.d-flex.justify-content-between.w-100
-                .todayLesson__author
-                  p.text-gray.mb-0.text-nowrap T&aacute;c gi&#x1EA3;
-                  h5.mb-0 Khale
-                .todayLesson__process.d-flex.flex-column.justify-content-center
-                  .process-bar
-                    .progress
-                      .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.text-gray.mt-1.mb-0.text-nowrap.text-align-end
-                    | 85%
-      .col-md-4.mb-3.mb-md-0
-        #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px
-          .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
-            .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
-              img.w-100.h-100.todayLesson__img(src='/images/60111.jpg', alt='')
-            .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
-              .todayLesson__title.d-flex.justify-content-between
-                h4.todayLesson__title--small
-                  | UX &amp; Web Design Master Course
-                i.fa.fa-ellipsis-v.mr-0
-              .todayLesson__body.d-flex.justify-content-between.w-100
-                .todayLesson__author
-                  p.text-gray.mb-0.text-nowrap T&aacute;c gi&#x1EA3;
-                  h5.mb-0 Khale
-                .todayLesson__process.d-flex.flex-column.justify-content-center
-                  .process-bar
-                    .progress
-                      .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.text-gray.mt-1.mb-0.text-nowrap.text-align-end
-                    | 85%
+      -
+        var values=[{image:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
+                    {image:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
+                    {image:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
+      each val in values
+        .col-md-4.mb-3.mb-md-0
+          #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px
+            .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
+              .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
+                img.w-100.h-100.todayLesson__img(src= val.image, alt='')
+              .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
+                .todayLesson__title.d-flex.justify-content-between
+                  h4.todayLesson__title--small= val.nameLesson
+                  i.fa.fa-ellipsis-v.mr-0
+                .todayLesson__body.d-flex.justify-content-between.w-100
+                  .todayLesson__author
+                    p.text-gray.mb-0.text-nowrap T&aacute;c gi&#x1EA3;
+                    h5.mb-0= val.author
+                  .todayLesson__process.d-flex.flex-column.justify-content-center
+                    .process-bar
+                      .progress
+                        .progress-bar(role='progressbar', style='width: '+val.process+'%;', aria-valuenow=val.process, aria-valuemin='0', aria-valuemax='100')
+                    p.text-gray.mt-1.mb-0.text-nowrap.text-align-end= val.process
   section.col-12
     .title.d-flex.justify-content-between.align-items-baseline
       h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
       a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
     .row.registeredLesson
-      .col-lg-3.col-md-4.col-sm-6.mb-4
-        a.text-decoration-none(href='#')
-          .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-            .card-body
-              .registeredLesson__img
-                img(src='/images/undraw_book_lover_mkck.svg', alt='')
-              .registeredLesson__body
-                h4 Learn Bootstrap - For Beginners
-                h5 Khale
-                .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                  .registeredLesson__stars
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                  .registeredLesson__btn
-                    .btn.d-flex.justify-content-center
-                      | &Dstrok;&abreve;ng k&yacute;
-      .col-lg-3.col-md-4.col-sm-6.mb-4
-        a.text-decoration-none(href='#')
-          .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-            .card-body
-              .registeredLesson__img
-                img(src='/images/undraw_book_lover_mkck.svg', alt='')
-              .registeredLesson__body
-                h4 Learn Bootstrap - For Beginners
-                h5 Khale
-                .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                  .registeredLesson__stars
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                  .registeredLesson__btn
-                    .btn.d-flex.justify-content-center
-                      | &Dstrok;&abreve;ng k&yacute;
-      .col-lg-3.col-md-4.col-sm-6.mb-4
-        a.text-decoration-none(href='#')
-          .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-            .card-body
-              .registeredLesson__img
-                img(src='/images/undraw_book_lover_mkck.svg', alt='')
-              .registeredLesson__body
-                h4 Learn Bootstrap - For Beginners
-                h5 Khale
-                .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                  .registeredLesson__stars
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                  .registeredLesson__btn
-                    .btn.d-flex.justify-content-center
-                      | &Dstrok;&abreve;ng k&yacute;
-      .col-lg-3.col-md-4.col-sm-6.mb-4
-        a.text-decoration-none(href='#')
-          .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-            .card-body
-              .registeredLesson__img
-                img(src='/images/undraw_book_lover_mkck.svg', alt='')
-              .registeredLesson__body
-                h4 Learn Bootstrap - For Beginners
-                h5 Khale
-                .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                  .registeredLesson__stars
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                  .registeredLesson__btn
-                    .btn.d-flex.justify-content-center
-                      | &Dstrok;&abreve;ng k&yacute;
-      .col-lg-3.col-md-4.col-sm-6.mb-4
-        a.text-decoration-none(href='#')
-          .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-            .card-body
-              .registeredLesson__img
-                img(src='/images/undraw_book_lover_mkck.svg', alt='')
-              .registeredLesson__body
-                h4 Learn Bootstrap - For Beginners
-                h5 Khale
-                .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                  .registeredLesson__stars
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                    i.far.fa-star
-                  .registeredLesson__btn
-                    .btn.d-flex.justify-content-center
-                      | &Dstrok;&abreve;ng k&yacute;
+      -
+        var values = [
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          ]
+      each val in values
+        .col-lg-3.col-md-4.col-sm-6.mb-4
+          a.text-decoration-none(href='#')
+            .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
+              .card-body
+                .registeredLesson__img
+                  img(src= val.image, alt='')
+                .registeredLesson__body
+                  h4= val.nameLesson
+                  h5= val.author
+                  .registeredLesson__regis.d-flex.align-items-center.justify-content-between
+                    .registeredLesson__stars
+                      - for (var index =0; index<val.star;index++)
+                        i.far.fa-star
+                    .registeredLesson__btn
+                      .btn.d-flex.justify-content-center
+                        | &Dstrok;&abreve;ng k&yacute;
 script.
 //-   $('#todayLessonCard').click(function () {
 //-   $('#content').load('/html/lesson-detail.html');
