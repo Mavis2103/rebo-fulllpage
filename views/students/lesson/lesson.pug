@@ -14,15 +14,15 @@
       a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
     .row.todayLesson
       -
-        var values=[{image:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
-                    {image:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
-                    {image:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
+        var values=[{imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
+                    {imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
+                    {imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
       each val in values
         .col-md-4.mb-3.mb-md-0
           #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px
             .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
               .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
-                img.w-100.h-100.todayLesson__img(src= val.image, alt='')
+                img.w-100.h-100.todayLesson__img(src= val.imageLesson, alt='')
               .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
                 .todayLesson__title.d-flex.justify-content-between
                   h4.todayLesson__title--small= val.nameLesson
@@ -34,7 +34,7 @@
                   .todayLesson__process.d-flex.flex-column.justify-content-center
                     .process-bar
                       .progress
-                        .progress-bar(role='progressbar', style='width: '+val.process+'%;', aria-valuenow=val.process, aria-valuemin='0', aria-valuemax='100')
+                        .progress-bar(role='progressbar', style=`width:${val.process}%;`, aria-valuenow=`${val.process}`, aria-valuemin='0', aria-valuemax='100')
                     p.text-gray.mt-1.mb-0.text-nowrap.text-align-end= val.process
   section.col-12
     .title.d-flex.justify-content-between.align-items-baseline
@@ -43,15 +43,15 @@
     .row.registeredLesson
       -
         var values = [
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {image:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
           ]
       each val in values
         .col-lg-3.col-md-4.col-sm-6.mb-4
@@ -59,7 +59,7 @@
             .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
               .card-body
                 .registeredLesson__img
-                  img(src= val.image, alt='')
+                  img(src= val.imageLesson, alt='')
                 .registeredLesson__body
                   h4= val.nameLesson
                   h5= val.author

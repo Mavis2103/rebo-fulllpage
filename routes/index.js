@@ -6,8 +6,12 @@ var path = require("path");
 
 var profile = require("./students/profile/profile");
 
+// Action profile
 router.use(express.static(path.join(__dirname, "public")));
 router.use("/", profile);
+
+
+
 router.get("/", function (req, res, next) {
   res.render("main/index");
 });
