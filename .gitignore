@@ -3,5 +3,5 @@
 logs
 *.log
 npm-debug.log*
-node_modules
-package.lcok.json
+node_modules/
+/package.lcok.json
