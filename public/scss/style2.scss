@@ -13,7 +13,11 @@ body {
     .categories {
         flex-wrap: wrap;
 
-        .btn.bg-white {
+        &_btn-bg {
+            background-color: white;
+        }
+
+        .btn {
             border-radius: 50px;
             width: 100%;
             height: 40px;
@@ -35,6 +39,8 @@ body {
         }
 
         &__card {
+            background-color: white;
+
             .todayLesson__img {
                 border-radius: 15px;
                 object-fit: cover;

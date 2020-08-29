@@ -1,0 +1,78 @@
+@import 'color.scss';
+
+.dark {
+    background-color: $bg-dark-mode;
+    color: white !important;
+}
+
+.dark-menu {
+    background-color: $bg-dark-mode;
+}
+
+.dark-dashboard {
+    .chart-bg {
+        background-color: black;
+    }
+
+    .result-bg {
+        background-color: black;
+    }
+
+    .course-bg {
+        background-color: black;
+
+    }
+
+    .growth,
+    .award {
+        color: black;
+    }
+}
+
+.dark-lesson {
+    .categories {
+        &_btn-bg {
+            background-color: black;
+            color: white;
+        }
+    }
+
+    .todayLesson {
+        &__card {
+            background-color: black;
+        }
+    }
+
+    .registeredLesson {
+        &__card {
+            background-color: black;
+            color: white;
+        }
+    }
+}
+
+.dark-library {
+    .popover-folder-bg {
+        background-color: black;
+    }
+
+    .card-body {
+        background-color: black;
+    }
+}
+
+.dark-profile {
+    .avatar_user {
+        i {
+            background-color: black;
+        }
+    }
+
+    .input-bg {
+        background-color: black;
+
+        input {
+            background-color: black;
+        }
+    }
+}

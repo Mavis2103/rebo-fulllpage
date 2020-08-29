@@ -20,6 +20,7 @@ head
   link(rel='stylesheet', href='/stylesheets/custom-bs4.min.css')
   link(rel='stylesheet', href='/stylesheets/style.min.css')
   link(rel='stylesheet', href='/stylesheets/style2.min.css')
+  link(rel='stylesheet', href='/stylesheets/darkMode.min.css')
 section.container-fluid
   .row
     section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
@@ -57,13 +58,13 @@ section.container-fluid
         .col-12
           ul.list-group
             label(for='dashboard')
-              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
                 input#dashboard(type='radio', name='clicked', hidden='', checked='')
                 i.fas.fa-chart-bar
                 h5.mb-0.ml-3 T&#x1ED5;ng Quan
             mixin menuItem(idName,icon,title)
               label(for= idName)
-                li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0
+                li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
                   input(id= idName,type='radio', name='clicked', hidden='')
                   i(class= icon)
                   h5.mb-0.ml-3= title
@@ -93,3 +94,4 @@ script(src='https://unpkg.com/@popperjs/core@2')
 script(src='/library/bootstrap/js/bootstrap.min.js', defer='')
 script(src='/javascripts/load.js', defer='')
 script(src='/javascripts/event.js', defer='')
+script(src="/javascripts/darkmode.js",defer='')

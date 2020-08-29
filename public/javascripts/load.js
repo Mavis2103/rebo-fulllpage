@@ -9,6 +9,7 @@ for (let index = 0; index < menu_radio.length; index++) {
     menuOnchange(element_radio, index);
   }
 }
+
 function switch_of_menu(index) {
   switch (index) {
     case 0:
@@ -51,6 +52,7 @@ function switch_of_menu(index) {
       break;
   }
 }
+
 function menuOnchange(element_radio, index) {
   element_radio.addEventListener("change", function () {
     switch_of_menu(index);

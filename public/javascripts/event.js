@@ -2,9 +2,6 @@ function toggle() {
 	$('#menu').toggle();
 	$('#content').toggle();
 }
-document.getElementById('darkmode').addEventListener('click', function () {
-	document.getElementById('main').classList.toggle('dark');
-});
 var date = function date() {
 	const date = new Date();
 	var seconds = document.getElementsByClassName('seconds')[0];

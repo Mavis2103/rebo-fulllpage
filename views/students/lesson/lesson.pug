@@ -6,7 +6,7 @@
     .row.categories
       each val in ['Sinh học','Toán','Tiếng Anh','Ngữ văn','Hóa học','Vật lý']
         .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-          .btn.bg-white
+          .btn.categories_btn-bg
             p.categories__title= val
   section.col-12
     .title.d-flex.justify-content-between.align-items-baseline
@@ -19,7 +19,7 @@
                     {imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
       each val in values
         .col-md-4.mb-3.mb-md-0
-          #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px
+          #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px.bg-clear
             .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
               .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
                 img.w-100.h-100.todayLesson__img(src= val.imageLesson, alt='')
@@ -43,15 +43,15 @@
     .row.registeredLesson
       -
         var values = [
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:4},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
+          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
           ]
       each val in values
         .col-lg-3.col-md-4.col-sm-6.mb-4

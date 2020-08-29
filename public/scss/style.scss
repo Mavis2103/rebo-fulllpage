@@ -10,11 +10,6 @@
     background-color: $clear;
 }
 
-.dark {
-    background-color: $bg-dark-mode;
-    color: white;
-}
-
 #darkmode::before {
     content: '';
     position: absolute;
@@ -38,15 +33,22 @@
     transition: background-color 0.9s;
 }
 
-input:checked {
+#darkmode:checked {
     background-color: black;
     transition: background-color 0.9s;
 }
 
-input:checked::before {
+#darkmode:checked::before {
     transform: translate(100%);
     transition: all 0.9s;
-    background-color: #f0f2f3;
+    -webkit-transform: translate(100%);
+    -moz-transform: translate(100%);
+    -ms-transform: translate(100%);
+    -o-transform: translate(100%);
+    -webkit-transition: all 0.9s;
+    -moz-transition: all 0.9s;
+    -ms-transition: all 0.9s;
+    -o-transition: all 0.9s;
 }
 
 .title_feature {
@@ -98,7 +100,7 @@ input:checked::before {
 }
 
 .menu {
-    background-color: white;
+    // background-color: white;
 
     .mascot {
         width: 150px;
@@ -187,6 +189,12 @@ input:checked::before {
         }
     }
 
+    .chart-bg,
+    .result-bg,
+    .course-bg {
+        background-color: white;
+    }
+
     .process-bar,
     .exp {
         input {
@@ -207,6 +215,10 @@ input:checked::before {
 .library {
     section {
         position: relative;
+    }
+
+    .popover-folder-bg {
+        background-color: white;
     }
 
     .fa-folder {

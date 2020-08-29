@@ -64,10 +64,11 @@ document.addEventListener('click', function (event) {
 			element_bg.style.backgroundColor = '#908F90';
 		} else {
 			element_parent.innerHTML = '';
-			element_bg.style.backgroundColor = 'white';
+			element_bg.style.backgroundColor = 'rgba(255, 255, 255, 0)';
 		}
 	}
 });
+
 function element_child() {
 	var popover_parent_class = document.getElementsByClassName('folder_popup')[0];
 	var popover_icon = ['fa-folder-open', 'fa-file-archive', 'fa-trash-alt'];
