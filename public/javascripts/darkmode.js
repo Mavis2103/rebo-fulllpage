@@ -1,24 +1,14 @@
-document.getElementById('darkmode').addEventListener('change', function () {
+const darkBtn = document.getElementById('darkmode');
+darkBtn.addEventListener('change', function () {
     const setChecked = document.getElementById("darkmode").checked;
     if (typeof (Storage) !== 'undefined') {
         localStorage.setItem("darkMode", setChecked)
     }
-    if (setChecked) {
-        dark(darkArray)
-    } else {
-        light(darkArray)
-    }
-
+    setChecked ? (dark(darkArray)) : (light(darkArray))
 });
 const getChecked = localStorage.getItem("darkMode");
 const darkArray = ['dark-dashboard', 'dark-lesson', 'dark-library', 'dark-profile']
-
-if (getChecked == 'true') {
-    document.getElementById("darkmode").checked = true;
-    dark(darkArray)
-} else {
-    light(darkArray)
-}
+getChecked == 'true' ? (darkBtn.checked = true, dark(darkArray)) : (light(darkArray))
 
 function dark(darkArray) {
     document.getElementById('main').classList.add('dark');
@@ -34,5 +24,4 @@ function light(darkArray) {
     darkArray.forEach(element => {
         document.getElementById('content').classList.remove(element);
     });
-    document.getElementById('content').classList.remove(element);
 }
