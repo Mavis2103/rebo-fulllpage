@@ -16,40 +16,57 @@ $l-md: 47.99875em;
 $sm: 36em;
 $l-sm: 35.99875em;
 $xs: 31.1875em;
+
 @mixin responsive($canvas) {
 	@if $canvas==md {
 		@media only screen and (min-width: $md) {
 			@content;
 		}
-	} @else if $canvas==sm {
+	}
+
+	@else if $canvas==sm {
 		@media only screen and (min-width: $sm) {
 			@content;
 		}
-	} @else if $canvas==lg {
+	}
+
+	@else if $canvas==lg {
 		@media only screen and (min-width: $lg) {
 			@content;
 		}
-	} @else if $canvas==xl {
+	}
+
+	@else if $canvas==xl {
 		@media only screen and (min-width: $xl) {
 			@content;
 		}
-	} @else if $canvas==xs {
+	}
+
+	@else if $canvas==xs {
 		@media only screen and (min-width: $xs) {
 			@content;
 		}
-	} @else if $canvas==l-xl {
+	}
+
+	@else if $canvas==l-xl {
 		@media only screen and (max-width: $l-xl) {
 			@content;
 		}
-	} @else if $canvas==l-lg {
+	}
+
+	@else if $canvas==l-lg {
 		@media only screen and (max-width: $l-lg) {
 			@content;
 		}
-	} @else if $canvas==l-md {
+	}
+
+	@else if $canvas==l-md {
 		@media only screen and (max-width: $l-md) {
 			@content;
 		}
-	} @else if $canvas==l-sm {
+	}
+
+	@else if $canvas==l-sm {
 		@media only screen and (max-width: $l-sm) {
 			@content;
 		}
