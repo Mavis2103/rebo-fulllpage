@@ -34,60 +34,42 @@
               p.mb-0.mr-3 More
               i.fa.fa-arrow-right(aria-hidden='true')
           .results.mt-3
-            ul.list-group
-              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
-                p.mb-0
-                  | Unit 5 - 
-                  span.text-gray Technology
-                div
-                  .process-bar
-                    .progress
-                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.mb-0.text-align-end 25%
-              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
-                p.mb-0
-                  | Unit 5 -
-                  span.text-gray Information Technology
-                div
-                  .process-bar
-                    .progress
-                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.mb-0.text-align-end 25%
-              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
-                p.mb-0
-                  | Unit 5 - 
-                  span.text-gray Technology
-                div
-                  .process-bar
-                    .progress
-                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.mb-0.text-align-end 5%
-              li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
-                p.mb-0
-                  | Unit 5 - 
-                  span.text-gray Technology
-                div
-                  .process-bar
-                    .progress
-                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.mb-0.text-align-end 25%
-              li.list-group-item.px-0.border-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
-                p.mb-0
-                  | Unit 5 - 
-                  span.text-gray Technology
-                div
-                  .process-bar
-                    .progress
-                      .progress-bar.bg-primary(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-                  p.mb-0.text-align-end 25%
+            ul.list-group#{if(values.)}
+              -
+                var values = [
+                  {title:'Unit 5 Technology',process:25},
+                  {title:'Unit 5 Technology',process:80},
+                  {title:'Unit 5 Technology',process:75},
+                  {title:'Unit 5 Technology',process:5},
+                  {title:'Unit 5 Technology',process:100},
+                ]
+              each val in values
+                li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
+                  p.mb-0= val.title
+                  div
+                    .process-bar
+                      .progress
+                        .progress-bar.bg-primary(role='progressbar', style=`width: ${val.process}%;`, aria-valuenow=`${val.process}`, aria-valuemin='0', aria-valuemax='100')
+                    p.mb-0.text-align-end #{val.process}%
   section.col-12
     .row.mt-5
-      .col-md-7
+      .col-md-7.mb-md-0.mb-4
         .growth.bg-growth.rounded-15px.p-3.shadow
           h3.font-weight-bold Growth
           .chart-growth.bg-gray.h-auto.mt-4
             canvas#chart-growth.w-100.bg-growth
-      .col-md-5.flex-wrap.award.mt-3.mt-md-0
+      .col-md-5.d-flex.flex-column.justify-content-between
+        .bg-award.col.rounded-15px.py-3.shadow.mb-4
+          h3.font-weight-bold Awards
+          .d-flex.align-items-center.mt-4
+            .medal.bg-award
+              img.w-100.h-100(src='/images/medal-svgrepo-com.svg', alt='')
+            .level.ml-3
+              h3.font-weight-bold Level 20
+              p.text-gray Congratulations! You&apos;re at 71
+              .exp
+                .progress
+                  .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
         .bg-award.col.rounded-15px.py-3.shadow
           h3.font-weight-bold Awards
           .d-flex.align-items-center.mt-4
@@ -107,25 +89,17 @@
           p.mb-0.mr-3 More
           i.fa.fa-arrow-right(aria-hidden='true')
       .row.mt-4
-        .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
-          .card.bg-cornflower-blue.d-flex.flex-row.rounded-15px.text-white
-            .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center
-              | B2
-            .card-body
-              p.mb-1 Business English
-              h3 Grammar
-        .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
-          .card.bg-red.d-flex.flex-row.rounded-15px.text-white
-            .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center
-              | B2
-            .card-body
-              p.mb-1 Business English
-              h3 Grammar
-        .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
-          .card.bg-shy-moment-blue.d-flex.flex-row.rounded-15px.text-white
-            .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center
-              | C1
-            .card-body
-              p.mb-1 Business English
-              h3 Grammar
+        -
+          var values =[
+            {point:70,sub_title:'Business English',title:'Grammar'},
+            {point:70,sub_title:'English',title:'Grammar'},
+            {point:70,sub_title:'Business English',title:'Grammar'},
+          ]
+        each val in values
+          .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
+            .card.bg-cornflower-blue.d-flex.flex-row.rounded-15px.text-white
+              .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center= val.point
+              .card-body.bg-clear
+                p.mb-1= val.sub_title
+                h3= val.title
 script(src='/javascripts/chart.js')

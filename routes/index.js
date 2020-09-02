@@ -48,5 +48,4 @@ router.get("/support", function (req, res, next) {
 });
 // var jsFunctionString = pug.compileFileClient("./views/test.pug", { name: "fancyTemplateFun" });
 // fs.writeFileSync("../load.js", jsFunctionString);
-
 module.exports = router;
