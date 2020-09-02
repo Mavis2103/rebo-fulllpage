@@ -1,6 +1,7 @@
 @import 'color.scss';
 @import 'respronsive.scss';
 @import 'fonts.scss';
+@import 'custom-bs4.scss';
 
 ::selection {
     background-color: $clear;
@@ -381,3 +382,6 @@
         cursor: pointer;
     }
 }
+
+@import 'style2.scss';
+@import 'darkmode.scss';
