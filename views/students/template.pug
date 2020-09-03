@@ -24,7 +24,7 @@ section.container-fluid
       section.d-flex.justify-content-end.align-items-center.py-3
         #expand(onclick='toggle()')
           i.fas.fa-bars
-        input#darkmode.mr-4.shadow(type='checkbox', name='')
+        input#darkmode.mr-4.shadow(type='checkbox', name='',checked="")
         i.far.fa-comments.mr-4(aria-hidden='true')
         i.far.fa-bell.mr-4(aria-hidden='true')
         .ava-small.mr-4
@@ -84,11 +84,14 @@ section.container-fluid
               p.card-text.text-gray
                 | Get Free Months of Premium
               a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Get the link
+//- .
+//- .bg
+//-     .loading
 script(src="/javascripts/darkmode.js",defer='')
 script(defer='', src='/library/Chart.min.js')
 script(src='/library/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='/library/bootstrap/js/bootstrap.bundle.min.js')
-script(src='https://unpkg.com/@popperjs/core@2')
+//- script(src='https://unpkg.com/@popperjs/core@2')
 script(src='/library/bootstrap/js/bootstrap.min.js', defer='')
 script(src='/javascripts/load.js', defer='')
 script(src='/javascripts/event.js', defer='')

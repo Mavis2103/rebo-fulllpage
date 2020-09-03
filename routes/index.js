@@ -46,6 +46,12 @@ router.get("/setting", function (req, res, next) {
 router.get("/support", function (req, res, next) {
   res.render("students/supports/support");
 });
+
+
+router.get("/loading", (req, res, next) => {
+  res.render("loading")
+})
+
 // var jsFunctionString = pug.compileFileClient("./views/test.pug", { name: "fancyTemplateFun" });
 // fs.writeFileSync("../load.js", jsFunctionString);
 module.exports = router;

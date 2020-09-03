@@ -19,4 +19,11 @@ var date = function date() {
 	month.innerHTML = date.getMonth() + 1; // 0-11
 	year.innerHTML = date.getFullYear();
 };
+
+// function Dates() {
 setTimeout(setInterval(date, 1000), date());
+// }
+// export {
+// 	Dates,
+// 	toggle
+// };

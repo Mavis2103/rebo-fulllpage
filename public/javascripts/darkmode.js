@@ -5,13 +5,13 @@ const menu = document.getElementById('menu');
 darkBtn.addEventListener('change', function () {
     const setChecked = document.getElementById("darkmode").checked;
     if (typeof (Storage) !== 'undefined') {
-        localStorage.setItem("darkMode", setChecked)
+        localStorage.setItem("dark", setChecked)
     }
-    setChecked ? (dark()) : (light())
+    setChecked ? light() : dark()
 });
 window.addEventListener("load", () => {
-    const getChecked = localStorage.getItem("darkMode");
-    getChecked == 'true' ? (darkBtn.checked = true, dark()) : light()
+    const getChecked = localStorage.getItem("dark");
+    getChecked == 'true' ? (darkBtn.checked = true, light()) : (darkBtn.checked = false, dark())
 })
 
 function dark() {
