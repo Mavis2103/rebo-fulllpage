@@ -1,9 +1,13 @@
-.bg {
+#loading-bg {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    background-color: #ffffff;
+    top: 0;
+    z-index: 1;
 
     .loading {
         width: 100px;

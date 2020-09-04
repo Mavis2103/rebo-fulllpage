@@ -12,19 +12,21 @@ head
   // <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
   // initialize the SDK after all desired features are loaded
   // <script defer src="/__/firebase/init.js"></script>
-  link(rel='stylesheet', href='/library/fa5/css/all.min.css')
-  link(rel='stylesheet', href='/library/fa5/css/brands.min.css')
-  link(rel='stylesheet', href='/library/fa5/css/solid.min.css')
+  link(rel='stylesheet', href='css/all.min.css')
+  link(rel='stylesheet', href='css/brands.min.css')
+  link(rel='stylesheet', href='css/solid.min.css')
   link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
-  link(rel='stylesheet', href='/library/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/bootstrap.min.css')
   link(rel='stylesheet', href='/stylesheets/style.min.css')
+#loading-bg
+    .loading
 section.container-fluid
   .row
     section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
       section.d-flex.justify-content-end.align-items-center.py-3
         #expand(onclick='toggle()')
           i.fas.fa-bars
-        input#darkmode.mr-4.shadow(type='checkbox', name='',checked="")
+        input#darkmode.mr-4.shadow(type='checkbox', name='')
         i.far.fa-comments.mr-4(aria-hidden='true')
         i.far.fa-bell.mr-4(aria-hidden='true')
         .ava-small.mr-4
@@ -84,14 +86,11 @@ section.container-fluid
               p.card-text.text-gray
                 | Get Free Months of Premium
               a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Get the link
-//- .
-//- .bg
-//-     .loading
-script(src="/javascripts/darkmode.js",defer='')
-script(defer='', src='/library/Chart.min.js')
+script(src="/javascripts/darkmode.js",async)
+script(async, src='/library/Chart.min.js')
 script(src='/library/ajax/libs/jquery/3.5.1/jquery.min.js')
-script(src='/library/bootstrap/js/bootstrap.bundle.min.js')
-//- script(src='https://unpkg.com/@popperjs/core@2')
-script(src='/library/bootstrap/js/bootstrap.min.js', defer='')
-script(src='/javascripts/load.js', defer='')
-script(src='/javascripts/event.js', defer='')
+script(src='js/bootstrap.bundle.min.js')
+script(src='js/bootstrap.min.js', async)
+script(src='/javascripts/load.js', async)
+script(src='/javascripts/loading.js', async)
+script(src='/javascripts/event.js', defer)
