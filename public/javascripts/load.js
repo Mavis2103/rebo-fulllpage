@@ -14,39 +14,25 @@ function switch_of_menu(index) {
   switch (index) {
     case 0:
       $("#content").load("dashboard");
-
       break;
     case 1:
-      $("#content").load("classes");
-
+      // $("#content").load("classes");
+      $("#content").load("library");
       break;
     case 2:
-      $("#content").load("messages");
-
+      $("#content").load("lesson");
       break;
     case 3:
-      $("#content").load("lesson");
-
+      $("#content").load("tools");
       break;
     case 4:
-      $("#content").load("tools");
-
+      $("#content").load("myLibrary");
       break;
     case 5:
-      $("#content").load("library");
-
+      $("#content").load("profile");
       break;
     case 6:
-      $("#content").load("profile");
-
-      break;
-    case 7:
-      $("#content").load("support");
-
-      break;
-    case 8:
-      $("#content").load("setting");
-
+      $("#content").load("gift");
       break;
     default:
       break;

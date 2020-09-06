@@ -2,6 +2,7 @@ const darkBtn = document.getElementById('darkmode');
 const darkArray = ['dark-dashboard', 'dark-lesson', 'dark-library', 'dark-profile'];
 const main = document.getElementById('main');
 const menu = document.getElementById('menu');
+// localStorage.clear()
 darkBtn.addEventListener('change', function () {
     const setChecked = document.getElementById("darkmode").checked;
     if (typeof (Storage) !== 'undefined') {
@@ -11,7 +12,11 @@ darkBtn.addEventListener('change', function () {
 });
 window.addEventListener("load", () => {
     const getChecked = localStorage.getItem("dark");
-    getChecked == 'true' ? (darkBtn.checked = true, light()) : (darkBtn.checked = false, dark())
+    getChecked == (null) ?
+        (darkBtn.checked = true, light()) :
+        getChecked == 'true' ?
+        (darkBtn.checked = true, light()) :
+        (darkBtn.checked = false, dark())
 })
 
 function dark() {

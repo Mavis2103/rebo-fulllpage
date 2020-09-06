@@ -67,25 +67,24 @@ section.container-fluid
                   input(id= idName,type='radio', name='clicked', hidden='')
                   i(class= icon)
                   h5.mb-0.ml-3= title
-            +menuItem('classes','fas fa-chalkboard-teacher','Lớp học')
-            +menuItem('messages','far fa-comments','Trò chuyện')
+            +menuItem('classes','fas fa-chalkboard-teacher','Thư viện')
             +menuItem('lesson','far fa-edit','Bài học')
             +menuItem('tool','fas fa-tools','Công cụ')
             +menuItem('library','far fa-folder','Thư viện của tôi')
             +menuItem('profile','far fa-user-circle','Thông tin cá nhân')
-            +menuItem('support','far fa-smile-beam','Hỗ trợ')
-            +menuItem('setting','fas fa-sliders-h','Cài đặt')
+            +menuItem('support','far fa-smile-beam','Quà tặng')
       .row.my-3
         .col-12
-          .mascot.mx-auto.position-relative
-            img.w-100(src='/images/60111.jpg', alt='Mascot')
-          .card.shadow-lg.border-0.rounded-15px.pt-5
+          .card.shadow-lg.border-0.rounded-15px
+            .card-img-top
+              img.w-100(src='/images/ef9c599507fc84d0f6538b72d15554b5-removebg-preview_1.png', alt='Mascot')
+
             .card-body.text-center
-              h3.card-title.font-weight-bolder
-                | Invite Friends
+              h3.card-title
+                | Mời bạn bè
               p.card-text.text-gray
-                | Get Free Months of Premium
-              a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Get the link
+                | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
+              a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
 script(src="/javascripts/darkmode.js",async)
 script(async, src='Chart.min.js')
 script(src='jquery.min.js')

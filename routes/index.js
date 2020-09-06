@@ -22,8 +22,11 @@ router.get("/template", function (req, res, next) {
 router.get("/dashboard", function (req, res, next) {
   res.render("students/dashboard/dashboard");
 });
-router.get("/classes", function (req, res, next) {
-  res.render("students/classes/classes");
+// router.get("/classes", function (req, res, next) {
+//   res.render("students/classes/classes");
+// });
+router.get("/library", function (req, res, next) {
+  res.render("students/library/library");
 });
 router.get("/lesson", function (req, res, next) {
   res.render("students/lesson/lesson");
@@ -31,26 +34,23 @@ router.get("/lesson", function (req, res, next) {
 router.get("/tools", function (req, res, next) {
   res.render("students/tools/tool");
 });
-router.get("/library", function (req, res, next) {
-  res.render("students/library/library");
-});
-router.get("/messages", function (req, res, next) {
-  res.render("students/messages/messages");
+router.get("/myLibrary", function (req, res, next) {
+  res.render("students/myLibrary/myLibrary");
 });
 router.get("/profile", function (req, res, next) {
   res.render("students/profile/profile");
 });
-router.get("/setting", function (req, res, next) {
-  res.render("students/settings/setting");
-});
-router.get("/support", function (req, res, next) {
-  res.render("students/supports/support");
+// router.get("/setting", function (req, res, next) {
+//   res.render("students/settings/setting");
+// });
+router.get("/gift", function (req, res, next) {
+  res.render("students/gift/gift");
 });
 
 
-router.get("/loading", (req, res, next) => {
-  res.render("loading")
-})
+// router.get("/loading", (req, res, next) => {
+//   res.render("loading")
+// })
 
 // var jsFunctionString = pug.compileFileClient("./views/test.pug", { name: "fancyTemplateFun" });
 // fs.writeFileSync("../load.js", jsFunctionString);
