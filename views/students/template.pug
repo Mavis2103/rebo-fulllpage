@@ -1,95 +1,99 @@
-doctype html
-head
-  meta(charset='utf-8')
-  meta(name='viewport', content='width=device-width, initial-scale=1')
-  title REBO
-  // update the version number as needed
-  // <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
-  // include only the Firebase features as you need
-  // <script defer src="/__/firebase/7.15.5/firebase-auth.js"></script>
-  // <script defer src="/__/firebase/7.15.5/firebase-database.js"></script>
-  // <script defer src="/__/firebase/7.15.5/firebase-messaging.js"></script>
-  // <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
-  // initialize the SDK after all desired features are loaded
-  // <script defer src="/__/firebase/init.js"></script>
-  link(rel='stylesheet', href='css/all.min.css')
-  link(rel='stylesheet', href='css/brands.min.css')
-  link(rel='stylesheet', href='css/solid.min.css')
-  link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
-  link(rel='stylesheet', href='css/bootstrap.min.css')
-  link(rel='stylesheet', href='/stylesheets/style.min.css')
-#loading-bg
-    .loading
-section.container-fluid
-  .row
-    section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
-      section.d-flex.justify-content-end.align-items-center.py-3
-        #expand(onclick='toggle()')
-          i.fas.fa-bars
-        input#darkmode.mr-4.shadow(type='checkbox', name='')
-        i.far.fa-comments.mr-4(aria-hidden='true')
-        i.far.fa-bell.mr-4(aria-hidden='true')
-        .ava-small.mr-4
-          img.w-100.rounded-circle(src='/images/60111.jpg', alt='')
-        h3.mb-0 Quan
-      .time.text-secondary.mr-3.text-align-end
-        span.hours 00
-        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
-        span.minutes 00
-        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
-        span.seconds 00
-        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;,Th&#x1EE9; 
-        span.day
-        |  ,
-        span.date 00
-        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
-        span.month 00
-        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
-        span.year 0000
-      .px-3
-        main#content= load
-    section#menu.col-0.col-lg-2.menu.border-right.order-lg-1
-      .row.mt-3.mb-3.px-3
-        .col-12.d-flex.align-items-center
-          .logo
-            img.w-100.rounded-circle(src='/images/appicon.png', alt='')
-      .row
-        .col-12
-          ul.list-group
-            label(for='dashboard')
-              li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
-                input#dashboard(type='radio', name='clicked', hidden='', checked='')
-                i.fas.fa-chart-bar
-                h5.mb-0.ml-3 T&#x1ED5;ng Quan
-            mixin menuItem(idName,icon,title)
-              label(for= idName)
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title REBO
+    // update the version number as needed
+    // <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
+    // include only the Firebase features as you need
+    // <script defer src="/__/firebase/7.15.5/firebase-auth.js"></script>
+    // <script defer src="/__/firebase/7.15.5/firebase-database.js"></script>
+    // <script defer src="/__/firebase/7.15.5/firebase-messaging.js"></script>
+    // <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
+    // initialize the SDK after all desired features are loaded
+    // <script defer src="/__/firebase/init.js"></script>
+    link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/all.min.css')
+    link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/brands.min.css')
+    link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/solid.min.css')
+    link(rel='stylesheet', href='swiper/swiper-bundle.min.css')
+    link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
+    link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.min.css')
+  #loading-bg
+      .loading
+  section.container-fluid
+    .row
+      section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
+        section.d-flex.justify-content-end.align-items-center.py-3
+          #expand(onclick='toggle()')
+            i.fas.fa-bars
+          input#darkmode.mr-4.shadow(type='checkbox', name='')
+          i.far.fa-comments.mr-4(aria-hidden='true')
+          i.far.fa-bell.mr-4(aria-hidden='true')
+          .ava-small.mr-4
+            img.w-100.rounded-circle(src='/images/60111.jpg', alt='')
+          h3.mb-0 Quan
+        .time.text-secondary.mr-3.text-align-end
+          span.hours 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
+          span.minutes 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
+          span.seconds 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;,Th&#x1EE9; 
+          span.day
+          |  ,
+          span.date 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
+          span.month 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
+          span.year 0000
+        .px-3
+          main#content= load
+      section#menu.col-0.col-lg-2.menu.border-right.order-lg-1
+        .row.mt-3.mb-3.px-3
+          .col-12.d-flex.align-items-center
+            .logo
+              img.w-100.rounded-circle(src='/images/appicon.png', alt='')
+        .row
+          .col-12
+            ul.list-group
+              label(for='dashboard')
                 li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
-                  input(id= idName,type='radio', name='clicked', hidden='')
-                  i(class= icon)
-                  h5.mb-0.ml-3= title
-            +menuItem('classes','fas fa-chalkboard-teacher','Thư viện')
-            +menuItem('lesson','far fa-edit','Bài học')
-            +menuItem('tool','fas fa-tools','Công cụ')
-            +menuItem('library','far fa-folder','Thư viện của tôi')
-            +menuItem('profile','far fa-user-circle','Thông tin cá nhân')
-            +menuItem('support','far fa-smile-beam','Quà tặng')
-      .row.my-3
-        .col-12
-          .card.shadow-lg.border-0.rounded-15px
-            .card-img-top
-              img.w-100(src='/images/ef9c599507fc84d0f6538b72d15554b5-removebg-preview_1.png', alt='Mascot')
+                  input#dashboard(type='radio', name='clicked', hidden='', checked='')
+                  i.fas.fa-chart-bar
+                  h5.mb-0.ml-3 T&#x1ED5;ng Quan
+              mixin menuItem(idName,icon,title)
+                label(for= idName)
+                  li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
+                    input(id= idName,type='radio', name='clicked', hidden='')
+                    i(class= icon)
+                    h5.mb-0.ml-3= title
+              +menuItem('classes','fas fa-chalkboard-teacher','Thư viện')
+              +menuItem('lesson','far fa-edit','Bài học')
+              +menuItem('tool','fas fa-tools','Công cụ')
+              +menuItem('library','far fa-folder','Thư viện của tôi')
+              +menuItem('profile','far fa-user-circle','Thông tin cá nhân')
+              +menuItem('support','far fa-smile-beam','Quà tặng')
+        .row.my-3
+          .col-12
+            .card.shadow-lg.border-0.rounded-15px
+              .card-img-top
+                img.w-100(src='/images/ef9c599507fc84d0f6538b72d15554b5-removebg-preview_1.png', alt='Mascot')
 
-            .card-body.text-center
-              h3.card-title
-                | Mời bạn bè
-              p.card-text.text-gray
-                | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
-              a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
-script(src="/javascripts/darkmode.js",async)
-script(async, src='Chart.min.js')
-script(src='jquery.min.js')
-//- script(src='js/bootstrap.bundle.min.js')
-script(src='js/bootstrap.min.js', async)
-script(src='/javascripts/load.js', async)
-script(src='/javascripts/loading.js', async)
-script(src='/javascripts/event.js', defer)
+              .card-body.text-center
+                h3.card-title
+                  | Mời bạn bè
+                p.card-text.text-gray
+                  | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
+                a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
+  script(src='jquery/dist/jquery.min.js')
+  script(src="/javascripts/darkmode.js",async)
+  //- script(async, src='/chart.js/dist/Chart.min.js')
+  //- script(src='js/bootstrap.bundle.min.js')
+  script(src='bootstrap/dist/js/bootstrap.min.js', async)
+  script(src='swiper/swiper-bundle.min.js')
+  script(src='/javascripts/load.js', async)
+  script(src='/javascripts/loading.js', async)
+  script(src='/javascripts/event.js', defer)
+  script(src='/javascripts/swiper.js')

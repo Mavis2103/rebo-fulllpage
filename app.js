@@ -23,10 +23,7 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
-app.use(express.static(path.join(__dirname, '/node_modules/chart.js/dist')));
-app.use(express.static(path.join(__dirname, '/node_modules/jquery/dist')));
-app.use(express.static(path.join(__dirname, '/node_modules/@fortawesome/fontawesome-free')));
+app.use(express.static(path.join(__dirname, '/node_modules')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/", indexRouter);

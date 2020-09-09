@@ -4,82 +4,33 @@
       h3.font-weight-bold.title_feature T&#x1ED5;ng quan
   section.col-lg-12.mx-auto.mt-5
     .welcome.rounded-15px.shadow
-      .row.px-5.flex-md-row-reverse
+      .row.flex-md-row-reverse
         .col-md-4.position-relative
-          img(src="images/2650149-removebg_1.png", alt="",style={width:'400px'})
-        .col-md-8.py-4
+          img(src="images/2650149-removebg_1.png", alt="").mr-md-5.mt-4.mt-md-0
+        .col-md-8.py-4.px-5
           h2 Trải nghiệm học tập trên ứng dụng REBO AR
           p Mới lạ, sinh động và nhiều hơn nữa.
           p.mb-3 Tham gia cùng với 3 ngàn học sinh khác tại Việt Nam
           a.btn.btn-primary(name='', id='', href='#', role='button',style={width:'150px',height:'40px'}).font-weight-bold.rounded-15px Tải về
   section.col-12
     .row.mt-5
-      .col-md-7
-        .w-100.h-100.mr-md-5.rounded-15px.chart-bg.shadow
-          h2.font-weight-bold.pt-3.pl-3 You&apos;ve got 82 Points
-          .col-lg-12.mt-2
-            .d-flex.justify-content-between
-              h3.mb-0.font-weight-bold Time spendings
-              .d-flex.align-items-center
-                p.mb-0.mr-3 Tu&acirc;&#x300;n tr&#x1B0;&#x1A1;&#x301;c
-                i.fas.fa-chevron-down
-            .chart.mt-3.h-auto
-              canvas#chart-time_spending.w-100
-      .col-md.mt-md-0.mt-5
-        .w-100.col-md.result-bg.pt-3.pb-2.rounded-15px.shadow
-          .d-flex.justify-content-between
-            h3.mb-0.font-weight-bold Latest results
-            .d-flex.align-items-center
-              p.mb-0.mr-3 More
-              i.fa.fa-arrow-right(aria-hidden='true')
-          .results.mt-3
-            ul.list-group
-              -
-                var values = [
-                  {title:'Unit 5 Technology',process:25},
-                  {title:'Unit 5 Technology',process:80},
-                  {title:'Unit 5 Technology',process:75},
-                  {title:'Unit 5 Technology',process:5},
-                  {title:'Unit 5 Technology',process:100},
-                ]
-              each val in values
-                li.list-group-item.px-0.border-top-0.border-left-0.border-right-0.d-flex.align-items-center.justify-content-between.py-4.bg-clear
-                  p.mb-0= val.title
-                  div
-                    .process-bar
-                      .progress
-                        .progress-bar.bg-primary(role='progressbar', style=`width: ${val.process}%;`, aria-valuenow=`${val.process}`, aria-valuemin='0', aria-valuemax='100')
-                    p.mb-0.text-align-end #{val.process}%
-  section.col-12
-    .row.mt-5
-      .col-md-7.mb-md-0.mb-4
-        .growth.bg-growth.rounded-15px.p-3.shadow
-          h3.font-weight-bold Growth
-          .chart-growth.bg-gray.h-auto.mt-4
-            canvas#chart-growth.w-100.bg-growth
-      .col-md-5.d-flex.flex-column.justify-content-between
-        .bg-award.col.rounded-15px.py-3.shadow.mb-4
-          h3.font-weight-bold Awards
-          .d-flex.align-items-center.mt-4
-            .medal.bg-award
-              img.w-100.h-100(src='/images/medal-svgrepo-com.svg', alt='')
-            .level.ml-3
-              h3.font-weight-bold Level 20
-              p.text-gray Congratulations! You&apos;re at 71
-              .exp
-                .progress
-                  .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
-        .bg-award.col.rounded-15px.py-3.shadow
-          h3.font-weight-bold Awards
-          .d-flex.align-items-center.mt-4
-            .medal.bg-award
-              img.w-100.h-100(src='/images/medal-svgrepo-com.svg', alt='')
-            .level.ml-3
-              h3.font-weight-bold Level 20
-              p.text-gray Congratulations! You&apos;re at 71
-              .exp
-                .progress
-                  .progress-bar(role='progressbar', style='width: 25%;', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+      .col-md-6
+        .div
+          .swiper-container
+            .swiper-wrapper
+              .swiper-slide Slide 1
+              .swiper-slide Slide 2
+              .swiper-slide Slide 3
+              .swiper-slide Slide 4
+              .swiper-slide Slide 5
+              .swiper-slide Slide 6
+              .swiper-slide Slide 7
+              .swiper-slide Slide 8
+              .swiper-slide Slide 9
+              .swiper-slide Slide 10
+            // Add Pagination
+            .swiper-pagination
+      .col-md-6
   section.col-lg-12
     .my-5.p-3.rounded-15px.shadow.course-bg
       .d-flex.justify-content-between
@@ -101,4 +52,6 @@
               .card-body.bg-clear
                 p.mb-1= val.sub_title
                 h3= val.title
+
 script(src='/javascripts/chart.js')
+script(src='/javascripts/swiper.js')
