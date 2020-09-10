@@ -134,30 +134,21 @@ h3 {
 }
 
 // container
-.col-0 {
-	display: none;
-}
 
-.col-lg-2 {
-	@include responsive(lg) {
-		display: block;
-	}
-}
+// @include responsive(md) {
+// 	.col-md-0 {
+// 		display: none;
+// 	}
+// }
 
-@include responsive(md) {
-	.col-md-0 {
-		display: none;
-	}
-}
+// @include responsive(sm) {
+// 	.col-sm-0 {
+// 		display: none;
+// 	}
+// }
 
-@include responsive(sm) {
-	.col-sm-0 {
-		display: none;
-	}
-}
-
-@include responsive(lg) {
-	.col-lg-0 {
-		display: none;
-	}
-}
+// @include responsive(lg) {
+// 	.col-lg-0 {
+// 		display: none;
+// 	}
+// }

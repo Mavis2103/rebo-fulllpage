@@ -3,65 +3,13 @@
 @import 'respronsive.scss';
 @import 'fonts.scss';
 @import 'custom-bs4.scss';
+@import 'swiper.scss';
 
 body {
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-}
-
-#darkmode::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    border-radius: 50px;
-    transition: all 0.2s;
-    background-color: #fac824;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-}
-
-#darkmode {
-    -webkit-appearance: none;
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: black;
-    border-radius: 50px;
-    outline: none;
-    transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-}
-
-#darkmode:checked {
-    background-color: white;
-    transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    -moz-transition: background-color 0.2s;
-    -ms-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-}
-
-#darkmode:checked::before {
-    transform: translate(100%);
-    transition: all 0.2s;
-    -webkit-transform: translate(100%);
-    -moz-transform: translate(100%);
-    -ms-transform: translate(100%);
-    -o-transform: translate(100%);
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
 }
 
 .title_feature {
@@ -184,31 +132,6 @@ body {
     right: 0%;
 }
 
-.swiper-container {
-    width: 100%;
-    height: 300px;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
 .dashboard {
     .award {
         height: 180px;
@@ -262,18 +185,20 @@ body {
         background-color: white;
     }
 
-    .process-bar,
-    .exp {
-        input {
-            width: 100px;
-            height: 5px;
+    .lesson__recently {
+        &--name {
+            display: flex;
+            flex-direction: column;
 
-            @include responsive(l-md) {
-                width: 200px;
+            @include responsive(xs) {
+                display: block;
             }
+        }
 
-            @include responsive(l-sm) {
-                width: 100px;
+        &--progress {
+            .progress {
+                width: 60px;
+                height: 10px;
             }
         }
     }

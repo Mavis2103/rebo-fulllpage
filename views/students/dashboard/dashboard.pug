@@ -15,22 +15,51 @@
   section.col-12
     .row.mt-5
       .col-md-6
-        .div
-          .swiper-container
-            .swiper-wrapper
-              .swiper-slide Slide 1
-              .swiper-slide Slide 2
-              .swiper-slide Slide 3
-              .swiper-slide Slide 4
-              .swiper-slide Slide 5
-              .swiper-slide Slide 6
-              .swiper-slide Slide 7
-              .swiper-slide Slide 8
-              .swiper-slide Slide 9
-              .swiper-slide Slide 10
-            // Add Pagination
-            .swiper-pagination
+        .swiper-container.rounded-15px.shadow
+          .swiper-wrapper
+            -
+              var values = [
+                {imgSwiper:'images/add_class_img_1.png',contentSwiper:'Thư viện kho Bài giảng, Giáo án, E-learning, Bài thuyết trình dành riêng cho Dạy và Học'},
+                {imgSwiper:'images/add_class_img_2.png',contentSwiper:'Công cụ thiết kế bài giảng, thuyết trình trực tuyến lý tưởng dành cho Giáo viên và học sinh'},
+                {imgSwiper:'images/add_class_img_3.png',contentSwiper:'Thư viện kho bài giảng, bài thuyết trình dành cho Giáo viên và Học sinh'},
+              ]
+            each val in values
+              .swiper-slide.flex-column
+                h5 Dành cho bạn
+                img(src=val.imgSwiper, alt="",style={height:'130px'}).mb-4
+                p(style={width:'300px'}) #{val.contentSwiper}
+          // Add Pagination
+          .swiper-pagination
+          .swiper-button-next
+          .swiper-button-prev
       .col-md-6
+        .lesson__recently.bg-white.h-100.shadow.rounded-15px.py-4.px-4
+          h5.text-center.mb-4 Bài học của bạn gần đây
+          - var on_off = 'off'
+          if on_off=='off'
+            .w-100.mb-4
+              img.mx-auto.d-block(src="images/invoice_maker_2x-removebg-preview_1.png", alt="",style={height:'150px'})
+            p(style={'font-size':'20px'}).text-center Bạn chưa có bài học nào
+          else
+            -
+              var values = [
+                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+              ]
+            each val in values
+              .d-flex.justify-content-between.align-items-center.border-bottom(style={height:'50px'})
+                .lesson__recently__detail.d-flex
+                  .lesson__recently--icon.mr-2
+                    i.fas.fa-book
+                  .lesson__recently--name
+                    strong.mr-2= val.recentlyNameBold
+                    span=val.recentlyName
+                .lesson__recently--progress
+                  .progress
+                    .progress-bar(role='progressbar', style=`width: ${val.recentlyProgress}%`, aria-valuenow=`${val.recentlyProgress}`, aria-valuemin='0', aria-valuemax='100')
+
   section.col-lg-12
     .my-5.p-3.rounded-15px.shadow.course-bg
       .d-flex.justify-content-between

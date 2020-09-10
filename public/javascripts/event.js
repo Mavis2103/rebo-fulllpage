@@ -1,5 +1,5 @@
 function toggle() {
-	$('#menu').toggle();
+	document.getElementById("menu").classList.toggle("d-none");
 	$('#content').toggle();
 }
 var date = function date() {
