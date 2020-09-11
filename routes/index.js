@@ -48,9 +48,12 @@ router.get("/gift", function (req, res, next) {
 });
 
 
-// router.get("/loading", (req, res, next) => {
-//   res.render("loading")
-// })
+router.get("/login", (req, res, next) => {
+  res.render("main/login")
+})
+router.get("/signup", (req, res, next) => {
+  res.render("main/signup")
+})
 
 // var jsFunctionString = pug.compileFileClient("./views/test.pug", { name: "fancyTemplateFun" });
 // fs.writeFileSync("../load.js", jsFunctionString);

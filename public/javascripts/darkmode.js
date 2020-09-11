@@ -1,5 +1,5 @@
 const darkBtn = document.getElementById('darkmode');
-const darkArray = ['dark-dashboard', 'dark-lesson', 'dark-library', 'dark-profile'];
+const darkArray = ['dark-swiper', 'dark-dashboard', 'dark-lesson', 'dark-library', 'dark-profile'];
 const main = document.getElementById('main');
 const menu = document.getElementById('menu');
 // localStorage.clear()

@@ -1,0 +1,71 @@
+.dashboard {
+    .award {
+        height: 180px;
+    }
+
+    .welcome {
+        img {
+            width: 200px;
+
+            @include responsive(xs) {
+                width: 400px;
+            }
+        }
+
+        background-color: $bg-blue;
+
+        h2 {
+            color: $red;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        a {
+            padding: 10px 0;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+
+            @include responsive(md) {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .chart-bg,
+    .result-bg,
+    .course-bg {
+        background-color: white;
+    }
+
+    .lesson__recently {
+        &--name {
+            display: flex;
+            flex-direction: column;
+
+            @include responsive(xs) {
+                display: block;
+            }
+        }
+
+        &--progress {
+            .progress {
+                width: 60px;
+                height: 10px;
+            }
+        }
+    }
+}

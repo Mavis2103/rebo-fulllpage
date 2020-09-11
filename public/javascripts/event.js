@@ -1,6 +1,7 @@
 function toggle() {
 	document.getElementById("menu").classList.toggle("d-none");
-	$('#content').toggle();
+	document.getElementById("content").classList.toggle("d-none");
+	// $('#content').toggle();
 }
 var date = function date() {
 	const date = new Date();

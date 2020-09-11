@@ -63,6 +63,12 @@
     background-color: $bg-dark-mode;
 }
 
+.dark-swiper {
+    .swiper-slide {
+        background-color: $clear;
+    }
+}
+
 .dark-dashboard {
     .chart-bg {
         background-color: black;
