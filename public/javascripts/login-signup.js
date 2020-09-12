@@ -43,7 +43,7 @@ function signupON() {
 }
 const imgUP = {
     duration: 1000,
-    reset: true
+    // reset: true
 }
 
 ScrollReveal().reveal('img', imgUP)
