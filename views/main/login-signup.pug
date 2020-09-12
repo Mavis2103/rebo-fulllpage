@@ -1,0 +1,58 @@
+extends ./layout.pug
+block append stylesheet
+    link(rel="stylesheet", href="stylesheets/login-signup.min.css")
+block append script
+    script(src="javascripts/login-signup.js")
+block content
+    .container-fluid
+        .row.vh-100.position-relative
+            .col-md-6.bg-hidden#bg
+                img(src="images/features-illustration-light.svg", alt="",style={width:'100%'})
+                img(src="images/hero-media-illustration-light.svg", alt="",style={width:'100%'})
+                img(src="images/cta-illustration-light.svg", alt="",style={width:'100%'})
+                .content.text-center
+                    h1.font-weight-bolder
+                    h5.mx-auto(style={width:'300px',padding:'30px 0'}).text-gray
+                    label(for="switch")
+                        p.mb-0
+                        input(type="checkbox", name="switch",id="switch",checked,hidden)
+            .col-md-6.my-md-auto.my-5.login.d-md-block
+                .form.text-center.my-auto
+                    h1.mb-4 Đăng nhập
+                    .form__link.d-flex
+                        .form__link__icon
+                            i.fab.fa-facebook-f
+                        .form__link__icon
+                            i.fab.fa-google
+                    p.text-dark Hoặc sử dụng tài khoản của bạn:
+                    .form__input
+                        form(action="", method="get").d-flex.flex-column
+                            .input.d-flex.mx-auto
+                                i.far.fa-envelope
+                                input(type="text", name="",placeholder="Email hoặc Số điện thoại")
+                            .input.d-flex.mx-auto
+                                i.fas.fa-fingerprint
+                                input(type="password", name="",placeholder="Mật khẩu")
+                            p Quên mật khẩu?
+                            input(type="submit", value="Đăng nhập",style={padding:'15px 20px',width:'200px'}).mx-auto
+            .col-md-6.my-md-auto.my-5.signup.d-md-block
+                .form.text-center.my-auto
+                    h1.mb-4 Đăng Ký
+                    .form__link.d-flex
+                        .form__link__icon
+                            i.fab.fa-facebook-f
+                        .form__link__icon
+                            i.fab.fa-google
+                    p.text-dark Hoặc đăng ký tài khoản của bạn:
+                    .form__input
+                        form(action="", method="post").d-flex.flex-column
+                            .input.d-flex.mx-auto
+                                i.far.fa-user
+                                input(type="text", name="",placeholder="Họ và Tên")
+                            .input.d-flex.mx-auto
+                                i.far.fa-envelope
+                                input(type="text", name="",placeholder="Email hoặc Số điện thoại")
+                            .input.d-flex.mx-auto
+                                i.fas.fa-fingerprint
+                                input(type="password", name="",placeholder="Mật khẩu")
+                            input(type="submit", value="Đăng ký",style={padding:'15px 20px',width:'200px'}).mx-auto

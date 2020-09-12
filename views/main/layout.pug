@@ -1,8 +1,18 @@
-doctype html
-html
+<!DOCTYPE html>
+html(lang="en")
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title REBO
+    block stylesheet
+      link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
+      link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/all.min.css')
+      link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/brands.min.css')
+      link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/solid.min.css')
+      link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.min.css')
   body
     block content
+    block script
+      script(src='bootstrap/dist/js/bootstrap.min.js', async)
+      
 

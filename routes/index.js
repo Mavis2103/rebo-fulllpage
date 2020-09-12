@@ -48,11 +48,8 @@ router.get("/gift", function (req, res, next) {
 });
 
 
-router.get("/login", (req, res, next) => {
-  res.render("main/login")
-})
-router.get("/signup", (req, res, next) => {
-  res.render("main/signup")
+router.get("/login-signup", (req, res, next) => {
+  res.render("main/login-signup")
 })
 
 // var jsFunctionString = pug.compileFileClient("./views/test.pug", { name: "fancyTemplateFun" });
