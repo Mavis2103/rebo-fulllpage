@@ -12,13 +12,13 @@ document.getElementById("switch").addEventListener("change", function () {
         loginON()
     }
 })
-window.addEventListener("load", function () {
-    if (elementSwitch.checked == false) {
-        signupON()
-    } else {
-        loginON()
-    }
-})
+// window.addEventListener("load", function () {
+//     if (elementSwitch.checked == false) {
+//         signupON()
+//     } else {
+//         loginON()
+//     }
+// })
 
 function loginON() {
     bgEffect.classList.add("login--on");

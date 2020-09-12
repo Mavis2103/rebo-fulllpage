@@ -48,15 +48,8 @@ router.get("/gift", function (req, res, next) {
 });
 
 
-router.get("/login", (req, res, next) => {
-  res.render("main/login-signup", {
-    on_off: true
-  })
-})
-router.get("/signup", (req, res, next) => {
-  res.render("main/login-signup", {
-    on_off: false
-  })
+router.get("/login-signup", (req, res, next) => {
+  res.render("main/login-signup")
 })
 
 // var jsFunctionString = pug.compileFileClient("./views/test.pug", { name: "fancyTemplateFun" });
