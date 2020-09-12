@@ -41,3 +41,9 @@ function signupON() {
     login.classList.add("d-none")
     signup.classList.remove("d-none")
 }
+const imgUP = {
+    duration: 1000,
+    reset: true
+}
+
+ScrollReveal().reveal('img', imgUP)

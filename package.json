@@ -21,6 +21,7 @@
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.0",
     "pug": "^3.0.0",
+    "scrollreveal": "^4.0.7",
     "swiper": "^6.2.0"
   },
   "devDependencies": {
