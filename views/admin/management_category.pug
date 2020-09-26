@@ -1,0 +1,22 @@
+extends ./layout
+block main
+  form(action="/new_category",method="post").d-flex.align-items-center
+    |Tên môn học : 
+    input.ml-3(type="text", name="categoryName",style={width:'300px'}).form-control
+    button(type="submit").btn.btn-block.btn-primary(style={width:'100px'}) New
+  .table-responsive-md.mt-5
+    table.table
+      thead.thead-dark
+        th(scope="col") #
+        th(scope="col") id
+        th(scope="col") Tên môn học
+        th(scope="col")
+      tbody
+        -for(let i in category){
+          tr(scope="row")
+            td= i
+            td= category[i].categoryID
+            td= category[i].categoryName
+            td
+              a.btn.btn-link.btn-danger.nav-link.text-white(href=`/delete-category/${category[i].categoryID}`) Xoá
+        -}

@@ -1,34 +1,41 @@
 .row
-  section.col-12.mt-5
-    .avatar_user.position-relative
-      img(src='/images/60111.jpg', alt='')
-      i.fas.fa-pencil-alt
-  section.col-xl-10.col-md-12.mt-5
-    .row
-      .col-md-4.col-sm-6
-        .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
-          label.mb-0.ml-2(for='') H&#x1ECD;
-          input.form-control(type='text', value='Trần')
-      .col-md-4.col-sm-6
-        .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
-          label.mb-0.ml-2(for='') T&ecirc;n
-          input.form-control(type='text', value='Quân')
-      .col-md-4.col-sm-6
-        .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
-          label.mb-0.ml-2(for='') Email
-          input.form-control(type='email', value='taquansict@gmail.com')
-      .col-md-4.col-sm-6
-        .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
-          label.mb-0.ml-2(for='') S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
-          input.form-control(type='text', value='0783587149')
-      .col-md-4.col-sm-6
-        .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
-          label.mb-0.ml-2(for='') Vai tr&ograve;
-          input.form-control(type='text', value='Học sinh', readonly='')
-      .col-md-4.col-sm-6
-        .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
-          label.mb-0.ml-2(for='') N&#x1A1;i sinh
-          input.form-control(type='text', value='Đà Nẵng')
-    .row.my-4
-      .col-3
-        button.btn.btn-primary.btn-lg.btn-block(type='button', name='', id='') L&#x1B0;u
+  form(action=`/update/user-detail/${userID}`, method="post",enctype="multipart/form-data")
+    section.col-12.mt-5
+      .avatar_user.position-relative
+        img(src=`/images/dbImage/avatar/${userID}`, alt='',style={'object-fit':'contain'})
+        label(for="avatar")
+          i.fas.fa-pencil-alt
+          input(type="file", name="avatar",id="avatar",hidden)
+    section.col-xl-10.col-md-12.mt-5
+      .row
+        .col-md-4.col-sm-6
+          .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
+            label.mb-0.ml-2(for='') H&#x1ECD;
+            input.form-control(type='text', value='Trần')
+        .col-md-4.col-sm-6
+          .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
+            label.mb-0.ml-2(for='') T&ecirc;n
+            input.form-control(type='text', name="username",value=detail[0].username)
+        .col-md-4.col-sm-6
+          .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
+            label.mb-0.ml-2(for='') Email
+            input.form-control(type='email',name="email", value=detail[0].email)
+        .col-md-4.col-sm-6
+          .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
+            label.mb-0.ml-2(for='') S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
+            input.form-control(type='text',name="phone_number", value=detail[0].phone_number)
+        .col-md-4.col-sm-6
+          .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
+            label.mb-0.ml-2(for='') Vai tr&ograve;
+            if(detail[0].role=='teacher') 
+              input.form-control(type='text', value="Giáo viên", readonly='')
+            else
+              input.form-control(type='text', value="Học sinh", readonly='')
+
+        .col-md-4.col-sm-6
+          .text-secondary.input-bg.p-2.shadow.mb-4.rounded-lg
+            label.mb-0.ml-2(for='') N&#x1A1;i sinh
+            input.form-control(type='text', name="birthFrom",value=detail[0].birthFrom)
+      .row.my-4
+        .col-3
+          button.btn.btn-primary.btn-lg.btn-block(type='submit', name='', id='') L&#x1B0;u

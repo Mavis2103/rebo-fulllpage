@@ -1,15 +1,17 @@
 // import "node-fetch";
 var menu_radio = document.getElementsByName("clicked");
-for (let index = 0; index < menu_radio.length; index++) {
-  const element_radio = menu_radio[index];
-  if (element_radio.checked) {
-    switch_of_menu(index);
-    menuOnchange(element_radio, index);
-  } else {
-    menuOnchange(element_radio, index);
+const menu = () => {
+  for (let index = 0; index < menu_radio.length; index++) {
+    const element_radio = menu_radio[index];
+    if (element_radio.checked) {
+      switch_of_menu(index);
+      menuOnchange(element_radio, index);
+    } else {
+      menuOnchange(element_radio, index);
+    }
   }
+  
 }
-
 function switch_of_menu(index) {
   switch (index) {
     case 0:

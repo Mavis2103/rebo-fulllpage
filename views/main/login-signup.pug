@@ -27,13 +27,13 @@ block content
                             i.fab.fa-google
                     p.text-dark Hoặc sử dụng tài khoản của bạn:
                     .form__input
-                        form(action="", method="get").d-flex.flex-column
+                        form(action="/login", method="get").d-flex.flex-column
                             .input.d-flex.mx-auto
                                 i.far.fa-envelope
-                                input(type="text", name="",placeholder="Email hoặc Số điện thoại")
+                                input(type="email", name="email",placeholder="Email hoặc Số điện thoại",required)
                             .input.d-flex.mx-auto
                                 i.fas.fa-fingerprint
-                                input(type="password", name="",placeholder="Mật khẩu")
+                                input(type="password", name="password",placeholder="Mật khẩu",required)
                             p Quên mật khẩu?
                             input(type="submit", value="Đăng nhập",style={padding:'15px 20px',width:'200px'}).mx-auto
             .col-md-6.my-md-auto.my-5.signup.d-md-block
@@ -46,14 +46,18 @@ block content
                             i.fab.fa-google
                     p.text-dark Hoặc đăng ký tài khoản của bạn:
                     .form__input
-                        form(action="", method="post").d-flex.flex-column
+                        form(action="/signup", method="post").d-flex.flex-column
                             .input.d-flex.mx-auto
                                 i.far.fa-user
-                                input(type="text", name="",placeholder="Họ và Tên")
+                                input(type="text", name="username",placeholder="Họ và Tên",required)
                             .input.d-flex.mx-auto
                                 i.far.fa-envelope
-                                input(type="text", name="",placeholder="Email hoặc Số điện thoại")
+                                input(type="email", name="email",placeholder="Email",required)
+                            .input.d-flex.mx-auto
+                                select(name="role") Vai trò
+                                    option(value="teacher") Giáo viên
+                                    option(value="student") Học sinh
                             .input.d-flex.mx-auto
                                 i.fas.fa-fingerprint
-                                input(type="password", name="",placeholder="Mật khẩu")
+                                input(type="password", name="password",placeholder="Mật khẩu",required)
                             input(type="submit", value="Đăng ký",style={padding:'15px 20px',width:'200px'}).mx-auto

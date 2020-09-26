@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title REBO
-    // update the version number as needed
-    // <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
-    // include only the Firebase features as you need
-    // <script defer src="/__/firebase/7.15.5/firebase-auth.js"></script>
-    // <script defer src="/__/firebase/7.15.5/firebase-database.js"></script>
-    // <script defer src="/__/firebase/7.15.5/firebase-messaging.js"></script>
-    // <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
-    // initialize the SDK after all desired features are loaded
-    // <script defer src="/__/firebase/init.js"></script>
-    link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/all.min.css')
-    link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/brands.min.css')
-    link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/solid.min.css')
-    link(rel='stylesheet', href='swiper/swiper-bundle.min.css')
-    link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
-    link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.min.css')
+extends ../main/layout.pug
+block append stylesheet
+  link(rel='stylesheet', href='/stylesheets/style.min.css')
+block content
   #loading-bg
       .loading
   section.container-fluid
@@ -29,11 +11,10 @@ html(lang="en")
           #expand(onclick='toggle()')
             i.fas.fa-bars
           input#darkmode.mr-4.shadow(type='checkbox', name='')
-          i.far.fa-comments.mr-4(aria-hidden='true')
-          i.far.fa-bell.mr-4(aria-hidden='true')
           .ava-small.mr-4
-            img.w-100.rounded-circle(src='/images/60111.jpg', alt='')
-          h3.mb-0 Quan
+            img.w-100.rounded-circle(src=`images/dbImage/avatar/${userID}`, alt='')
+          h3.mb-0.mr-3= username
+          a(href="/logout").nav-link.px-2.py-1 Đăng xuất
         .time.text-secondary.mr-3.text-align-end
           span.hours 00
           | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
@@ -88,6 +69,7 @@ html(lang="en")
                   | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
                 a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
       section.d-lg-none.col-sm-8.bg-athens-gray
+block script
   script(src='jquery/dist/jquery.min.js')
   script(src="/javascripts/darkmode.js",async)
   //- script(async, src='/chart.js/dist/Chart.min.js')

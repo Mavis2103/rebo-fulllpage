@@ -1,0 +1,12 @@
+extends ../main/layout.pug
+block content 
+  .container-fluid
+    .row.vh-100
+      .col-md-2.border-right
+        .nav-link.mt-5
+          a(href="/users_management").page-link Quản lí users
+          a(href="/lesson_management").page-link Quản lí bài học
+          a(href="/category_management").page-link Quản lí môn học
+      .col-md-10
+        .mt-5
+          block main

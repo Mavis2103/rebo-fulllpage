@@ -1,0 +1,51 @@
+extends ./layout
+block main
+  form(action="/new_lesson", method="post",enctype="multipart/form-data").w-50
+    .d-flex.justify-content-between.mb-3
+      h3 Tạo bài học mới
+      button.btn.btn-block.btn-primary(type="submit",style={width:'100px'}) New
+    .input-group.mb-3
+      .input-group-prepend
+        span.input-group-text Tên bài học
+      input(type="text",name="lessonName").form-control
+    .input-group.mb-3
+      .input-group-prepend
+        span.input-group-text Môn
+      select(name="categoryID").custom-select
+        option(selected) Vui lòng chọn Môn học
+        -for(let i in category){
+          option(value=category[i].categoryID)= category[i].categoryName
+        -}
+    .input-group.mb-3
+      .input-group-prepend
+        span.input-group-text Ảnh
+      .custom-file
+        input(type="file", name="lessonImage")#lessonImage.custom-file-input
+        label(for="lessonImage").custom-file-label Chọn File
+    .input-group.mb-3
+      .input-group-prepend
+        span.input-group-text Mô tả
+      textarea(name="lessonDescription").form-control
+  .table-responsive-md
+    table.table
+      thead.thead-dark
+        th(scope="col") #
+        th(scope="col") id
+        th(scope="col") Tên bài học
+        th(scope="col") Tên môn học
+        th(scope="col") Ảnh bài học
+        th(scope="col") Mô tả
+        th(scope="col") 
+      tbody
+        -for(let i in lesson){
+          tr(scope="row")
+            td= i
+            td= lesson[i].lessonID
+            td= lesson[i].lessonName
+            td= lesson[i].categoryName
+            td
+              img(src=`/images/dbImage/lessonImage/${lesson[i].lessonID}`, alt="",style={width:'100px'})
+            td= lesson[i].lessonDescription
+            td
+              a.btn.btn-link.btn-danger.nav-link.text-white(href=`/delete-lesson/${lesson[i].lessonID}`) Xoá
+        -}

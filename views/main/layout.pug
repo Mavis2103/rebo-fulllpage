@@ -5,14 +5,22 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title REBO
     block stylesheet
+      // update the version number as needed
+      // <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
+      // include only the Firebase features as you need
+      // <script defer src="/__/firebase/7.15.5/firebase-auth.js"></script>
+      // <script defer src="/__/firebase/7.15.5/firebase-database.js"></script>
+      // <script defer src="/__/firebase/7.15.5/firebase-messaging.js"></script>
+      // <script defer src="/__/firebase/7.15.5/firebase-storage.js"></script>
+      // initialize the SDK after all desired features are loaded
+      // <script defer src="/__/firebase/init.js"></script>
       link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
-      link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/all.min.css')
-      link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/brands.min.css')
-      link(rel='stylesheet', href='@fortawesome/fontawesome-free/css/solid.min.css')
-      link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/@fortawesome/fontawesome-free/css/all.min.css')
+      link(rel='stylesheet', href='/@fortawesome/fontawesome-free/css/brands.min.css')
+      link(rel='stylesheet', href='/@fortawesome/fontawesome-free/css/solid.min.css')
+      link(rel='stylesheet', href='/swiper/swiper-bundle.min.css')
+      link(rel='shortcut icon', href='/images/appicon.png', type='image/x-icon')
+      link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
   body
     block content
     block script
-      script(src='bootstrap/dist/js/bootstrap.min.js', async)
-      
-

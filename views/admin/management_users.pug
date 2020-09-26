@@ -1,0 +1,25 @@
+extends ./layout.pug
+block main
+  .table-responsive-md
+    table.table
+      thead.thead-dark
+        tr
+          th(scope="col") #
+          th(scope="col") Tên
+          th(scope="col") email
+          th(scope="col") Số điện thoại
+          th(scope="col") Vai trò
+          th(scope="col") Nơi ở
+          th(scope="col")
+      -for(let i in list){
+        tbody
+          tr
+            td(scope="row")=i
+            td=list[i].username
+            td=list[i].email
+            td=list[i].phone_number
+            td=list[i].role
+            td=list[i].birthFrom
+            td
+              a.nav-link.btn.btn-link.text-white.rounded.btn-danger(href=`/delete-user/${list[i].userID}`) Xoá
+      -}
