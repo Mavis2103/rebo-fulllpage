@@ -3,7 +3,7 @@ const router = express.Router();
 const {
     user_detail,
     update_user_detail
-} = require("./profile-detail")
+} = require("../controller/profile/profile-detail")
 
 router.get("/profile", (req, res, next) => {
     res.render("students/profile/profile");

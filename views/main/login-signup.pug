@@ -1,16 +1,16 @@
 extends ./layout.pug
 block append stylesheet
-    link(rel="stylesheet", href="stylesheets/login-signup.min.css")
+    link(rel="stylesheet", href="/st/stylesheets/login-signup.min.css")
 block append script
-    script(src="scrollreveal/dist/scrollreveal.min.js")
-    script(src="javascripts/login-signup.js")
+    script(src="/md/scrollreveal/dist/scrollreveal.min.js")
+    script(src="/st/javascripts/login-signup.js")
 block content
     .container-fluid
         .row.vh-100.position-relative
             .col-md-6.bg-hidden#bg
-                img(src="images/features-illustration-light.svg", alt="",style={width:'100%'})
-                img(src="images/hero-media-illustration-light.svg", alt="",style={width:'100%'})
-                img(src="images/cta-illustration-light.svg", alt="",style={width:'100%'})
+                img(src="/st/images/features-illustration-light.svg", alt="",style={width:'100%'})
+                img(src="/st/images/hero-media-illustration-light.svg", alt="",style={width:'100%'})
+                img(src="/st/images/cta-illustration-light.svg", alt="",style={width:'100%'})
                 .content.text-center
                     h1.font-weight-bolder Xin Chào bạn
                     h5.mx-auto(style={width:'300px',padding:'30px 0'}).text-gray Nếu bạn chưa có tài khoản vui lòng đăng ký để tham gia với chúng tôi

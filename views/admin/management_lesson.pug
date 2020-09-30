@@ -30,7 +30,8 @@ block main
     table.table
       thead.thead-dark
         th(scope="col") #
-        th(scope="col") id
+        th(scope="col") Id bài học
+        th(scope="col") Id người tạo
         th(scope="col") Tên bài học
         th(scope="col") Tên môn học
         th(scope="col") Ảnh bài học
@@ -41,10 +42,11 @@ block main
           tr(scope="row")
             td= i
             td= lesson[i].lessonID
+            td= lesson[i].userID
             td= lesson[i].lessonName
             td= lesson[i].categoryName
             td
-              img(src=`/images/dbImage/lessonImage/${lesson[i].lessonID}`, alt="",style={width:'100px'})
+              img(src=`/st/images/dbImage/lessonImage/${lesson[i].lessonID}`, alt="",style={width:'100px'})
             td= lesson[i].lessonDescription
             td
               a.btn.btn-link.btn-danger.nav-link.text-white(href=`/delete-lesson/${lesson[i].lessonID}`) Xoá

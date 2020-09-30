@@ -19,21 +19,22 @@ const new_lesson = (req, res) => {
       next(err);
       return
     }
+    let userID_createLesson = req.session.userID;
     let lessonName = fields.lessonName;
     let categoryID = fields.categoryID;
     let lessonDescription = fields.lessonDescription;
     let lessonImg = fs.readFileSync(file.lessonImage.path);
 
     if (file.lessonImage.size > 0) {
-      let newLesson = "insert into Lesson (lessonName,categoryID,lessonImage,lessonDescription) value(?,?,?,?)";
-      db.query(newLesson, [lessonName, categoryID, lessonImg, lessonDescription], (err, data) => {
+      let newLesson = "insert into Lesson (lessonName,userID,categoryID,lessonImage,lessonDescription) value(?,?,?,?,?)";
+      db.query(newLesson, [lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription], (err, data) => {
         if (err) throw err;
-        fs.writeFileSync(path.join(__dirname, `../../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg);
+        fs.writeFileSync(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg);
         res.redirect("/lesson_management")
       })
     } else {
-      let newLesson = "insert into Lesson (lessonName,categoryID,lessonDescription) value(?,?,?)";
-      db.query(newLesson, [lessonName, categoryID, lessonDescription], (err, data) => {
+      let newLesson = "insert into Lesson (lessonName,userID,categoryID,lessonDescription) value(?,?,?,?)";
+      db.query(newLesson, [lessonName, userID_createLesson, categoryID, lessonDescription], (err, data) => {
         if (err) throw err;
         res.redirect("/lesson_management")
 

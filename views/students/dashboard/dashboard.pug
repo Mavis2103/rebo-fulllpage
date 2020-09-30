@@ -6,7 +6,7 @@
     .welcome.rounded-15px.shadow
       .row.flex-md-row-reverse
         .col-md-4.position-relative
-          img(src="images/2650149-removebg_1.png", alt="").mr-md-5.mt-4.mt-md-0
+          img(src="/st/images/2650149-removebg_1.png", alt="").mr-md-5.mt-4.mt-md-0
         .col-md-8.py-4.px-5
           h2 Trải nghiệm học tập trên ứng dụng REBO AR
           p Mới lạ, sinh động và nhiều hơn nữa.
@@ -19,9 +19,9 @@
           .swiper-wrapper
             -
               var values = [
-                {imgSwiper:'images/add_class_img_1.png',contentSwiper:'Thư viện kho Bài giảng, Giáo án, E-learning, Bài thuyết trình dành riêng cho Dạy và Học'},
-                {imgSwiper:'images/add_class_img_2.png',contentSwiper:'Công cụ thiết kế bài giảng, thuyết trình trực tuyến lý tưởng dành cho Giáo viên và học sinh'},
-                {imgSwiper:'images/add_class_img_3.png',contentSwiper:'Thư viện kho bài giảng, bài thuyết trình dành cho Giáo viên và Học sinh'},
+                {imgSwiper:'/st/images/add_class_img_1.png',contentSwiper:'Thư viện kho Bài giảng, Giáo án, E-learning, Bài thuyết trình dành riêng cho Dạy và Học'},
+                {imgSwiper:'/st/images/add_class_img_2.png',contentSwiper:'Công cụ thiết kế bài giảng, thuyết trình trực tuyến lý tưởng dành cho Giáo viên và học sinh'},
+                {imgSwiper:'/st/images/add_class_img_3.png',contentSwiper:'Thư viện kho bài giảng, bài thuyết trình dành cho Giáo viên và Học sinh'},
               ]
             each val in values
               .swiper-slide.flex-column
@@ -38,7 +38,7 @@
           - var on_off = 'off'
           if on_off=='off'
             .w-100.mb-4
-              img.mx-auto.d-block(src="images/invoice_maker_2x-removebg-preview_1.png", alt="",style={height:'150px'})
+              img.mx-auto.d-block(src="/st/images/invoice_maker_2x-removebg-preview_1.png", alt="",style={height:'150px'})
             p(style={'font-size':'20px'}).text-center Bạn chưa có bài học nào
           else
             -
@@ -82,5 +82,5 @@
                 p.mb-1= val.sub_title
                 h3= val.title
 
-script(src='/javascripts/chart.js')
-script(src='/javascripts/swiper.js')
+script(src='/st/javascripts/chart.js')
+script(src='/st/javascripts/swiper.js')

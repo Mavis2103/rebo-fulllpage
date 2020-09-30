@@ -27,7 +27,7 @@ const update_user_detail = (req, res, next) => {
         }
         let dataAvatar = fs.readFileSync(files.avatar.path);
         if (files.avatar.size > 0) {
-            fs.writeFileSync(path.join(__dirname, `../../../public/images/dbImage/avatar/${req.session.userID}`), dataAvatar);
+            fs.writeFileSync(path.join(__dirname, `../../public/images/dbImage/avatar/${req.session.userID}`), dataAvatar);
             let updateUser = "update Account set username=?,email=?,phone_number=?,birthFrom=?,avatar=? where userID=?";
             db.query(updateUser, [username, email, phone_number, birthFrom, dataAvatar, userID], (err, data) => {
                 if (err) throw err;

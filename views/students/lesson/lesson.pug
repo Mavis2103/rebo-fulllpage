@@ -14,9 +14,9 @@
       a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
     .row.todayLesson
       -
-        var values=[{imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
-                    {imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
-                    {imageLesson:'/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
+        var values=[{imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
+                    {imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
+                    {imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
       each val in values
         .col-md-4.mb-3.mb-md-0
           #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px.bg-clear
@@ -41,35 +41,24 @@
       h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
       a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
     .row.registeredLesson
-      -
-        var values = [
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          {imageLesson:'/images/undraw_book_lover_mkck.svg',nameLesson:'Learn Bootstrap - For Beginners',author:'KhaLe',star:5},
-          ]
-      each val in values
+      -for(let i in lesson){
         .col-lg-3.col-md-4.col-sm-6.mb-4
           a.text-decoration-none(href='#')
             .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
               .card-body
                 .registeredLesson__img
-                  img(src= val.imageLesson, alt='')
-                .registeredLesson__body
-                  h4= val.nameLesson
-                  h5= val.author
+                  img(src=`/st/images/dbImage/lessonImage/${lesson[i].lessonID}`, alt='')
+                .registeredLesson__body.mt-3
+                  h4= lesson[i].lessonName
+                  h5= lesson[i].username
                   .registeredLesson__regis.d-flex.align-items-center.justify-content-between
                     .registeredLesson__stars
-                      - for (var index =0; index<val.star;index++)
+                      each _ in Array(5)
                         i.far.fa-star
                     .registeredLesson__btn
                       .btn.d-flex.justify-content-center
                         | &Dstrok;&abreve;ng k&yacute;
+      -}
 script.
 //-   $('#todayLessonCard').click(function () {
 //-   $('#content').load('/html/lesson-detail.html');

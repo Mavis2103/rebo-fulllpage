@@ -24,8 +24,29 @@ const delete_category = (req, res) => {
     res.redirect("/category_management")
   })
 }
+const detail_category = (req, res, next) => {
+  let categoryID = req.params.categoryID;
+  const getCategory = "select*from Category where categoryID=?";
+  db.query(getCategory, [categoryID], (err, data) => {
+    if (err) next(err);
+    res.render("admin/management_category-detail", {
+      data
+    })
+  })
+}
+const update_category = (req, res, next) => {
+  let categoryName = req.body.categoryName;
+  let categoryID = req.params.categoryID;
+  const update = "update Category set categoryName=? where categoryID=?";
+  db.query(update, [categoryName, categoryID], (err, data) => {
+    if (err) next(err);
+    res.redirect(`/category/${categoryID}`)
+  })
+}
 module.exports = {
   show_category,
   new_category,
-  delete_category
+  delete_category,
+  detail_category,
+  update_category
 }

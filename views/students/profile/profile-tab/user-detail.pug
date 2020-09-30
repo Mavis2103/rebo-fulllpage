@@ -2,7 +2,7 @@
   form(action=`/update/user-detail/${userID}`, method="post",enctype="multipart/form-data")
     section.col-12.mt-5
       .avatar_user.position-relative
-        img(src=`/images/dbImage/avatar/${userID}`, alt='',style={'object-fit':'contain'})
+        img(src=`/st/images/dbImage/avatar/${userID}`, alt='',style={'object-fit':'contain'})
         label(for="avatar")
           i.fas.fa-pencil-alt
           input(type="file", name="avatar",id="avatar",hidden)

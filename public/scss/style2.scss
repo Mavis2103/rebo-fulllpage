@@ -88,6 +88,8 @@ body {
         .card.registeredLesson__card {
             .registeredLesson__img {
                 img {
+                    object-fit: cover;
+                    height: 140px;
                     width: 100%;
                 }
             }

@@ -1,0 +1,5 @@
+extends ./layout.pug
+block main
+  form(action=`/category/${data[0].categoryID}`,method="post")
+    input(type="text", name="categoryName",value=data[0].categoryName)
+    input(type="submit", value="Cập nhập")

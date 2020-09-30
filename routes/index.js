@@ -3,9 +3,10 @@ var router = express.Router();
 var path = require("path");
 /* GET home page. */
 
-const login_signup = require("./controller/login-signup/login-signup")
-const profile = require("./controller/profile/profile")
-const admin = require("./controller/admin/admin")
+const login_signup = require("./login-signup")
+const profile = require("./profile")
+const admin = require("./admin")
+const lesson = require("./lesson")
 // var profile_child = require("./students/profile/profile");
 
 // Action profile
@@ -15,6 +16,7 @@ router.use(express.static(path.join(__dirname, "public")));
 router.use(login_signup)
 router.use(profile)
 router.use(admin)
+router.use(lesson)
 
 router.get("/logout", (req, res, next) => {
   req.session.destroy();
@@ -35,9 +37,6 @@ router.get("/dashboard", function (req, res, next) {
 });
 router.get("/library", function (req, res, next) {
   res.render("students/library/library");
-});
-router.get("/lesson", function (req, res, next) {
-  res.render("students/lesson/lesson");
 });
 router.get("/tools", function (req, res, next) {
   res.render("students/tools/tool");

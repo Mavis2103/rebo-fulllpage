@@ -5,6 +5,7 @@ block main
       thead.thead-dark
         tr
           th(scope="col") #
+          th(scope="col") id
           th(scope="col") Tên
           th(scope="col") email
           th(scope="col") Số điện thoại
@@ -13,8 +14,9 @@ block main
           th(scope="col")
       -for(let i in list){
         tbody
-          tr
-            td(scope="row")=i
+          tr(scope="row")
+            td=i
+            td=list[i].userID
             td=list[i].username
             td=list[i].email
             td=list[i].phone_number

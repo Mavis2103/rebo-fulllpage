@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const signup = require("./signup")
-const login = require("./login")
+const signup = require("../controller/login-signup/signup")
+const login = require("../controller/login-signup/login")
 
 router.get("/login-signup", (req, res, next) => {
     res.render("main/login-signup")
