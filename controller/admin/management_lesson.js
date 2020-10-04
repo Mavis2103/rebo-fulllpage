@@ -29,8 +29,10 @@ const new_lesson = (req, res) => {
       let newLesson = "insert into Lesson (lessonName,userID,categoryID,lessonImage,lessonDescription) value(?,?,?,?,?)";
       db.query(newLesson, [lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription], (err, data) => {
         if (err) throw err;
-        fs.writeFileSync(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg);
-        res.redirect("/lesson_management")
+        fs.writeFile(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg, (err) => {
+          if (err) throw err;
+          res.redirect("/lesson_management");
+        });
       })
     } else {
       let newLesson = "insert into Lesson (lessonName,userID,categoryID,lessonDescription) value(?,?,?,?)";
@@ -48,8 +50,11 @@ const delete_lesson = (req, res) => {
   let deleteLesson = "delete from Lesson where lessonID=?";
   db.query(deleteLesson, [lessonID], (err, data) => {
     if (err) throw err;
-    res.redirect("/lesson_management")
-  })
+    fs.unlink(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), (err) => {
+    if (err) throw err;
+    res.redirect("/lesson_management");
+    });
+    });
 }
 module.exports = {
   show_lesson,

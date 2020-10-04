@@ -7,6 +7,7 @@ const login_signup = require("./login-signup")
 const profile = require("./profile")
 const admin = require("./admin")
 const lesson = require("./lesson")
+const myLibrary = require("./myLibrary")
 // var profile_child = require("./students/profile/profile");
 
 // Action profile
@@ -17,6 +18,7 @@ router.use(login_signup)
 router.use(profile)
 router.use(admin)
 router.use(lesson)
+router.use("/myLibrary", myLibrary)
 
 router.get("/logout", (req, res, next) => {
   req.session.destroy();
@@ -40,9 +42,6 @@ router.get("/library", function (req, res, next) {
 });
 router.get("/tools", function (req, res, next) {
   res.render("students/tools/tool");
-});
-router.get("/myLibrary", function (req, res, next) {
-  res.render("students/myLibrary/myLibrary");
 });
 router.get("/gift", function (req, res, next) {
   res.render("students/gift/gift");

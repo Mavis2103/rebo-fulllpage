@@ -12,7 +12,7 @@ block content
             i.fas.fa-bars
           input#darkmode.mr-4.shadow(type='checkbox', name='')
           .ava-small.mr-4
-            img.w-100.rounded-circle(src=`/st/images/dbImage/avatar/${userID}`, alt='')
+            img.w-100.rounded-circle(src=`/st/images/dbImage/avatar/${userID}`, alt='',style={'object-fit':'contain',width:'40px',height:'40px'})
           h3.mb-0.mr-3= username
           a(href="/logout").nav-link.px-2.py-1 Đăng xuất
         .time.text-secondary.mr-3.text-align-end

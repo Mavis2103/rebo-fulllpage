@@ -9,37 +9,28 @@ section.row.library.my-4
     #new.modal.fade(tabindex='-1', role='dialog', aria-labelledby='my-modal-title', aria-hidden='true')
       .modal-dialog.modal-dialog-centered(role='document')
         .modal-content.rounded
-          .modal-header.bg-gray
-            h5#my-modal-title.modal-title.d-flex.align-items-center
-              i.fas.fa-folder-plus.mr-2
-              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Th&ecirc;m th&#x1B0; mu&#x323;c
-            button.close(data-dismiss='modal', aria-label='Close')
-              i.fas.fa-times
-          .modal-body.mb-5
-            .form-group
-              input#form_new_folder-input.form-control(type='text', name='folderName', aria-describedby='helpId', placeholder='Nhập Tên thư mục')
-          .modal-footer.justify-content-between
-            button.btn.bg-gray(data-dismiss='modal', aria-label='Close')
-              | K&ecirc;&#x301;t thu&#x301;c
-            button#save.btn.btn-primary(type='button')
-              | L&#x1B0;u
+          form(action="/myLibrary/create", method="post")
+            .modal-header.bg-gray
+              h5#my-modal-title.modal-title.d-flex.align-items-center
+                i.fas.fa-folder-plus.mr-2
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Th&ecirc;m th&#x1B0; mu&#x323;c
+              button.close(data-dismiss='modal', aria-label='Close')
+                i.fas.fa-times
+            .modal-body.mb-5
+              .form-group
+                input#form_new_folder-input.form-control(type='text', name="folderName", placeholder='Nhập Tên thư mục')
+            .modal-footer.justify-content-between
+              button.btn.bg-gray(data-dismiss='modal', aria-label='Close')
+                | K&ecirc;&#x301;t thu&#x301;c
+              button#save.btn.btn-primary(type='submit')
+                | L&#x1B0;u
 section#folder.row.library
-  -
-    var values = [
-      {nameFolder:'Ngữ Văn'},
-      {nameFolder:'Toán đại cương'},
-      {nameFolder:'Tiếng Anh chuyên nghành 2'},
-      {nameFolder:'Toán đại cương'},
-      {nameFolder:'Ngữ Văn'},
-      {nameFolder:'Vật lý 12'},
-      {nameFolder:'Tiếng Anh chuyên nghành 2'},
-    ]
-  each val in values
+  each val in folder
     section.popover-folder.col-xl-3.col-lg-4.col-sm-6.mb-4
       .folder-height.d-flex.align-items-center.justify-content-between.p-3.border.popover-folder-bg
         .d-flex.align-items-center
           i.far.fa-folder.mr-3(aria-hidden='true')
-          p.mb-0.text-align-start.folder_text-ellipsis= val.nameFolder
+          p.mb-0.text-align-start.folder_text-ellipsis= val.list.content
         i.fas.fa-ellipsis-v.more
           .more-bg
       div
