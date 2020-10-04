@@ -1,4 +1,4 @@
-const createError = require("http-errors");
+// const createError = require("http-errors");
 var bodyParser = require('body-parser')
 const express = require("express");
 const session = require("express-session")
@@ -42,9 +42,9 @@ app.use(session({
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function (err, req, res, next) {
