@@ -15,6 +15,8 @@ const user_detail = (req, res, next) => {
         })
     })
 }
+
+
 const update_user_detail = (req, res, next) => {
     let userID = req.params.userID;
     const form = formidable.IncomingForm();
