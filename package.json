@@ -2,6 +2,8 @@
   "name": "rebo-heroku",
   "version": "1.0.0",
   "description": "",
+  "node": "14.13.0",
+  "npm": "6.14.8",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
