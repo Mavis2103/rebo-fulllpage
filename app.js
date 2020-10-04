@@ -59,8 +59,6 @@ app.use(function (err, req, res, next) {
   console.log(error);
   console.log(err);
 });
-
-
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Server Started!" + port);

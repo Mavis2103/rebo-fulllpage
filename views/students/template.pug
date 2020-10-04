@@ -15,7 +15,7 @@ block content
             if(avatar==null)
               img.w-100.rounded-circle(src=`/st/images/60111.jpg`, alt='')
             else
-              img.w-100.rounded-circle(src=`/st/images/dbImage/avatar/${userID}`, alt='')
+              img.w-100.rounded-circle(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/avatar/${avatar}`, alt='')
           h3.mb-0.mr-3= username
           a(href="/logout").nav-link.px-2.py-1 Đăng xuất
         .time.text-secondary.mr-3.text-align-end

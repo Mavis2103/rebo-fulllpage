@@ -2,12 +2,8 @@ const db = require("../../config/mysql")
 const fs = require("fs")
 const path = require("path")
 const formidable = require("formidable")
-const cloudinary = require("cloudinary").v2;
-cloudinary.config({
-  cloud_name: 'mavis',
-  api_key: '746133862398682',
-  api_secret: 'akfBt9xXBme8L5JW1tn9cjePsMY'
-})
+// const cloudinary = require("cloudinary").v2;
+const cloud = require("../../config/cloudinary")
 /**----------------------------------------------------------------------------------------------- */
 const show_lesson = (req, res) => {
   let getLesson = "select*from Lesson inner join Category on Category.categoryID= Lesson.categoryID"
@@ -38,11 +34,10 @@ const new_lesson = (req, res) => {
         // fs.writeFile(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg, (err) => {
         //   if (err) throw err;
         // });
-        cloudinary.uploader.upload(file.lessonImage.path, {
+        cloud.uploader.upload(file.lessonImage.path, {
               public_id: `Database_REBO/lessonImage/${data.insertId}`
             }, (err, result) => {
           if (err) throw err;
-          console.log(result);
           res.redirect("/lesson_management");
         })
       })
@@ -63,9 +58,11 @@ const delete_lesson = (req, res) => {
   db.query(deleteLesson, [lessonID], (err, data) => {
     if (err) throw err;
     fs.unlink(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), (err) => {
-    if (err) throw err;
-    res.redirect("/lesson_management");
     });
+    cloud.uploader.destroy(`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${data.insertId}`, (err, result) => {
+      if (err) throw err;
+      res.redirect("/lesson_management");
+})
     });
 }
 module.exports = {

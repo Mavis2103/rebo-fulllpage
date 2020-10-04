@@ -46,7 +46,7 @@ block main
             td= lesson[i].lessonName
             td= lesson[i].categoryName
             td
-              img(src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, alt="",style={width:'100px'})
+              img(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${lesson[i].lessonID}`, alt="",style={width:'100px'})
             td= lesson[i].lessonDescription
             td
               a.btn.btn-link.btn-danger.nav-link.text-white(href=`/delete-lesson/${lesson[i].lessonID}`) Xoá
