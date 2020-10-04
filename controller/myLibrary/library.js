@@ -3,10 +3,14 @@ const show = (req, res) => {
   let get = "select*from Library_of_users where userID=?";
   db.query(get, [req.session.userID], (err, data) => {
     if (err) throw err;
-    let folder = JSON.parse(data[0].library_list);
-    res.render("students/myLibrary/myLibrary", {
-      folder,
-    });
+    if (data[0] == null) {
+      res.render("students/myLibrary/myLibrary");
+    } else {
+      let folder = JSON.parse(data[0].library_list);
+      res.render("students/myLibrary/myLibrary", {
+        folder,
+      });
+    }
   });
 };
 let arr = [];

@@ -25,15 +25,16 @@ section.row.library.my-4
               button#save.btn.btn-primary(type='submit')
                 | L&#x1B0;u
 section#folder.row.library
-  each val in folder
-    section.popover-folder.col-xl-3.col-lg-4.col-sm-6.mb-4
-      .folder-height.d-flex.align-items-center.justify-content-between.p-3.border.popover-folder-bg
-        .d-flex.align-items-center
-          i.far.fa-folder.mr-3(aria-hidden='true')
-          p.mb-0.text-align-start.folder_text-ellipsis= val.list.content
-        i.fas.fa-ellipsis-v.more
-          .more-bg
-      div
+  if(folder)
+    each val in folder
+      section.popover-folder.col-xl-3.col-lg-4.col-sm-6.mb-4
+        .folder-height.d-flex.align-items-center.justify-content-between.p-3.border.popover-folder-bg
+          .d-flex.align-items-center
+            i.far.fa-folder.mr-3(aria-hidden='true')
+            p.mb-0.text-align-start.folder_text-ellipsis= val.list.content
+          i.fas.fa-ellipsis-v.more
+            .more-bg
+        div
 section.row.library_card.my-4
   -
     var values = [
