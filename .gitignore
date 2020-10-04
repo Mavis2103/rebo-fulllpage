@@ -3,8 +3,8 @@
 logs
 *.log
 npm-debug.log*
-# node_modules/
+node_modules/
 .vscode
 /package.lcok.json
-.env
-public/images/dbImage
+# .env
+# public/images/dbImage
