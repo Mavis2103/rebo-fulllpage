@@ -7,9 +7,11 @@ const user_detail = (req, res, next) => {
     let detailUser = 'select username,email,phone_number,role,birthFrom from Account where userID = ?';
     let userID = req.session.userID;
     db.query(detailUser, [userID], (err, data) => {
+        if (err) throw err;
         res.render("students/profile/profile-tab/user-detail", {
             detail: data,
-            userID: userID
+            userID: userID,
+                avatar: req.session.avatar
         })
     })
 }

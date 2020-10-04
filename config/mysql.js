@@ -6,10 +6,9 @@ const connection = mysql.createPool({
   database: process.env.DB_DB,
   multipleStatements: true,
 });
-
-// connection.connect(err => {
-//     if (err) throw err;
-//     console.log(`Connected MySQL !!!`);
-// })
+connection.getConnection(err => {
+  if (err) throw err;
+  console.log(`Connected MySQL !!!`);
+})
 
 module.exports = connection;
