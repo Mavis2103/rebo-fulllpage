@@ -2,6 +2,13 @@ const db = require("../../config/mysql")
 const fs = require("fs")
 const path = require("path")
 const formidable = require("formidable")
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: 'mavis',
+  api_key: '746133862398682',
+  api_secret: 'akfBt9xXBme8L5JW1tn9cjePsMY'
+})
+/**----------------------------------------------------------------------------------------------- */
 const show_lesson = (req, res) => {
   let getLesson = "select*from Lesson inner join Category on Category.categoryID= Lesson.categoryID"
   let getCategory = "select*from Category";
@@ -23,16 +30,21 @@ const new_lesson = (req, res) => {
     let lessonName = fields.lessonName;
     let categoryID = fields.categoryID;
     let lessonDescription = fields.lessonDescription;
-    let lessonImg = fs.readFileSync(file.lessonImage.path);
-
+    let lessonImg = file.lessonImage.name;
     if (file.lessonImage.size > 0) {
       let newLesson = "insert into Lesson (lessonName,userID,categoryID,lessonImage,lessonDescription) value(?,?,?,?,?)";
       db.query(newLesson, [lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription], (err, data) => {
         if (err) throw err;
-        fs.writeFile(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg, (err) => {
+        // fs.writeFile(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg, (err) => {
+        //   if (err) throw err;
+        // });
+        cloudinary.uploader.upload(file.lessonImage.path, {
+              public_id: `Database_REBO/lessonImage/${data.insertId}`
+            }, (err, result) => {
           if (err) throw err;
+          console.log(result);
           res.redirect("/lesson_management");
-        });
+        })
       })
     } else {
       let newLesson = "insert into Lesson (lessonName,userID,categoryID,lessonDescription) value(?,?,?,?)";
