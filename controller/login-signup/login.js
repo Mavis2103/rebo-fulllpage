@@ -12,6 +12,7 @@ const login = (req, res, next) => {
                 req.session.userID = data[0].userID;
                 req.session.username = data[0].username;
                 req.session.role = data[0].role;
+                req.session.avatar = data[0].avatar;
                 if (data[0].role == 'admin') {
                     res.redirect("/users_management")
                 } else {

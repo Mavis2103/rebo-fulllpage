@@ -25,7 +25,7 @@ section.row.library.my-4
               button#save.btn.btn-primary(type='submit')
                 | L&#x1B0;u
 section#folder.row.library
-  if(folder)
+  if(folder != null)
     each val in folder
       section.popover-folder.col-xl-3.col-lg-4.col-sm-6.mb-4
         .folder-height.d-flex.align-items-center.justify-content-between.p-3.border.popover-folder-bg

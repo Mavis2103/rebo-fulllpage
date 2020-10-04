@@ -1,6 +1,7 @@
-// const createError = require("http-errors");
-var bodyParser = require('body-parser')
+const createError = require("http-errors");
+const bodyParser = require("body-parser");
 const express = require("express");
+const favicon = require("serve-favicon");
 const session = require("express-session")
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -26,7 +27,7 @@ app.use(cookieParser());
 
 app.use("/md", express.static(path.join(__dirname, '/node_modules')));
 app.use("/st", express.static(path.join(__dirname, '/public')));
-
+app.use(favicon(path.join(__dirname, "public", "/images/appicon.png")));
 // session
 app.use(session({
   name: 'session-id',
@@ -42,9 +43,9 @@ app.use(session({
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
-// app.use(function (req, res, next) {
-//   next(createError(404));
-// });
+app.use(function (req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function (err, req, res, next) {

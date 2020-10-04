@@ -31,7 +31,8 @@ router.get("/", function (req, res, next) {
 router.get("/template", function (req, res, next) {
   res.render("students/template", {
     username: req.session.username,
-    userID: req.session.userID
+    userID: req.session.userID,
+      avatar: req.session.avatar
   });
 });
 router.get("/dashboard", function (req, res, next) {
