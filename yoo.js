@@ -22,11 +22,11 @@ const arr = [{
 ]
 
 function findValue(array) {
-  return array.id == 1;
+  return array.id == 3;
 }
-// console.log(arr.findIndex(findValue));
+console.log(arr.findIndex(findValue));
 // arr.splice((arr.findIndex(findValue)), 1)
-// console.log(arr);
+console.log(arr);
 
 // const {
 //   v5: uuid,
@@ -39,6 +39,6 @@ function findValue(array) {
 // console.log(str.split('-').join(''));
 // console.log('https://www.w3.org/', uuid.URL);
 
-arr[0]['id'] = 5
+// arr[0]['id'] = 5
 
-console.log(arr);
+// console.log(arr);

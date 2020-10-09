@@ -22,7 +22,7 @@ router.use("/myLibrary", myLibrary)
 
 router.get("/logout", (req, res, next) => {
   req.session.destroy();
-  res.redirect("/")
+  res.redirect("/login-signup")
 })
 
 router.get("/", function (req, res, next) {

@@ -9,7 +9,7 @@ const user_detail = (req, res, next) => {
     let detailUser = 'select username,email,phone_number,role,birthFrom,avatar from Account where userID = ?';
     let userID = req.session.userID;
     db.query(detailUser, [userID], (err, data) => {
-        if (err) throw err;
+        if (err) return next(err);
         res.render("students/profile/profile-tab/user-detail", {
             detail: data,
             userID: userID,
@@ -34,18 +34,18 @@ const update_user_detail = (req, res, next) => {
           cloud.uploader.upload(files.avatar.path, {
                 public_id: `Database_REBO/avatar/${req.session.userID}`
               }, (err, result) => {
-            if (err) throw err;
+            if (err) return next(err);
             let updateUser = "update Account set username=?,email=?,phone_number=?,birthFrom=?,avatar=? where userID=?";
             let dataAvatar = `${req.session.userID}.${result.format}`;
             db.query(updateUser, [username, email, phone_number, birthFrom, dataAvatar, userID], (err, data) => {
-              if (err) throw err;
+              if (err) return next(err);
               res.redirect("/profile")
             })
           })
         } else {
             let updateUser = "update Account set username=?,email=?,phone_number=?,birthFrom=? where userID=?";
             db.query(updateUser, [username, email, phone_number, birthFrom, userID], (err, data) => {
-                if (err) throw err;
+                if (err) return next(err);
                 res.redirect("/profile")
             })
         }

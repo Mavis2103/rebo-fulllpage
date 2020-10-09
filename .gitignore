@@ -8,3 +8,4 @@ node_modules/
 /package.lcok.json
 # .env
 # public/images/dbImage
+prepros.config

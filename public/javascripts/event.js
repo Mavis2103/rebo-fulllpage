@@ -12,13 +12,13 @@ var date = function date() {
 	var dates = document.getElementsByClassName('date')[0];
 	var month = document.getElementsByClassName('month')[0];
 	var year = document.getElementsByClassName('year')[0];
-	seconds.innerHTML = date.getSeconds();
-	minutes.innerHTML = date.getMinutes();
-	hours.innerHTML = date.getHours();
-	day.innerHTML = date.getDay() + 1;
-	dates.innerHTML = date.getDate();
-	month.innerHTML = date.getMonth() + 1; // 0-11
-	year.innerHTML = date.getFullYear();
+	seconds.textContent = date.getSeconds();
+	minutes.textContent = date.getMinutes();
+	hours.textContent = date.getHours();
+	day.textContent = date.getDay() + 1;
+	dates.textContent = date.getDate();
+	month.textContent = date.getMonth() + 1; // 0-11
+	year.textContent = date.getFullYear();
 };
 
 // function Dates() {

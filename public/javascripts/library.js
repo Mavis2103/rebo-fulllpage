@@ -1,4 +1,8 @@
-(async () => {
+// const {
+// 	default: fetch
+// } = require("node-fetch");
+
+(() => {
 // 	document.getElementById('save').addEventListener('click', function () {
 // 		var formInput = document.getElementById('form_new_folder-input');
 // 		var folderName = formInput.value.trim();
@@ -46,7 +50,8 @@
 	var specifiedElement_parent = document.querySelectorAll('.popover-folder div+div');
 	//I'm using "click" but it works with any event
 	document.addEventListener('click', function (event) {
-		for (let index = 0; index < specifiedElement.length; index++) {
+	let specLength = specifiedElement.length;
+	for (let index = 0; index < specLength; index++) {
 			const element = specifiedElement[index];
 			const element_bg = specifiedElement_bg[index];
 			const element_parent = specifiedElement_parent[index];
@@ -61,7 +66,7 @@
 				// 	element_bg.style.backgroundColor = '#908F90';
 				// }
 				element_parent.innerHTML = "<nav class='folder_popup' ></nav>";
-				element_child();
+				element_child(index);
 				element_bg.style.backgroundColor = '#908F90';
 			} else {
 				element_parent.innerHTML = '';
@@ -70,14 +75,17 @@
 		}
 	});
 
-	function element_child() {
-		var popover_parent_class = document.getElementsByClassName('folder_popup')[0];
-		var popover_icon = ['fa-folder-open', 'fa-file-archive', 'fa-trash-alt'];
-		var char = ['Browse', 'Download', 'Delete'];
-		for (let i = 0; i < char.length; i++) {
+async function element_child(index) {
+	var popover_parent_class = document.getElementsByClassName('folder_popup')[0];
+	var popover_icon = ['fa-folder-open', 'fa-file-archive', 'fa-trash-alt'];
+	var char = ['Browse', 'Download', 'Delete'];
+	let charLength = char.length;
+	let r = await fetch('/api/getFolder');
+	let d = await r.json();
+	for (let i = 0; i < charLength; i++) {
 			const element = char[i];
 			const element_icon = popover_icon[i];
-			popover_parent_class.innerHTML += '<a> <i class="far ' + element_icon + '" aria-hidden="true"></i>' + element + '</a>';
+			popover_parent_class.innerHTML += `<a href='/myLibrary/${element.toLowerCase()}/${d[index].id}' class="text-decoration-none text-dark"> <i class="far ${element_icon}" aria-hidden="true"></i> ${element}</a>`;
 		}
 	}
 })();

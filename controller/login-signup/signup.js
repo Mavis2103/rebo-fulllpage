@@ -16,7 +16,7 @@ const signup = (req, res, next) => {
         bcrypt.hash(password, salt, (err, hash) => {
             let createUser = "insert into Account (userID,username,password,email,role) value(?,?,?,?,?)";
             db.query(createUser, [userID, username, hash, email, role], (error, data, field) => {
-                if (error) throw error;
+                if (error) return next(err);
                 res.redirect("/login-signup")
             })
         })

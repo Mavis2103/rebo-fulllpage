@@ -9,6 +9,8 @@ router.route('/user/login-success')
   .get(login_success)
 
 /**------------------------------- */
-const getFolder = require('./getFolder')
+const {
+  getFolder,
+} = require('./folder')
 router.get('/getFolder', getFolder)
 module.exports = router;

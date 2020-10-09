@@ -4,7 +4,6 @@ const login_success = (req, res, next) => {
   let getUser = " select username,avatar from Account where userID=?";
   db.query(getUser, [req.session.userID], (err, data) => {
     if (err) return next(err);
-    console.log(data);
     res.json(data);
   });
   // res.send({

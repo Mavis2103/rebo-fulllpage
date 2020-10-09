@@ -6,7 +6,7 @@ const login = (req, res, next) => {
     let password = req.query.password;
     let getUser = "select*from Account where email =?";
     db.query(getUser, [email], (error, data, field) => {
-        if (error) throw error;
+        if (error) return next(err);
         bcrypt.compare(password, data[0].password, (err, result) => {
             if (result) {
                 req.session.userID = Buffer.from((data[0].userID), 'hex').toString('utf8');
