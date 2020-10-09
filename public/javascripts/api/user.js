@@ -22,7 +22,7 @@ const user = async () => {
       if (data.avatar != null) {
         ava.src = `https://res.cloudinary.com/mavis/image/upload/Database_REBO/avatar/${data.avatar}`
       } else {
-        ava.src = `/st/images/60111.jpg`
+        ava.src = `https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg`
       }
     } else {
       console.log("ERROR");
