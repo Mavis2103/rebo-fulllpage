@@ -1,11 +1,11 @@
 extends ../main/layout.pug
 block append stylesheet
-  link(rel='stylesheet', href='/st/stylesheets/style.min.css')
+  link(rel='stylesheet', href='/st/stylesheets/style.min.css',as='style')
 block content
   #loading-bg
       .loading
   section.container-fluid
-    .row
+    .row.overflow-hidden
       section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
         section.d-flex.justify-content-end.align-items-center.py-3
           #expand(onclick='toggle()')
@@ -13,10 +13,10 @@ block content
           input#darkmode.mr-4.shadow(type='checkbox', name='')
           .ava-small.mr-4
             if(avatar==null)
-              img.w-100.rounded-circle(src=`/st/images/60111.jpg`, alt='')
+              img#ava.w-100.rounded-circle(src=`/st/images/60111.jpg`, alt='')
             else
               img.w-100.rounded-circle(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/avatar/${avatar}`, alt='')
-          h3.mb-0.mr-3= username
+          h3#username.mb-0.mr-3= username
           a(href="/logout").nav-link.px-2.py-1 Đăng xuất
         .time.text-secondary.mr-3.text-align-end
           span.hours 00
@@ -34,6 +34,7 @@ block content
           span.year 0000
         .px-3
           main#content
+            block main
       section#menu.d-none.d-lg-block.col-12.col-sm-4.col-lg-2.menu.border-right.order-lg-1
         .row.mt-3.mb-3.px-3
           .col-12.d-flex.align-items-center
@@ -42,23 +43,21 @@ block content
         .row
           .col-12
             ul.list-group
-              label(for='dashboard')
+              a(href="/dashboard", title='dashboard').card-link
                 li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
-                  input#dashboard(type='radio', name='clicked', hidden='', checked='')
                   i.fas.fa-chart-bar
                   h5.mb-0.ml-3 T&#x1ED5;ng Quan
-              mixin menuItem(idName,icon,title)
-                label(for= idName)
+              mixin menuItem(idName,icon,title,link)
+                a(href=link, title=idName).card-link.ml-0
                   li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
-                    input(id= idName,type='radio', name='clicked', hidden='')
                     i(class= icon)
                     h5.mb-0.ml-3= title
-              +menuItem('classes','fas fa-chalkboard-teacher','Thư viện')
-              +menuItem('lesson','far fa-edit','Bài học')
-              +menuItem('tool','fas fa-tools','Công cụ')
-              +menuItem('library','far fa-folder','Thư viện của tôi')
-              +menuItem('profile','far fa-user-circle','Thông tin cá nhân')
-              +menuItem('support','far fa-smile-beam','Quà tặng')
+              +menuItem('classes','fas fa-chalkboard-teacher','Thư viện','/library')
+              +menuItem('lesson','far fa-edit','Bài học','/lesson')
+              +menuItem('tool','fas fa-tools','Công cụ','/tools')
+              +menuItem('library','far fa-folder','Thư viện của tôi','/myLibrary')
+              +menuItem('profile','far fa-user-circle','Thông tin cá nhân','/profile')
+              +menuItem('gift','far fa-smile-beam','Quà tặng','/gift')
         .row.my-3
           .col-12
             .card.shadow-lg.border-0.rounded-15px
@@ -83,3 +82,5 @@ block script
   script(src='/st/javascripts/loading.js', async)
   script(src='/st/javascripts/event.js', defer)
   script(src='/st/javascripts/swiper.js')
+  script(src='/st/javascripts/api/user.js')
+  script(src='/st/javascripts/main.js', type='module')

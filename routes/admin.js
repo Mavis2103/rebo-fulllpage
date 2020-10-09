@@ -18,7 +18,10 @@ const {
   delete_category,
   detail_category,
   update_category
-} = require("../controller/admin/management_category")
+} = require("../controller/admin/management_category");
+const {
+  data
+} = require("jquery");
 // USER
 router.get("/users_management", show_user)
 router.get("/delete-user/:userID", delete_user)
@@ -37,4 +40,10 @@ router.get("/delete-category/:categoryID", delete_category)
 router.route("/category/:categoryID")
   .get(detail_category)
   .post(update_category)
+router.post('/test', (req, res) => {
+  res.send({
+    name: 'yo',
+    age: 19
+  })
+})
 module.exports = router

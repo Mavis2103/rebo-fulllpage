@@ -1,4 +1,8 @@
 const db = require("../../config/mysql")
+const {
+  v4: uuidv4,
+  v5: uuidv5
+} = require('uuid')
 const show_category = (req, res) => {
   let getCategory = "select*from Category"
   db.query(getCategory, (err, data) => {
@@ -9,9 +13,12 @@ const show_category = (req, res) => {
   })
 }
 const new_category = (req, res) => {
+  let namespace = '803ef784-bf88-40c5-8c42-ee68463ac17b';
+  let id = uuidv5(uuidv4(), namespace)
+  let categoryID = id.split('-').join('')
   let categoryName = req.body.categoryName;
-  let createCategory = "insert into Category (categoryName) value(?)";
-  db.query(createCategory, [categoryName], (err, data) => {
+  let createCategory = "insert into Category (categoryID,categoryName) value(?,?)";
+  db.query(createCategory, [categoryID, categoryName], (err, data) => {
     if (err) throw err;
     res.redirect("/category_management")
   })

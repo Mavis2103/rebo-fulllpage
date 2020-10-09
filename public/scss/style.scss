@@ -5,12 +5,14 @@
 @import 'custom-bs4.scss';
 @import 'swiper.scss';
 
+$menu:255px;
+
 body {
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
     -ms-user-select: none;
     user-select: none;
-}
+  }
 
 .title_feature {
     font-size: 2em;
@@ -139,7 +141,6 @@ body {
 }
 
 @import 'dashboard.scss';
-
 @import 'mylibrary.scss';
 @import 'profile.scss';
 @import 'style2.scss';

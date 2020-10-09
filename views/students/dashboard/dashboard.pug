@@ -1,86 +1,89 @@
-.row.dashboard.mt-4
-  section.col-12
-    .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
-      h3.font-weight-bold.title_feature T&#x1ED5;ng quan
-  section.col-lg-12.mx-auto.mt-5
-    .welcome.rounded-15px.shadow
-      .row.flex-md-row-reverse
-        .col-md-4.position-relative
-          img(src="/st/images/2650149-removebg_1.png", alt="").mr-md-5.mt-4.mt-md-0
-        .col-md-8.py-4.px-5
-          h2 Trải nghiệm học tập trên ứng dụng REBO AR
-          p Mới lạ, sinh động và nhiều hơn nữa.
-          p.mb-3 Tham gia cùng với 3 ngàn học sinh khác tại Việt Nam
-          a.btn.btn-primary(name='', id='', href='#', role='button',style={width:'150px',height:'40px'}).font-weight-bold.rounded-15px Tải về
-  section.col-12
-    .row.mt-5
-      .col-md-6
-        .swiper-container.rounded-15px.shadow
-          .swiper-wrapper
-            -
-              var values = [
-                {imgSwiper:'/st/images/add_class_img_1.png',contentSwiper:'Thư viện kho Bài giảng, Giáo án, E-learning, Bài thuyết trình dành riêng cho Dạy và Học'},
-                {imgSwiper:'/st/images/add_class_img_2.png',contentSwiper:'Công cụ thiết kế bài giảng, thuyết trình trực tuyến lý tưởng dành cho Giáo viên và học sinh'},
-                {imgSwiper:'/st/images/add_class_img_3.png',contentSwiper:'Thư viện kho bài giảng, bài thuyết trình dành cho Giáo viên và Học sinh'},
-              ]
-            each val in values
-              .swiper-slide.flex-column
-                h5 Dành cho bạn
-                img(src=val.imgSwiper, alt="",style={height:'130px'}).mb-4
-                p(style={width:'300px'}) #{val.contentSwiper}
-          // Add Pagination
-          .swiper-pagination
-          .swiper-button-next
-          .swiper-button-prev
-      .col-md-6.mt-md-0.mt-5
-        .lesson__recently.h-100.shadow.rounded-15px.py-4.px-4
-          h5.text-center.mb-4 Bài học của bạn gần đây
-          - var on_off = 'off'
-          if on_off=='off'
-            .w-100.mb-4
-              img.mx-auto.d-block(src="/st/images/invoice_maker_2x-removebg-preview_1.png", alt="",style={height:'150px'})
-            p(style={'font-size':'20px'}).text-center Bạn chưa có bài học nào
-          else
-            -
-              var values = [
-                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
-                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
-                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
-                {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
-              ]
-            each val in values
-              .d-flex.justify-content-between.align-items-center.border-bottom(style={height:'50px'})
-                .lesson__recently__detail.d-flex
-                  .lesson__recently--icon.mr-2
-                    i.fas.fa-book
-                  .lesson__recently--name
-                    strong.mr-2= val.recentlyNameBold
-                    span=val.recentlyName
-                .lesson__recently--progress
-                  .progress
-                    .progress-bar(role='progressbar', style=`width: ${val.recentlyProgress}%`, aria-valuenow=`${val.recentlyProgress}`, aria-valuemin='0', aria-valuemax='100')
+extends ../template.pug
+block main
+  .row.dashboard.mt-4
+    section.col-12
+      .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
+        h3.font-weight-bold.title_feature T&#x1ED5;ng quan
+    section.col-lg-12.mx-auto.mt-5
+      .welcome.rounded-15px.shadow
+        .row.flex-md-row-reverse
+          .col-md-4.position-relative
+            img(src="/st/images/2650149-removebg_1.png", alt="").mr-md-5.mt-4.mt-md-0
+          .col-md-8.py-4.px-5
+            h2 Trải nghiệm học tập trên ứng dụng REBO AR
+            p Mới lạ, sinh động và nhiều hơn nữa.
+            p.mb-3 Tham gia cùng với 3 ngàn học sinh khác tại Việt Nam
+            a.btn.btn-primary(name='', id='', href='#', role='button',style={width:'150px',height:'40px'}).font-weight-bold.rounded-15px Tải về
+    section.col-12
+      .row.mt-5
+        .col-md-6
+          .swiper-container.rounded-15px.shadow
+            .swiper-wrapper
+              -
+                var values = [
+                  {imgSwiper:'/st/images/add_class_img_1.png',contentSwiper:'Thư viện kho Bài giảng, Giáo án, E-learning, Bài thuyết trình dành riêng cho Dạy và Học'},
+                  {imgSwiper:'/st/images/add_class_img_2.png',contentSwiper:'Công cụ thiết kế bài giảng, thuyết trình trực tuyến lý tưởng dành cho Giáo viên và học sinh'},
+                  {imgSwiper:'/st/images/add_class_img_3.png',contentSwiper:'Thư viện kho bài giảng, bài thuyết trình dành cho Giáo viên và Học sinh'},
+                ]
+              each val in values
+                .swiper-slide.flex-column
+                  h5 Dành cho bạn
+                  img(src=val.imgSwiper, alt="",style={height:'130px'}).mb-4
+                  p(style={width:'300px'}) #{val.contentSwiper}
+            // Add Pagination
+            .swiper-pagination
+            .swiper-button-next
+            .swiper-button-prev
+        .col-md-6.mt-md-0.mt-5
+          .lesson__recently.h-100.shadow.rounded-15px.py-4.px-4
+            h5.text-center.mb-4 Bài học của bạn gần đây
+            - var on_off = 'off'
+            if on_off=='off'
+              .w-100.mb-4
+                img.mx-auto.d-block(src="/st/images/invoice_maker_2x-removebg-preview_1.png", alt="",style={height:'150px'})
+              p(style={'font-size':'20px'}).text-center Bạn chưa có bài học nào
+            else
+              -
+                var values = [
+                  {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                  {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                  {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                  {recentlyNameBold:'Bài 2 - Chương 1',recentlyName:'Môn Sinh học lớp 11',recentlyProgress:25},
+                ]
+              each val in values
+                .d-flex.justify-content-between.align-items-center.border-bottom(style={height:'50px'})
+                  .lesson__recently__detail.d-flex
+                    .lesson__recently--icon.mr-2
+                      i.fas.fa-book
+                    .lesson__recently--name
+                      strong.mr-2= val.recentlyNameBold
+                      span=val.recentlyName
+                  .lesson__recently--progress
+                    .progress
+                      .progress-bar(role='progressbar', style=`width: ${val.recentlyProgress}%`, aria-valuenow=`${val.recentlyProgress}`, aria-valuemin='0', aria-valuemax='100')
 
-  section.col-lg-12
-    .my-5.p-3.rounded-15px.shadow.course-bg
-      .d-flex.justify-content-between
-        h3.mb-0.font-weight-bold Your courses
-        .d-flex.align-items-center
-          p.mb-0.mr-3 More
-          i.fa.fa-arrow-right(aria-hidden='true')
-      .row.mt-4
-        -
-          var values =[
-            {point:70,sub_title:'Business English',title:'Grammar'},
-            {point:70,sub_title:'English',title:'Grammar'},
-            {point:70,sub_title:'Business English',title:'Grammar'},
-          ]
-        each val in values
-          .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
-            .card.bg-cornflower-blue.d-flex.flex-row.rounded-15px.text-white
-              .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center= val.point
-              .card-body.bg-clear
-                p.mb-1= val.sub_title
-                h3= val.title
+    section.col-lg-12
+      .my-5.p-3.rounded-15px.shadow.course-bg
+        .d-flex.justify-content-between
+          h3.mb-0.font-weight-bold Your courses
+          .d-flex.align-items-center
+            p.mb-0.mr-3 More
+            i.fa.fa-arrow-right(aria-hidden='true')
+        .row.mt-4
+          -
+            var values =[
+              {point:70,sub_title:'Business English',title:'Grammar'},
+              {point:70,sub_title:'English',title:'Grammar'},
+              {point:70,sub_title:'Business English',title:'Grammar'},
+            ]
+          each val in values
+            .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
+              .card.bg-cornflower-blue.d-flex.flex-row.rounded-15px.text-white
+                .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center= val.point
+                .card-body.bg-clear
+                  p.mb-1= val.sub_title
+                  h3= val.title
+block append script
+  script(src='/st/javascripts/chart.js')
+  script(src='/st/javascripts/swiper.js')
 
-script(src='/st/javascripts/chart.js')
-script(src='/st/javascripts/swiper.js')

@@ -1,4 +1,7 @@
 const db = require("../../config/mysql");
+const {
+  v4: uuid
+} = require('uuid')
 const show = (req, res) => {
   let get = "select*from Library_of_users where userID=?";
   db.query(get, [req.session.userID], (err, data) => {
@@ -13,41 +16,40 @@ const show = (req, res) => {
     }
   });
 };
-let arr = [];
 const createFolder = (req, res) => {
+  let arr = [];
   let json = {
-    id: req.session.userID,
+    id: uuid(),
     list: {
-      content: req.body.folderName,
+      content: req.body.name,
     },
   };
   arr.push(json);
-  // console.log(arr);
-  // console.log(JSON.stringify(arr));
-  // console.log(req.session.userID);
   let create = "insert into Library_of_users value(?,?)";
   let get = "select*from Library_of_users where userID=?";
   let update = "update Library_of_users set library_list=? where userID=?";
-  if (req.body.folderName) {
+  if (req.body.name) {
     db.query(get, [req.session.userID], (err, data) => {
       if (err) throw err;
       if (data[0] == null) {
         let arr = [json];
         db.query(create, [req.session.userID, JSON.stringify(arr)], (err, data) => {
           if (err) throw err;
-          res.redirect("/template");
+          res.json(data)
         });
       } else {
         let arr = JSON.parse(data[0].library_list);
         arr.push(json);
         db.query(update, [JSON.stringify(arr), req.session.userID], (err, data) => {
           if (err) throw err;
-          res.redirect("/template");
+          res.json(data)
         });
       }
     });
   } else {
-    res.redirect("/template");
+    res.json({
+      status: 'failed'
+    })
   }
 };
 module.exports = {

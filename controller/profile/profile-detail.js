@@ -39,14 +39,14 @@ const update_user_detail = (req, res, next) => {
             let dataAvatar = `${req.session.userID}.${result.format}`;
             db.query(updateUser, [username, email, phone_number, birthFrom, dataAvatar, userID], (err, data) => {
               if (err) throw err;
-              res.redirect("/template")
+              res.redirect("/profile")
             })
           })
         } else {
             let updateUser = "update Account set username=?,email=?,phone_number=?,birthFrom=? where userID=?";
             db.query(updateUser, [username, email, phone_number, birthFrom, userID], (err, data) => {
                 if (err) throw err;
-                res.redirect("/template")
+                res.redirect("/profile")
             })
         }
     })

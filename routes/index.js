@@ -28,15 +28,8 @@ router.get("/logout", (req, res, next) => {
 router.get("/", function (req, res, next) {
   res.render("main/index");
 });
-router.get("/template", function (req, res, next) {
-  res.render("students/template", {
-    username: req.session.username,
-    userID: req.session.userID,
-      avatar: req.session.avatar
-  });
-});
 router.get("/dashboard", function (req, res, next) {
-  res.render("students/dashboard/dashboard");
+      res.render("students/dashboard/dashboard");
 });
 router.get("/library", function (req, res, next) {
   res.render("students/library/library");

@@ -1,65 +1,66 @@
-.row.lesson.mt-4
-  section.col-12
-    .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
-      h3.font-weight-bold.title_feature B&agrave;i h&#x1ECD;c
-  section.col-12.mt-5
-    .row.categories
-      each val in ['Sinh học','Toán','Tiếng Anh','Ngữ văn','Hóa học','Vật lý']
-        .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
-          .btn.categories_btn-bg
-            p.categories__title= val
-  section.col-12
-    .title.d-flex.justify-content-between.align-items-baseline
-      h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c h&ocirc;m nay
-      a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
-    .row.todayLesson
-      -
-        var values=[{imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
-                    {imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
-                    {imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
-      each val in values
-        .col-md-4.mb-3.mb-md-0
-          #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px.bg-clear
-            .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
-              .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
-                img.w-100.h-100.todayLesson__img(src= val.imageLesson, alt='')
-              .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
-                .todayLesson__title.d-flex.justify-content-between
-                  h4.todayLesson__title--small= val.nameLesson
-                  i.fa.fa-ellipsis-v.mr-0
-                .todayLesson__body.d-flex.justify-content-between.w-100
-                  .todayLesson__author
-                    p.text-gray.mb-0.text-nowrap T&aacute;c gi&#x1EA3;
-                    h5.mb-0= val.author
-                  .todayLesson__process.d-flex.flex-column.justify-content-center
-                    .process-bar
-                      .progress
-                        .progress-bar(role='progressbar', style=`width:${val.process}%;`, aria-valuenow=`${val.process}`, aria-valuemin='0', aria-valuemax='100')
-                    p.text-gray.mt-1.mb-0.text-nowrap.text-align-end= val.process
-  section.col-12
-    .title.d-flex.justify-content-between.align-items-baseline
-      h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
-      a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
-    .row.registeredLesson
-      -for(let i in lesson){
-        .col-lg-3.col-md-4.col-sm-6.mb-4
-          a.text-decoration-none(href='#')
-            .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-              .card-body
-                .registeredLesson__img
-                  img(src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, alt='')
-                .registeredLesson__body.mt-3
-                  h4= lesson[i].lessonName
-                  h5= lesson[i].username
-                  .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                    .registeredLesson__stars
-                      each _ in Array(5)
-                        i.far.fa-star
-                    .registeredLesson__btn
-                      .btn.d-flex.justify-content-center
-                        | &Dstrok;&abreve;ng k&yacute;
-      -}
-script.
+extends ../template.pug
+block main
+  .row.lesson.mt-4
+    section.col-12
+      .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
+        h3.font-weight-bold.title_feature B&agrave;i h&#x1ECD;c
+    section.col-12.mt-5
+      .row.categories
+        each val in ['Sinh học','Toán','Tiếng Anh','Ngữ văn','Hóa học','Vật lý']
+          .col-4.col-sm-3.col-md-2.mb-3.mb-md-0.px-md-3
+            .btn.categories_btn-bg
+              p.categories__title= val
+    section.col-12
+      .title.d-flex.justify-content-between.align-items-baseline
+        h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c h&ocirc;m nay
+        a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
+      .row.todayLesson
+        -
+          var values=[{imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:25},
+                      {imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:50},
+                      {imageLesson:'/st/images/60111.jpg',nameLesson:'UX &amp; Web Design Master Course',author:'Kha Le',process:80}]
+        each val in values
+          .col-md-4.mb-3.mb-md-0
+            #todayLessonCard.card.todayLesson__card.border-0.shadow-lite.rounded-15px.bg-clear
+              .row.todayLesson__detail.p-xl-3.p-md-2.p-3.pr-3
+                .col-5.col-md-5.col-sm-4.pr-xl-3.pr-2
+                  img.w-100.h-100.todayLesson__img(src= val.imageLesson, alt='')
+                .col-7.col-md-7.col-sm-8.todayLesson__info.pl-0.d-flex.flex-column.justify-content-between
+                  .todayLesson__title.d-flex.justify-content-between
+                    h4.todayLesson__title--small= val.nameLesson
+                    i.fa.fa-ellipsis-v.mr-0
+                  .todayLesson__body.d-flex.justify-content-between.w-100
+                    .todayLesson__author
+                      p.text-gray.mb-0.text-nowrap T&aacute;c gi&#x1EA3;
+                      h5.mb-0= val.author
+                    .todayLesson__process.d-flex.flex-column.justify-content-center
+                      .process-bar
+                        .progress
+                          .progress-bar(role='progressbar', style=`width:${val.process}%;`, aria-valuenow=`${val.process}`, aria-valuemin='0', aria-valuemax='100')
+                      p.text-gray.mt-1.mb-0.text-nowrap.text-align-end= val.process
+    section.col-12
+      .title.d-flex.justify-content-between.align-items-baseline
+        h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
+        a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
+      .row.registeredLesson
+        -for(let i in lesson){
+          .col-lg-3.col-md-4.col-sm-6.mb-4
+            a.text-decoration-none(href='#')
+              .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
+                .card-body
+                  .registeredLesson__img
+                    img(src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, alt='')
+                  .registeredLesson__body.mt-3
+                    h4= lesson[i].lessonName
+                    h5= lesson[i].username
+                    .registeredLesson__regis.d-flex.align-items-center.justify-content-between
+                      .registeredLesson__stars
+                        each _ in Array(5)
+                          i.far.fa-star
+                      .registeredLesson__btn
+                        .btn.d-flex.justify-content-center
+                          | &Dstrok;&abreve;ng k&yacute;
+        -}
 //-   $('#todayLessonCard').click(function () {
 //-   $('#content').load('/html/lesson-detail.html');
 //-   });
