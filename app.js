@@ -6,11 +6,11 @@ const session = require("express-session")
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const app = express();
-const logger = require("morgan");
+// const logger = require("morgan");
 const compression = require("compression");
 const helmet = require("helmet");
 
-app.use(logger("dev"));
+// app.use(logger("dev"));
 
 require("dotenv").config();
 
