@@ -72,9 +72,21 @@ const deleteFolder = (req, res, next) => {
   })
 }
 
+const openFolder = (req, res, next) => {
+  let id = req.params.id;
+  db.query('select library_list from Library_of_users where userID = ?', [req.session.userID], (err, data) => {
+    if (err) return next(err);
+    let arr = JSON.parse(data[0].library_list)[0]
+    res.render('students/myLibrary/contentFolder', {
+      arr
+    })
+  })
+}
+
 /**--------------------------------- */
 module.exports = {
   show,
   createFolder,
-  deleteFolder
+  deleteFolder,
+  openFolder
 };
