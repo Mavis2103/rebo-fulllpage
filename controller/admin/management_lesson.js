@@ -63,10 +63,11 @@ const new_lesson = (req, res, next) => {
 }
 const delete_lesson = (req, res, next) => {
   let lessonID = req.params.lessonID;
+  console.log(lessonID);
   let deleteLesson = "delete from Lesson where lessonID=?";
-  db.query(deleteLesson, [lessonID], (err, data) => {
-    if (err) return next(err);
-    cloud.uploader.destroy(`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lessonID}`, (err, result) => {
+  db.query(deleteLesson, [lessonID], (error, data) => {
+    if (error) return next(err);
+    cloud.uploader.destroy(`Database_REBO/lessonImage/${lessonID}`, (err, result) => {
       if (err) return next(err);
       res.redirect("/lesson_management");
   })

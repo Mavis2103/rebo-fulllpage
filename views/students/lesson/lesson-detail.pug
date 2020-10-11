@@ -1,0 +1,22 @@
+extends ../template.pug
+block main
+  .row.mt-4
+    section.col-12
+      .bg-dark.d-flex.p-3.text-white.justify-content-between
+        div.w-50
+          h1= detail.lessonName
+          if(detail.lessonDescription)
+            h2= detail.lessonDescription
+          else
+            h2 *Không có mô tả
+          .star.mb-2
+            each _ in Array(5)
+              i.far.fa-star 
+            |  (3,049 ratings) 118,418 students
+          h3.auth.mb-2
+            | Tạo bởi #{detail.username}
+          .last_updated.mb-2
+            i.fas.fa-exclamation-circle
+            |  Cập nhập mới nhất 9/2020
+        div
+          img(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${detail.lessonID}`, alt="",style={width:'350px'}).mr-lg-5

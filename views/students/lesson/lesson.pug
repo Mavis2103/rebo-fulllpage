@@ -45,7 +45,7 @@ block main
       .row.registeredLesson
         -for(let i in lesson){
           .col-lg-3.col-md-4.col-sm-6.mb-4
-            a.text-decoration-none(href='#')
+            a.text-decoration-none(href=`/lesson/${lesson[i].lessonID}`)
               .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
                 .card-body
                   .registeredLesson__img
@@ -58,8 +58,6 @@ block main
                         each _ in Array(5)
                           i.far.fa-star
                       .registeredLesson__btn
-                        .btn.d-flex.justify-content-center
-                          | &Dstrok;&abreve;ng k&yacute;
         -}
 //-   $('#todayLessonCard').click(function () {
 //-   $('#content').load('/html/lesson-detail.html');

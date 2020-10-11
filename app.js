@@ -66,7 +66,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("main/error");
-  console.log(error);
   console.log(err);
 });
 var port = process.env.PORT || 3000;
