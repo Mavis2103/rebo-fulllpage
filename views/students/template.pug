@@ -6,18 +6,24 @@ block content
       .loading
   section.container-fluid
     .row.overflow-hidden
-      section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2
+      section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2.position-relatives
         section.d-flex.justify-content-end.align-items-center.py-3
           #expand(onclick='toggle()')
             i.fas.fa-bars
-          input#darkmode.mr-4.shadow(type='checkbox', name='')
-          .ava-small.mr-4
-            if(avatar==null)
-              img#ava.w-100.rounded-circle(src=`https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg`, alt='')
-            else
-              img.w-100.rounded-circle(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/avatar/${avatar}`, alt='')
-          h3#username.mb-0.mr-3= username
-          a(href="/logout").nav-link.px-2.py-1 Đăng xuất
+          .ava-small.mr-4.d-flex.align-items-center#a
+            img.ava.w-100.rounded-circle
+            i.ml-2.fas.fa-caret-down
+        section.position-relative
+          #user-dropdown.position-absolute(style={top:'0',right:'0'}).bg-white.z-max.p-3.rounded-15px.shadow.disable
+            .d-flex.mb-5
+              .ava-small.mr-4(style={width:'60px',height:'60px'})
+                img.ava.w-100.rounded-circle
+              div.h-100.my-auto
+                h2#username.mb-0= username
+                h6#email.mb-0
+            .d-flex.justify-content-between
+              input#darkmode.mr-4.shadow(type='checkbox', name='')
+              a(href="/logout").nav-link.px-2.py-1 Đăng xuất
         .time.text-secondary.mr-3.text-align-end
           span.hours 00
           | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
@@ -76,6 +82,7 @@ block script
   script(src="/st/javascripts/darkmode.js",async)
   //- script(async, src='/md/chart.js/dist/Chart.min.js')
   //- script(src='js/bootstrap.bundle.min.js')
+  script(src="/st/javascripts/userdropdown.js")
   script(src='/md/bootstrap/dist/js/bootstrap.min.js', async)
   script(src='/md/swiper/swiper-bundle.min.js')
   script(src='/st/javascripts/load.js', async)

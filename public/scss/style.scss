@@ -4,7 +4,7 @@
 @import 'fonts.scss';
 @import 'custom-bs4.scss';
 @import 'swiper.scss';
-
+@import 'action.scss';
 $menu:255px;
 
 body {
@@ -41,8 +41,10 @@ body {
         width: 100%;
         height: 100%;
         object-fit: cover;
-
     }
+}
+.ava-small:hover {
+    cursor: pointer;
 }
 
 .process-bar,
@@ -139,7 +141,7 @@ body {
 .basic-info.fixed-top {
     right: 0%;
 }
-
+@import 'user-dropdown.scss';
 @import 'dashboard.scss';
 @import 'mylibrary.scss';
 @import 'profile.scss';
