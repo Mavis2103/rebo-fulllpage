@@ -1,6 +1,6 @@
 extends ../template.pug
 block main
-  .row.mt-4
+  .row.mt-4.lesson__detail
     section.col-12
       .bg-dark.d-flex.p-3.text-white.justify-content-between
         div.w-50
@@ -18,5 +18,17 @@ block main
           .last_updated.mb-2
             i.fas.fa-exclamation-circle
             |  Cập nhập mới nhất 9/2020
-        div
-          img(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${detail.lessonID}`, alt="",style={width:'350px'}).mr-lg-5
+        .lesson__detail__card.mr-lg-5
+          .lesson__detail__card--pos.shadow.rounded
+            img(src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${detail.lessonID}`, alt="").rounded-top
+            .lesson__detail__card--content.p-4
+              h2 Free
+              a(href="").btn.py-2.btn-block.btn-danger Thêm vào giỏ hàng
+              a(href="").btn.py-2.btn-block.btn-outline-primary Mua ngay
+              .lesson__detail__card--include.mt-5
+                |Bài học này bao gồm:
+                p -1
+                p -2
+                p -3
+                p -4
+                p -5

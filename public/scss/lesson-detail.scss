@@ -1,0 +1,49 @@
+// .lesson__detail {
+//   &__card--por {
+//     position: relative;
+//     width: 350px;
+//   }
+
+//   &__card--poa {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//   }
+// }
+$lesson__w--img:350px;
+$lesson__detail__card--bg:white;
+$lesson__detail__card--text:black;
+
+.lesson__detail {
+  &__card {
+    position: relative;
+    width: $lesson__w--img;
+
+    &--pos {
+      background-color: $lesson__detail__card--bg;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      img {
+        width: $lesson__w--img;
+      }
+
+    }
+
+    &--content {
+      color: $lesson__detail__card--text;
+      font-weight: bolder;
+
+      h2 {
+        color: black;
+      }
+    }
+
+    &--include {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 const db = require("../../config/mysql")
+const cloud = require('../../config/cloudinary')
 
 const show_user = (req, res, next) => {
   let getUsers = "select userID,username,email,phone_number,role,birthFrom from Account where role!='admin'";
@@ -14,7 +15,10 @@ const delete_user = (req, res, next) => {
   let deleteUser = "delete from Account where userID=?";
   db.query(deleteUser, [userID], (err, data) => {
     if (err) return next(err);
-    res.redirect("/users_management")
+    cloud.uploader.destroy(`Database_REBO/avatar/${userID}`, (err, result) => {
+      if (err) return next(err);
+      res.redirect("/users_management");
+    })
   })
 }
 
