@@ -1,7 +1,7 @@
 const db = require("../config/mysql");
 
 const login_success = (req, res, next) => {
-  let getUser = " select username,avatar,email from Account where userID=?";
+  let getUser = " select username,avatar,email,avatar_ver from Account where userID=?";
   db.query(getUser, [req.session.userID], (err, data) => {
     if (err) return next(err);
     res.json(data);

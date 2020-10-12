@@ -23,9 +23,9 @@ const user = async () => {
       email.textContent = data.email;
       for (let i = 0; i < 2; i++) {
         if (data.avatar != null) {
-          ava[i].src = `https://res.cloudinary.com/mavis/image/upload/Database_REBO/avatar/${data.avatar}`
+          ava[i].src = `https://res.cloudinary.com/mavis/v${data.avatar_ver}/Database_REBO/avatar/${data.avatar}?20130910043254`
         } else {
-          ava[i].src = `https://res.cloudinary.com/mavis/image/upload/static/60111_oigwum.jpg`
+          ava[i].src = `https://res.cloudinary.com/mavis/static/60111_oigwum.jpg`
           }
       }
     } else {
