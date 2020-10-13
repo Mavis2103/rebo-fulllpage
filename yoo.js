@@ -1,32 +1,32 @@
-const arr = [{
-    id: 1,
-    content: {
-      name: 'Quan',
-      age: 19
-    }
-  },
-  {
-    id: 2,
-    content: {
-      name: 'Khoa',
-      age: 13
-    }
-  },
-  {
-    id: 3,
-    content: {
-      name: 'Nam',
-      age: 30
-    }
-  }
-]
+// const arr = [{
+//     id: 1,
+//     content: {
+//       name: 'Quan',
+//       age: 19
+//     }
+//   },
+//   {
+//     id: 2,
+//     content: {
+//       name: 'Khoa',
+//       age: 13
+//     }
+//   },
+//   {
+//     id: 3,
+//     content: {
+//       name: 'Nam',
+//       age: 30
+//     }
+//   }
+// ]
 
-function findValue(array) {
-  return array.id == 3;
-}
-console.log(arr.findIndex(findValue));
+// function findValue(array) {
+//   return array.id == 3;
+// }
+// console.log(arr.findIndex(findValue));
 // arr.splice((arr.findIndex(findValue)), 1)
-console.log(arr);
+// console.log(arr);
 
 // const {
 //   v5: uuid,

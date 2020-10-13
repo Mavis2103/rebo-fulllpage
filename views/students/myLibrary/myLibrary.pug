@@ -26,46 +26,41 @@ block main
               button#save.btn.btn-primary(type='submit')
                 | L&#x1B0;u
   section#folder.row.library
-    if(folder != null)
-      each val in folder
-        section.popover-folder.col-xl-3.col-lg-4.col-sm-6.mb-4
-          .folder-height.d-flex.align-items-center.justify-content-between.p-3.border.popover-folder-bg
-            a(href=`/myLibrary/browse/${val.id}`).d-flex.align-items-center.text-decoration-none.text-dark
-              i.far.fa-folder.mr-3(aria-hidden='true')
-              p.mb-0.text-align-start.folder_text-ellipsis= val.list.content
-            i.fas.fa-ellipsis-v.more
-              .more-bg
-          div
-    else  
+    .col-12
+      h2 Thư mục của tôi :
+    each val in folder
+      section.popover-folder.col-xl-3.col-lg-4.col-sm-6.mb-4
+        .folder-height.d-flex.align-items-center.justify-content-between.p-3.border.popover-folder-bg
+          a(href=`/myLibrary/browse/${val.id}`).d-flex.align-items-center.text-decoration-none.text-dark
+            i.far.fa-folder.mr-3(aria-hidden='true')
+            p.mb-0.text-align-start.folder_text-ellipsis= val.list.content
+          i.fas.fa-ellipsis-v.more
+            .more-bg
+        div
+    else
       div.mx-auto.mt-5.mb-4
         img(src="https://res.cloudinary.com/mavis/image/upload/v1602151045/static/undraw_add_file_4gfw_c77a5a.svg", alt="",style={width:'200px'}).mb-4.d-block.mx-auto
         h2.font-weight-bold Hãy tạo thư mục mới !
   section.row.library_card.my-4
-    -
-      var values = [
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-        {imageLesson:'https://res.cloudinary.com/mavis/image/upload/v1602261844/static/60111_oigwum.jpg',lessonTitle:'UX & Web Design Master Cource',author:'KhaLe',processLesson:25},
-      ]
-    each val in values
+    .col-12
+      h2 Bài học đã đăng ký :
+    each val in lesson_of_student
       .col-xl-3.col-lg-4.col-sm-6.mb-4
         #lessonCard.card.shadow
-          img.card-img-top.w-100.library_card--height(src=val.imageLesson, alt='')
+          img.card-img-top.w-100.library_card--height(src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${val.lessonID}`, alt='')
           .card-body
-            h4.card-title= val.lessonTitle
+            h4.card-title= val.lessonName
             .d-flex.justify-content-between.align-items-center
               .d-flex.flex-column
                 p.card-text.mb-0 Ta&#x301;c gia&#x309;
-                h5.card-text= val.author
-              div
-                .process-bar
-                  .progress
-                    .progress-bar(role='progressbar', style=`width: ${val.processLesson}%;`, aria-valuenow=`${val.processLesson}`, aria-valuemin='0', aria-valuemax='100')
-                p.text-gray.mb-0.text-nowrap Ho&agrave;n th&agrave;nh (#{val.processLesson}%)
+                h5.card-text= val.username
+            //- div
+            //-   .process-bar
+            //-     .progress
+            //-       .progress-bar(role='progressbar', style=`width: ${val.processLesson}%;`, aria-valuenow=`${val.processLesson}`, aria-valuemin='0', aria-valuemax='100')
+            //-   p.text-gray.mb-0.text-nowrap Ho&agrave;n th&agrave;nh (#{val.processLesson}%)
+    else
+      h1.mx-auto Trống
 block append script
   script(src='/st/javascripts/library.js')
   script(src="/st/javascripts/api/folder.js")

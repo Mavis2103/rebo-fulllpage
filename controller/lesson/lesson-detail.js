@@ -13,6 +13,40 @@ const lesson_detail = (req, res, next) => {
   })
 }
 
+const lesson_buy = (req, res, next) => {
+  let id = req.params.id;
+  let u = req.session.userID;
+  let arr = [];
+  let str = {
+    id: id,
+  };
+  let getJson = "select userID,lessonID_list from Student where userID = ?";
+  db.query(getJson, [u], (err, data) => {
+    if (err) return next(err);
+    if (data[0] == undefined) {
+      let arr = [str];
+      let add = JSON.stringify(arr);
+      let insertJson = "insert into Student (userID,lessonID_list) value(?,?)";
+      db.query(insertJson, [u, add], (error, result) => {
+        if (error) return next(error);
+        res.redirect("/lesson");
+      });
+    } else if (Buffer.from(data[0].userID, "hex").toString("utf8") == u) {
+      let arr = JSON.parse(data[0].lessonID_list);
+      arr.push(str);
+      let add = JSON.stringify(arr);
+      let updateJson = "update Student set lessonID_list=? where userID=?";
+      db.query(updateJson, [add, u], (error, result) => {
+        if (error) return next(error);
+        res.redirect("/lesson");
+      });
+    } else {
+      res.redirect("/lesson");
+    }
+  });
+};
+
 module.exports = {
-  lesson_detail
+  lesson_detail,
+  lesson_buy,
 };

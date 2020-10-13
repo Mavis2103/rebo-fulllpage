@@ -30,8 +30,7 @@ router.get("/delete-user/:userID", delete_user)
 router.get("/lesson_management", show_lesson)
 router.post("/new_lesson", new_lesson)
 router.get("/delete-lesson/:lessonID", delete_lesson)
-router.route("/lesson/:lessonID")
-
+// router.route("/lesson/:lessonID")
 
 // CATEGORY
 router.get("/category_management", show_category)
