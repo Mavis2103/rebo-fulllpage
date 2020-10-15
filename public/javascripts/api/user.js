@@ -8,32 +8,33 @@
 // user()
 
 const user = async () => {
-  let username = document.getElementById('username');
-  let email = document.getElementById('email');
-  let ava = document.getElementsByClassName('ava');
+  const username = document.getElementById('username');
+  const email = document.getElementById('email');
+  const ava = document.getElementsByClassName('ava');
   try {
-    let url = '/api/user/login-success';
-    let res = await fetch(url, {
-      method: 'GET'
-    })
+    const url = '/api/user/login-success';
+    const res = await fetch(url, {
+      method: 'GET',
+    });
     if (res.ok) {
-      let result = await res.json();
-      let data = result[0]
+      const result = await res.json();
+      const data = result[0];
       username.textContent = data.username;
       email.textContent = data.email;
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < 2; i++) {
         if (data.avatar != null) {
-          ava[i].src = `https://res.cloudinary.com/mavis/v${data.avatar_ver}/Database_REBO/avatar/${data.avatar}?20130910043254`
+          ava[i].src = `https://res.cloudinary.com/mavis/v${data.avatar_ver}/Database_REBO/avatar/${data.avatar}?20130910043254`;
         } else {
-          ava[i].src = `https://res.cloudinary.com/mavis/static/60111_oigwum.jpg`
-          }
+          ava[i].src = 'https://res.cloudinary.com/mavis/static/60111_oigwum.jpg';
+        }
       }
     } else {
-      console.log("ERROR");
+      console.log('ERROR');
     }
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-user()
+user();

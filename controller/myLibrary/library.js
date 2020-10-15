@@ -1,42 +1,42 @@
-const db = require("../../config/mysql");
-const fetch = require("node-fetch");
-const { v4: uuid } = require("uuid");
+/* eslint-disable consistent-return */
+/* eslint-disable no-shadow */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
+/* eslint-disable camelcase */
+const { v4: uuid } = require('uuid');
+const db = require('../../config/mysql');
+
 const show = (req, res, next) => {
-  let get = "select*from Library_of_users where userID=?";
-  let getLessonPaid = "select point,lessonID_list from Student where userID=?";
-  let getLesson_client = "select Lesson.lessonName,Lesson.lessonID,Lesson.lessonDescription,Lesson.userID,Account.username from ((Lesson inner join Category on Category.categoryID= Lesson.categoryID) inner join Account on Account.userID=Lesson.userID) where lessonID in (?)";
+  const get = 'select*from Library_of_users where userID=?';
+  const getLessonPaid = 'select point,lessonID_list from Student where userID=?';
+  const getLesson_client = 'select Lesson.lessonName,Lesson.lessonID,Lesson.lessonDescription,Lesson.userID,Account.username from ((Lesson inner join Category on Category.categoryID= Lesson.categoryID) inner join Account on Account.userID=Lesson.userID) where lessonID in (?)';
   db.query(`${get};${getLessonPaid}`, [req.session.userID, req.session.userID], (err, data) => {
     if (err) return next(err);
-    let arr = [];
+    const arr = [];
     let folder = [];
-    if (data[1][0]==null) {
+    if (data[1][0] == null) {
       if (data[0][0] != null) {
         folder = JSON.parse(data[0][0].library_list);
       }
     } else {
-      let list = JSON.parse(data[1][0].lessonID_list);
+      const list = JSON.parse(data[1][0].lessonID_list);
       for (const i in list) {
-        if (list.hasOwnProperty(i)) {
-          const element = list[i];
-          arr.push(element.id);
-          // console.log(arr);
-        }
+        arr.push(list[i].id);
       }
       if (data[0][0] != null) {
         folder = JSON.parse(data[0][0].library_list);
       }
     }
-    if(arr.length==0){
-      let lesson_of_student = [];
-      res.render("students/myLibrary/myLibrary", {
+    if (arr.length === 0) {
+      const lesson_of_student = [];
+      res.render('students/myLibrary/myLibrary', {
         folder,
         lesson_of_student,
       });
-    }
-    else{
-      db.query(getLesson_client, [arr], (err, lesson_of_student) => {
-        if (err) return next(err);
-        res.render("students/myLibrary/myLibrary", {
+    } else {
+      db.query(getLesson_client, [arr], (error, lesson_of_student) => {
+        if (error) return next(error);
+        res.render('students/myLibrary/myLibrary', {
           folder,
           lesson_of_student,
         });
@@ -45,28 +45,26 @@ const show = (req, res, next) => {
   });
 };
 const createFolder = (req, res, next) => {
-  let arr = [];
-  let json = {
-    id: uuid().split("-").join(""),
+  const json = {
+    id: uuid().split('-').join(''),
     list: {
       content: req.body.name,
     },
   };
-  arr.push(json);
-  let create = "insert into Library_of_users value(?,?)";
-  let get = "select*from Library_of_users where userID=?";
-  let update = "update Library_of_users set library_list=? where userID=?";
+  const create = 'insert into Library_of_users value(?,?)';
+  const get = 'select*from Library_of_users where userID=?';
+  const update = 'update Library_of_users set library_list=? where userID=?';
   if (req.body.name) {
     db.query(get, [req.session.userID], (err, data) => {
       if (err) return next(err);
       if (data[0] == null) {
-        let arr = [json];
+        const arr = [json];
         db.query(create, [req.session.userID, JSON.stringify(arr)], (err, data) => {
           if (err) return next(err);
           res.json(data);
         });
       } else {
-        let arr = JSON.parse(data[0].library_list);
+        const arr = JSON.parse(data[0].library_list);
         arr.push(json);
         db.query(update, [JSON.stringify(arr), req.session.userID], (err, data) => {
           if (err) return next(err);
@@ -76,41 +74,41 @@ const createFolder = (req, res, next) => {
     });
   } else {
     res.json({
-      status: "failed",
+      status: 'failed',
     });
   }
 };
 const deleteFolder = (req, res, next) => {
-  let id = req.params.id;
+  const { id } = req.params;
 
   function findValue(array) {
-    return array.id == id;
+    return array.id === id;
   }
-  let user = req.session.userID;
-  db.query("select library_list from Library_of_users where userID = ? ", [user], (err, data) => {
+  const user = req.session.userID;
+  db.query('select library_list from Library_of_users where userID = ? ', [user], (err, data) => {
     if (err) return next(err);
-    let arr = JSON.parse(data[0].library_list);
+    const arr = JSON.parse(data[0].library_list);
     arr.splice(arr.findIndex(findValue), 1);
-    let update = "update Library_of_users set library_list=? where userID=?";
-    db.query(update, [JSON.stringify(arr), user], (err, data) => {
+    const update = 'update Library_of_users set library_list=? where userID=?';
+    db.query(update, [JSON.stringify(arr), user], (err) => {
       if (err) return next(err);
-      res.redirect("/myLibrary");
+      res.redirect('/myLibrary');
     });
   });
 };
 
 const openFolder = (req, res, next) => {
-  let id = req.params.id;
-  db.query("select library_list from Library_of_users where userID = ?", [req.session.userID], (err, data) => {
+  // const { id } = req.params;
+  db.query('select library_list from Library_of_users where userID = ?', [req.session.userID], (err, data) => {
     if (err) return next(err);
-    let arr = JSON.parse(data[0].library_list)[0];
-    res.render("students/myLibrary/contentFolder", {
+    const arr = JSON.parse(data[0].library_list)[0];
+    res.render('students/myLibrary/contentFolder', {
       arr,
     });
   });
 };
 
-/**--------------------------------- */
+/** --------------------------------- */
 module.exports = {
   show,
   createFolder,

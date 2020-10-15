@@ -1,12 +1,13 @@
-let avatar = document.getElementById('a');
-let user_dropdown = document.getElementById('user-dropdown');
+/* eslint-disable camelcase */
+const avatar = document.getElementById('a');
+const user_dropdown = document.getElementById('user-dropdown');
 
 document.addEventListener('click', (eve) => {
-  let a = avatar.contains(eve.target);
-  let b = user_dropdown.contains(eve.target)
+  const a = avatar.contains(eve.target);
+  const b = user_dropdown.contains(eve.target);
   if (a) {
-    user_dropdown.classList.remove('disable')
-  } else if (a == false && b == false) {
-    user_dropdown.classList.add('disable')
+    user_dropdown.classList.remove('disable');
+  } else if (a === false && b === false) {
+    user_dropdown.classList.add('disable');
   }
-})
+});

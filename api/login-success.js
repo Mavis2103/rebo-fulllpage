@@ -1,7 +1,9 @@
-const db = require("../config/mysql");
+const db = require('../config/mysql');
 
+// eslint-disable-next-line camelcase
 const login_success = (req, res, next) => {
-  let getUser = " select username,avatar,email,avatar_ver from Account where userID=?";
+  const getUser = ' select username,avatar,email,avatar_ver from Account where userID=?';
+  // eslint-disable-next-line consistent-return
   db.query(getUser, [req.session.userID], (err, data) => {
     if (err) return next(err);
     res.json(data);
