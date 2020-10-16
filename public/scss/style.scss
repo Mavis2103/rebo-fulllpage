@@ -92,7 +92,6 @@ body {
     opacity: 0;
     width: 256px;
     z-index: -999;
-    overflow-y: scroll;
     @include responsive(md)
     {
         z-index: 0;
