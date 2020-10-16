@@ -4,60 +4,25 @@ block append stylesheet
 block content
   #loading-bg
       .loading
-  section.container-fluid
-    .row.overflow-hidden
-      section#main.col-12.col-lg-10.bg-athens-gray.order-lg-2.position-relatives
-        section.d-flex.justify-content-end.align-items-center.py-3
-          #expand(onclick='toggle()')
-            i.fas.fa-bars
-          .ava-small.mr-4.d-flex.align-items-center#a
-            img.ava.w-100.rounded-circle
-            i.ml-2.fas.fa-caret-down
-        section.position-relative
-          #user-dropdown.position-absolute(style={top:'0',right:'0'}).bg-white.z-max.p-3.rounded-15px.shadow.disable
-            .d-flex.mb-5
-              .ava-small.mr-4(style={width:'60px',height:'60px'})
-                img.ava.w-100.rounded-circle
-              div.h-100.my-auto
-                h2#username.mb-0= username
-                h6#email.mb-0
-            .d-flex.justify-content-between
-              input#darkmode.mr-4.shadow(type='checkbox', name='')
-              a(href="/logout").nav-link.px-2.py-1 Đăng xuất
-        .time.text-secondary.mr-3.text-align-end
-          span.hours 00
-          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
-          span.minutes 00
-          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
-          span.seconds 00
-          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;,Th&#x1EE9; 
-          span.day
-          |  ,
-          span.date 00
-          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
-          span.month 00
-          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
-          span.year 0000
-        .px-3
-          main#content
-            block main
-      section#menu.d-none.d-lg-block.col-12.col-sm-4.col-lg-2.menu.border-right.order-lg-1
+  section
+    .d-flex#menu-active
+      section#menu(style={width:'256px','position':'fixed'}).menu.border-right
         .row.mt-3.mb-3.px-3
           .col-12.d-flex.align-items-center
             .logo
               img.w-100.rounded-circle(src='/st/images/appicon.png', alt='')
         .row
           .col-12
-            ul.list-group
+            ul.list-group.pl-4
               a(href="/dashboard", title='dashboard').card-link
                 li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
                   i.fas.fa-chart-bar
-                  h5.mb-0.ml-3 T&#x1ED5;ng Quan
+                  .menu_title.mb-0.ml-3 T&#x1ED5;ng Quan
               mixin menuItem(idName,icon,title,link)
                 a(href=link, title=idName).card-link.ml-0
                   li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
                     i(class= icon)
-                    h5.mb-0.ml-3= title
+                    .menu_title.mb-0.ml-3= title
               +menuItem('classes','fas fa-chalkboard-teacher','Thư viện','/library')
               +menuItem('lesson','far fa-edit','Bài học','/lesson')
               +menuItem('tool','fas fa-tools','Công cụ','/tools')
@@ -76,7 +41,41 @@ block content
                 p.card-text.text-gray
                   | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
                 a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
-      section.d-lg-none.col-sm-8.bg-athens-gray
+      section#main.w-100
+        section.d-flex.justify-content-end.align-items-center.py-3.px-md-5.position-relative
+          #expand(onclick='toggle()')
+            i.fas.fa-bars
+          .ava-small.mr-4.d-flex.align-items-center#a.rounded-15px.border
+            img.ava.w-100.rounded-circle
+            i.ml-2.fas.fa-caret-down
+        section.position-relative.px-md-5
+          #user-dropdown.position-absolute(style={top:'0',right:'0'}).bg-white.z-max.p-3.rounded-15px.shadow.disable
+            .d-flex.mb-5
+              .ava-small.mr-4(style={width:'60px',height:'60px'})
+                img.ava.w-100.rounded-circle
+              div.h-100.my-auto
+                h2#username.mb-0= username
+                h6#email.mb-0
+            .d-flex.justify-content-between
+              input#darkmode.mr-4.shadow(type='checkbox', name='')
+              a(href="/logout").nav-link.px-2.py-1 Đăng xuất
+        .time.text-secondary.mr-3.text-align-end.px-md-5
+          span.hours 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
+          span.minutes 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;:
+          span.seconds 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;,Th&#x1EE9; 
+          span.day
+          |  ,
+          span.date 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
+          span.month 00
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;/
+          span.year 0000
+        .px-md-5
+          main#content.container-fluid
+            block main
 block script
   script(src='/md/jquery/dist/jquery.min.js')
   script(src="/st/javascripts/darkmode.js",async)

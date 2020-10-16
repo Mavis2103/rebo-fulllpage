@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 function toggle() {
-  document.getElementById('menu').classList.toggle('d-none');
-  document.getElementById('content').classList.toggle('d-none');
-  // $('#content').toggle();
+  const main = document.getElementById('main');
+  const menu = document.getElementById('menu');
+  main.classList.toggle('menu-active-main');
+  main.classList.toggle('w-100');
+  menu.classList.toggle('menu-active');
+  menu.classList.toggle('z-md-min');
 }
 const dat = function date() {
   const date = new Date();

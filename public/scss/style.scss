@@ -21,7 +21,7 @@ body {
         font-size: 2.5em;
     }
 
-    font-family: SofiaProBold;
+    font-family: SofiaPro;font-weight:bold;
 }
 
 .logo {
@@ -69,10 +69,46 @@ body {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-
+#main{
+    //mb
+    // width: 100%;
+    @include responsive(md){
+        padding-left: 256px;
+    }
+}
+.menu-active-main{
+    padding-left: 256px;
+}
+.menu-active{
+    opacity: 1 !important;
+    z-index: 0 !important;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+#menu{
+    opacity: 0;
+    width: 256px;
+    z-index: -999;
+    overflow-y: scroll;
+    @include responsive(md)
+    {
+        z-index: 0;
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
 .menu {
     // background-color: white;
-
+    .menu_title{
+        font-size: 14px;
+    }
     li:hover {
         // background-color: $gray;
         cursor: pointer;
@@ -87,7 +123,7 @@ body {
         }
 
         input:checked~h5 {
-            font-family: SofiaProBold;
+            font-family: SofiaPro;font-weight:bold;
         }
 
         input:checked~h5::before {
@@ -100,21 +136,17 @@ body {
             top: 50%;
             right: 0;
             transform: translateY(-50%);
-        }
-    }
-
-    @include responsive(l-lg) {
-        // position: absolute;
-        top: 0;
-        z-index: 1;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+}
     }
 }
 
 #expand {
-    display: none;
     width: 50px;
     height: 50px;
-    // background-color: $red;
     position: absolute;
     top: 0;
     left: 0;
@@ -131,10 +163,9 @@ body {
         -ms-transform: translate(-50%, -50%);
         -o-transform: translate(-50%, -50%);
     }
-
-    @include responsive(l-lg) {
-        display: block;
-        cursor: pointer;
+    cursor: pointer;
+    @include responsive(md){
+        display: none;
     }
 }
 

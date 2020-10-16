@@ -1,8 +1,7 @@
 /* eslint-disable consistent-return */
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
+/* eslint-disable max-len */
 const formidable = require('formidable');
 const {
   v4: uuidv4,

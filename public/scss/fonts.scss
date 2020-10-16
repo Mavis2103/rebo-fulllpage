@@ -1,21 +1,23 @@
 @font-face {
-  font-family: SofiaProMedium;
+  font-family: SofiaPro;
   src: url("/st/library/fonts/SofiaProMedium.ttf") format("truetype");
+  font-weight: 500;
 }
 
 @font-face {
-  font-family: SofiaProBlack;
+  font-family: SofiaPro;
   src: url("/st/library/fonts/SofiaProBlack.ttf") format("truetype");
+  font-weight: bolder;
 }
 
 @font-face {
-  font-family: SofiaProLight;
-  font-weight: bold;
+  font-family: SofiaPro;
+  font-weight: lighter;
   src: url("/st/library/fonts/SofiaProLight.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: SofiaProBold;
-  font-weight: lighter;
+  font-family: SofiaPro;
+  font-weight: bold;
   src: url("/st/library/fonts/SofiaProBold.ttf") format("truetype");
 }

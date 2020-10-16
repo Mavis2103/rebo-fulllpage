@@ -14,7 +14,7 @@
             -moz-border-radius: 100%;
             -ms-border-radius: 100%;
             -o-border-radius: 100%;
-}
+        }
 
         i {
             position: absolute;
@@ -39,7 +39,7 @@
     }
 
     .form-control {
-        font-family: SofiaProBold;
+        font-family: SofiaPro;font-weight:bold;
         font-size: 1.2em;
         border: 0;
     }
@@ -51,7 +51,7 @@
 
         input:checked~h4 {
             color: $cornflower-blue;
-            font-family: SofiaProBold;
+            font-family: SofiaPro;font-weight:bold;
             position: relative;
         }
 

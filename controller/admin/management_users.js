@@ -1,5 +1,4 @@
 /* eslint-disable consistent-return */
-/* eslint-disable camelcase */
 const db = require('../../config/mysql');
 const cloud = require('../../config/cloudinary');
 

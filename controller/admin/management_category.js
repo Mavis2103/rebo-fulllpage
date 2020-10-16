@@ -1,5 +1,4 @@
 /* eslint-disable consistent-return */
-/* eslint-disable camelcase */
 const {
   v4: uuidv4,
   v5: uuidv5,
