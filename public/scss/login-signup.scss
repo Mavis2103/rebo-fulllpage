@@ -52,9 +52,18 @@ body {
             border: 0;
         }
 
-        input:focus {
+        input:focus,select:focus {
             outline: none !important;
         }
+        input[type='radio']:checked ~ div{
+            background-color: $green-darner-tail;
+            border-radius: 5px;
+            color: white;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+}
 
         input[type='submit'] {
             font-weight: bold;

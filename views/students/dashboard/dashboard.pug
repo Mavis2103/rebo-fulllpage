@@ -16,7 +16,7 @@ block main
             a.btn.btn-primary(name='', id='', href='#', role='button',style={width:'150px',height:'40px'}).font-weight-bold.rounded-15px Tải về
     section.col-12
       .row.mt-5
-        .col-md-6
+        .col-lg-6
           .swiper-container.rounded-15px.shadow
             .swiper-wrapper
               -
@@ -29,12 +29,12 @@ block main
                 .swiper-slide.flex-column
                   h5 Dành cho bạn
                   img(src=val.imgSwiper, alt="",style={height:'130px'}).mb-4
-                  p(style={width:'300px'}) #{val.contentSwiper}
+                  p.swiper-content #{val.contentSwiper}
             // Add Pagination
             .swiper-pagination
             .swiper-button-next
             .swiper-button-prev
-        .col-md-6.mt-md-0.mt-5
+        .col-lg-6.mt-lg-0.mt-5
           .lesson__recently.h-100.shadow.rounded-15px.py-4.px-4
             h5.text-center.mb-4 Bài học của bạn gần đây
             - var on_off = 'off'
@@ -77,7 +77,7 @@ block main
               {point:70,sub_title:'Business English',title:'Grammar'},
             ]
           each val in values
-            .col-lg-4.col-md-4.col-sm-4.mt-3.mt-md-0
+            .col-lg-4.mt-3.mt-lg-0
               .card.bg-cornflower-blue.d-flex.flex-row.rounded-15px.text-white
                 .lesson-icon.my-auto.ml-4.bg-alpha-0_5.d-flex.align-items-center.justify-content-center= val.point
                 .card-body.bg-clear

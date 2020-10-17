@@ -6,7 +6,7 @@ block content
       .loading
   section
     .d-flex#menu-active.overflow-hidden
-      section#menu(style={width:'256px','position':'fixed'}).menu.border-right
+      section#menu(style={'position':'fixed'}).menu.border-right.vh-100
         .row.mt-3.mb-3.px-3
           .col-12.d-flex.align-items-center
             .logo
@@ -17,30 +17,30 @@ block content
               a(href="/dashboard", title='dashboard').card-link
                 li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
                   i.fas.fa-chart-bar
-                  .menu_title.mb-0.ml-3 T&#x1ED5;ng Quan
+                  .menu_title.mb-0.ml-3.d-block.d-lg-none.d-xl-block T&#x1ED5;ng Quan
               mixin menuItem(idName,icon,title,link)
                 a(href=link, title=idName).card-link.ml-0
                   li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
                     i(class= icon)
-                    .menu_title.mb-0.ml-3= title
+                    .menu_title.mb-0.ml-3.d-block.d-lg-none.d-xl-block= title
               +menuItem('classes','fas fa-chalkboard-teacher','Thư viện','/library')
               +menuItem('lesson','far fa-edit','Bài học','/lesson')
               +menuItem('tool','fas fa-tools','Công cụ','/tools')
               +menuItem('library','far fa-folder','Thư viện của tôi','/myLibrary')
               +menuItem('profile','far fa-user-circle','Thông tin cá nhân','/profile')
               +menuItem('gift','far fa-smile-beam','Quà tặng','/gift')
-        .row.my-3
-          .col-12
-            .card.shadow-lg.border-0.rounded-15px
-              .card-img-top
-                img.w-100(src='/st/images/ef9c599507fc84d0f6538b72d15554b5-removebg-preview_1.png', alt='Mascot')
+        //- .row.my-3.d-block.d-lg-none.d-xl-block
+        //-   .col-12
+        //-     .card.shadow-lg.border-0.rounded-15px
+        //-       .card-img-top
+        //-         img.w-100(src='/st/images/ef9c599507fc84d0f6538b72d15554b5-removebg-preview_1.png', alt='Mascot')
 
-              .card-body.text-center
-                h3.card-title
-                  | Mời bạn bè
-                p.card-text.text-gray
-                  | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
-                a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
+        //-       .card-body.text-center
+        //-         h3.card-title
+        //-           | Mời bạn bè
+        //-         p.card-text.text-gray
+        //-           | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
+        //-         a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
       section#main.w-100
         section.d-flex.justify-content-end.align-items-center.py-3.px-md-5.position-relative
           #expand(onclick='toggle()')

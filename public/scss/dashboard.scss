@@ -1,4 +1,19 @@
 .dashboard {
+    .swiper-container{
+        height: 350px;
+        @include responsive(lg){
+            height: 100%;
+        }
+    }
+    .swiper-content{
+        width: 400px;
+        @include responsive(lg){
+            width: 350px;
+        }
+        @include responsive(xl){
+            width: 300px;
+        }
+    }
     .award {
         height: 180px;
     }

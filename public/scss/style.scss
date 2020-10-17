@@ -72,7 +72,10 @@ body {
 #main{
     //mb
     // width: 100%;
-    @include responsive(md){
+    @include responsive(lg){
+        padding-left: 96px;
+    }
+    @include responsive(xl){
         padding-left: 256px;
     }
 }
@@ -90,10 +93,11 @@ body {
 }
 #menu{
     opacity: 0;
-    width: 256px;
     z-index: -999;
-    @include responsive(md)
+    width: 256px;
+    @include responsive(lg)
     {
+        width: 96px;
         z-index: 0;
         opacity: 1;
         transform: translateX(0);
@@ -101,6 +105,9 @@ body {
         -moz-transform: translateX(0);
         -ms-transform: translateX(0);
         -o-transform: translateX(0);
+    }
+    @include responsive(xl){
+        width: 256px;
     }
 }
 .menu {
@@ -163,7 +170,7 @@ body {
         -o-transform: translate(-50%, -50%);
     }
     cursor: pointer;
-    @include responsive(md){
+    @include responsive(lg){
         display: none;
     }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable camelcase */
 const express = require('express');
 
@@ -17,10 +18,6 @@ router.use(express.static(path.join(__dirname, 'public')));
 // router.use("/", profile_child);
 
 router.use(login_signup);
-router.use(profile);
-router.use(admin);
-router.use(lesson);
-router.use('/myLibrary', myLibrary);
 
 router.get('/logout', (req, res) => {
   req.session.destroy();
@@ -30,6 +27,19 @@ router.get('/logout', (req, res) => {
 router.get('/', (req, res) => {
   res.render('main/index');
 });
+
+router.use((req, res, next) => {
+  if (req.session.userID === undefined) {
+    return res.redirect('/login-signup');
+  }
+  next();
+});
+
+router.use(profile);
+router.use(admin);
+router.use(lesson);
+router.use('/myLibrary', myLibrary);
+
 router.get('/dashboard', (req, res) => {
   res.render('students/dashboard/dashboard');
 });
@@ -42,4 +52,5 @@ router.get('/tools', (req, res) => {
 router.get('/gift', (req, res) => {
   res.render('students/gift/gift');
 });
+
 module.exports = router;

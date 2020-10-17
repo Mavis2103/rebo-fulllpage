@@ -3,13 +3,12 @@ const bcrypt = require('bcrypt');
 const db = require('../../config/mysql');
 
 const login = (req, res, next) => {
-  const { email } = req.query;
-  const passwordI = req.query.passwordInput;
+  const { email, passwordInput } = req.query;
   const getUser = 'select*from Account where email =?';
   db.query(getUser, [email], (error, data) => {
     if (error) return next(error);
     if (data.length > 0) {
-      bcrypt.compare(passwordI, data[0].password, (err, result) => {
+      bcrypt.compare(passwordInput, data[0].password, (err, result) => {
         if (result) {
           req.session.userID = Buffer.from((data[0].userID), 'hex').toString('utf8');
           req.session.username = data[0].username;

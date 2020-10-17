@@ -53,10 +53,13 @@ block content
                             .input.d-flex.mx-auto
                                 i.far.fa-envelope
                                 input(type="email", name="email",placeholder="Email",required)
-                            .input.d-flex.mx-auto
-                                select(name="role") Vai trò
-                                    option(value="teacher") Giáo viên
-                                    option(value="student") Học sinh
+                            .input.mx-auto
+                                label(for="student").w-50
+                                    input#student(type="radio", name="role",value="student",hidden,checked)
+                                    div.py-3 Học sinh
+                                label(for="teacher").w-50
+                                    input#teacher(type="radio", name="role",value="teacher",hidden)
+                                    div.py-3 Giáo viên
                             .input.d-flex.mx-auto
                                 i.fas.fa-fingerprint
                                 input(type="password", name="password",placeholder="Mật khẩu",required)

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable import/order */
 const createError = require('http-errors');
 const bodyParser = require('body-parser');
@@ -70,8 +72,8 @@ app.use((err, req, res) => {
   res.render('main/error');
   console.log(err);
 });
+
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
   console.log(`Server Started!${port}`);
 });
-module.exports = app;
