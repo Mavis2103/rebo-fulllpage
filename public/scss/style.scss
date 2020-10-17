@@ -120,10 +120,10 @@ body {
         border-radius: 15px;
         background-color: $green-darner-tail;
     }
-    li:hover {
+    li:not(.li--active):hover {
         cursor: pointer;
         color: $green-darner-tail;
-}
+    }
 
     .list-group {
 
