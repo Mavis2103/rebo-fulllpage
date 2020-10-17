@@ -5,7 +5,6 @@
 @import 'custom-bs4.scss';
 @import 'swiper.scss';
 @import 'action.scss';
-$menu:255px;
 
 body {
     -webkit-user-select: none;
@@ -115,11 +114,16 @@ body {
     .menu_title{
         font-size: 14px;
     }
-    li:hover {
-        // background-color: $gray;
-        cursor: pointer;
-        color: $shy-moment-blue;
+    .li--active{
+        color: white;
+        margin-right: 20px;
+        border-radius: 15px;
+        background-color: $green-darner-tail;
     }
+    li:hover {
+        cursor: pointer;
+        color: $green-darner-tail;
+}
 
     .list-group {
 
