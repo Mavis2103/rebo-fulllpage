@@ -6,7 +6,7 @@ npm-debug.log*
 node_modules
 .vscode
 *.html
-/package.lcok.json
+package-lock.json*
 # public/images/dbImage
 prepros.config*
 yoo.js*
