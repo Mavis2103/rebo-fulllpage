@@ -3,10 +3,11 @@
 logs
 *.log
 npm-debug.log*
-/node_modules
+node_modules
 .vscode
 *.html
 /package.lcok.json
-# .env
 # public/images/dbImage
 prepros.config*
+.env*
+yoo.js*
