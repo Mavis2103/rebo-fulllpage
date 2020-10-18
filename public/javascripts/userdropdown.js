@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 const avatar = document.getElementById('a');
 const user_dropdown = document.getElementById('user-dropdown');
 

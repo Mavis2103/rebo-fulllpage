@@ -2,7 +2,6 @@ const db = require('../config/mysql');
 
 const getFolder = (req, res, next) => {
   const get = 'select*from Library_of_users where userID=?';
-  // eslint-disable-next-line consistent-return
   db.query(get, [req.session.userID], (err, data) => {
     if (err) return next(err);
     if (data[0] == null) {

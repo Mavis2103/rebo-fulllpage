@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable camelcase */
 const express = require('express');
 
 const router = express.Router();
@@ -11,6 +9,7 @@ const profile = require('./profile');
 const admin = require('./admin');
 const lesson = require('./lesson');
 const myLibrary = require('./myLibrary');
+const library = require('./library');
 // var profile_child = require("./students/profile/profile");
 
 // Action profile
@@ -39,12 +38,10 @@ router.use(profile);
 router.use(admin);
 router.use(lesson);
 router.use('/myLibrary', myLibrary);
+router.use('/library', library);
 
 router.get('/dashboard', (req, res) => {
   res.render('students/dashboard/dashboard');
-});
-router.get('/library', (req, res) => {
-  res.render('students/library/library');
 });
 router.get('/tools', (req, res) => {
   res.render('students/tools/tool');

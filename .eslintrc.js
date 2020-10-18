@@ -13,5 +13,6 @@ module.exports = {
   },
   rules: {
     camelcase: [0, { properties: 'always' }],
+    'consistent-return': [0, { treatUndefinedAsUnspecified: false }],
   },
 };

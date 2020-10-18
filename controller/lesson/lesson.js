@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable camelcase */
 const db = require('../../config/mysql');
 
 const show_lesson = (req, res, next) => {

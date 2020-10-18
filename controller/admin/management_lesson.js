@@ -1,7 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
-/* eslint-disable max-len */
 const formidable = require('formidable');
 const {
   v4: uuidv4,
@@ -9,12 +5,14 @@ const {
 } = require('uuid');
 const db = require('../../config/mysql');
 const cloud = require('../../config/cloudinary');
-/** ----------------------------------------------------------------------------------------------- */
-const show_lesson = (req, res) => {
+
+const show_lesson = (req, res, next) => {
   const getLesson = 'select*from Lesson inner join Category on Category.categoryID= Lesson.categoryID';
   const getCategory = 'select*from Category';
   db.query(`${getLesson};${getCategory}`, (err, data) => {
-    for (const index in data[1]) {
+    if (err) return next(err);
+    const data_length = data[1].length;
+    for (let index = 0; index < data_length; index += 1) {
       const element = data[1][index];
       element.categoryID = Buffer.from(data[1][index].categoryID, 'hex').toString('utf8');
     }
@@ -43,30 +41,30 @@ const new_lesson = (req, res, next) => {
     const lessonImg = file.lessonImage.name;
     if (file.lessonImage.size > 0) {
       const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription) value(?,?,?,?,?,?)';
-      db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription], (error) => {
-        if (error) return next(error);
-        // fs.writeFile(path.join(__dirname, `../../public/images/dbImage/lessonImage/${data.insertId}`), lessonImg, (err) => {
-        //   if (err) throw err;
-        // });
-        cloud.uploader.upload(file.lessonImage.path, {
-          public_id: `Database_REBO/lessonImage/${lessonID}`,
-        }, (errors) => {
+      db.query(newLesson,
+        [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription],
+        (error) => {
+          if (error) return next(error);
+          cloud.uploader.upload(file.lessonImage.path, {
+            public_id: `Database_REBO/lessonImage/${lessonID}`,
+          }, (errors) => {
+            if (errors) return next(errors);
+            res.redirect('/lesson_management');
+          });
+        });
+    } else {
+      const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonDescription) value(?,?,?,?,?)';
+      db.query(newLesson,
+        [lessonID, lessonName, userID_createLesson, categoryID, lessonDescription],
+        (errors) => {
           if (errors) return next(errors);
           res.redirect('/lesson_management');
         });
-      });
-    } else {
-      const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonDescription) value(?,?,?,?,?)';
-      db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonDescription], (errors) => {
-        if (errors) return next(errors);
-        res.redirect('/lesson_management');
-      });
     }
   });
 };
 const delete_lesson = (req, res, next) => {
   const { lessonID } = req.params;
-  console.log(lessonID);
   const deleteLesson = 'delete from Lesson where lessonID=?';
   db.query(deleteLesson, [lessonID], (error) => {
     if (error) return next(error);

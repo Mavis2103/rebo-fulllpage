@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 const {
   v4: uuidv4,
   v5: uuidv5,

@@ -1,8 +1,4 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-shadow */
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-/* eslint-disable camelcase */
 const { v4: uuid } = require('uuid');
 const db = require('../../config/mysql');
 
@@ -20,7 +16,8 @@ const show = (req, res, next) => {
       }
     } else {
       const list = JSON.parse(data[1][0].lessonID_list);
-      for (const i in list) {
+      const list_length = list.length;
+      for (let i = 0; i < list_length; i += 1) {
         arr.push(list[i].id);
       }
       if (data[0][0] != null) {
@@ -59,16 +56,16 @@ const createFolder = (req, res, next) => {
       if (err) return next(err);
       if (data[0] == null) {
         const arr = [json];
-        db.query(create, [req.session.userID, JSON.stringify(arr)], (err, data) => {
-          if (err) return next(err);
-          res.json(data);
+        db.query(create, [req.session.userID, JSON.stringify(arr)], (error, result) => {
+          if (error) return next(error);
+          res.json(result);
         });
       } else {
         const arr = JSON.parse(data[0].library_list);
         arr.push(json);
-        db.query(update, [JSON.stringify(arr), req.session.userID], (err, data) => {
-          if (err) return next(err);
-          res.json(data);
+        db.query(update, [JSON.stringify(arr), req.session.userID], (error, result) => {
+          if (error) return next(error);
+          res.json(result);
         });
       }
     });
@@ -90,8 +87,8 @@ const deleteFolder = (req, res, next) => {
     const arr = JSON.parse(data[0].library_list);
     arr.splice(arr.findIndex(findValue), 1);
     const update = 'update Library_of_users set library_list=? where userID=?';
-    db.query(update, [JSON.stringify(arr), user], (err) => {
-      if (err) return next(err);
+    db.query(update, [JSON.stringify(arr), user], (error) => {
+      if (error) return next(error);
       res.redirect('/myLibrary');
     });
   });

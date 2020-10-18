@@ -4,7 +4,6 @@ const router = express.Router();
 
 /** ------------------------------- */
 const {
-  // eslint-disable-next-line camelcase
   login_success,
 } = require('./login-success');
 

@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 // const db = require("../../../config/mysql");
 const bcrypt = require('bcrypt');
 

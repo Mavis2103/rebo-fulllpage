@@ -14,16 +14,14 @@ block content
               img.w-100.rounded-circle(src='/st/images/appicon.png', alt='')
         .row
           .col-12
-            ul.list-group.pl-4
-              a(href="/dashboard", title='dashboard').card-link
-                li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
-                  i.fas.fa-chart-bar
-                  .menu_title.mb-0.ml-3.d-block.d-lg-none.d-xl-block T&#x1ED5;ng Quan
+            ul.list-group.px-3
               mixin menuItem(idName,icon,title,link)
                 a(href=link, title=idName).card-link.ml-0
-                  li.menu-item.list-group-item.border-0.py-3.d-flex.align-items-center.text-gray.pr-0.bg-clear
-                    i(class= icon)
-                    .menu_title.mb-0.ml-3.d-block.d-lg-none.d-xl-block= title
+                  li(style={height:'56px'}).menu-item.list-group-item.border-0.d-flex.align-items-center.text-gray.pr-0.bg-clear
+                    div 
+                      i(class= icon,style={'line-height':'24px'})
+                    .menu_title.mb-0.ml-3.d-block.d-lg-none.d-xl-block(style={'font-weight':'600'})= title
+              +menuItem('dashboard','fas fa-chart-bar','Tổng quan','/dashboard')
               +menuItem('classes','fas fa-chalkboard-teacher','Thư viện','/library')
               +menuItem('lesson','far fa-edit','Bài học','/lesson')
               +menuItem('tool','fas fa-tools','Công cụ','/tools')

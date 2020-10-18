@@ -1,6 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable max-len */
-/* eslint-disable camelcase */
 const formidable = require('formidable');
 const db = require('../../config/mysql');
 const cloud = require('../../config/cloudinary');
@@ -40,10 +37,12 @@ const update_user_detail = (req, res, next) => {
           if (error) return next(error);
           const updateUser = 'update Account set username=?,email=?,phone_number=?,birthFrom=?,avatar=?,avatar_ver=? where userID=?';
           const dataAvatar = `${req.session.userID}.${result.format}`;
-          db.query(updateUser, [username, email, phone_number, birthFrom, dataAvatar, result.version, userID], (errors) => {
-            if (errors) return next(errors);
-            res.redirect('/profile');
-          });
+          db.query(updateUser,
+            [username, email, phone_number, birthFrom, dataAvatar, result.version, userID],
+            (errors) => {
+              if (errors) return next(errors);
+              res.redirect('/profile');
+            });
         },
       );
     } else {

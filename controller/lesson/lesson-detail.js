@@ -1,7 +1,4 @@
 /* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
-/* eslint-disable consistent-return */
-/* eslint-disable camelcase */
 const db = require('../../config/mysql');
 
 const lesson_detail = (req, res, next) => {
@@ -19,7 +16,7 @@ const lesson_detail = (req, res, next) => {
 };
 
 const lesson_buy = (req, res, next) => {
-  const arr = [];
+  let arr = [];
   const { id } = req.params;
   const u = req.session.userID;
   const str = {
@@ -29,19 +26,19 @@ const lesson_buy = (req, res, next) => {
   db.query(getJson, [u], (err, data) => {
     if (err) return next(err);
     if (data[0] === undefined) {
-      const arr = [str];
+      arr = [str];
       const add = JSON.stringify(arr);
       const insertJson = 'insert into Student (userID,lessonID_list) value(?,?)';
-      db.query(insertJson, [u, add], (error, result) => {
+      db.query(insertJson, [u, add], (error) => {
         if (error) return next(error);
         res.redirect('/lesson');
       });
     } else if (Buffer.from(data[0].userID, 'hex').toString('utf8') === u) {
-      const arr = JSON.parse(data[0].lessonID_list);
+      arr = JSON.parse(data[0].lessonID_list);
       arr.push(str);
       const add = JSON.stringify(arr);
       const updateJson = 'update Student set lessonID_list=? where userID=?';
-      db.query(updateJson, [add, u], (error, result) => {
+      db.query(updateJson, [add, u], (error) => {
         if (error) return next(error);
         res.redirect('/lesson');
       });

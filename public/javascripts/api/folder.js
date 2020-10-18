@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-globals */
-/* eslint-disable camelcase */
 const formButton = document.getElementById('save');
 const input = document.getElementById('form_new_folder-input');
 formButton.onclick = async () => {
