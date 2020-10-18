@@ -9,5 +9,4 @@ node_modules
 /package.lcok.json
 # public/images/dbImage
 prepros.config*
-.env*
 yoo.js*
