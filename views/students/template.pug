@@ -1,5 +1,6 @@
 extends ../main/layout.pug
 block append stylesheet
+  link(rel='stylesheet', href='https://unpkg.com/swiper/swiper-bundle.min.css')
   link(rel='stylesheet', href='/st/stylesheets/style.min.css',as='style')
 block content
   #loading-bg
@@ -77,16 +78,12 @@ block content
           main#content.container-fluid
             block main
 block script
-  script(src='/md/jquery/dist/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js')
   script(src="/st/javascripts/darkmode.js",async)
   //- script(async, src='/md/chart.js/dist/Chart.min.js')
   //- script(src='js/bootstrap.bundle.min.js')
   script(src="/st/javascripts/userdropdown.js")
-  script(src='/md/bootstrap/dist/js/bootstrap.min.js', async)
-  script(src='/md/swiper/swiper-bundle.min.js')
-  script(src='/st/javascripts/load.js', async)
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js', async)
   script(src='/st/javascripts/loading.js', async)
   script(src='/st/javascripts/event.js', defer)
-  script(src='/st/javascripts/swiper.js')
   script(src='/st/javascripts/api/user.js')
-  script(src='/st/javascripts/main.js', type='module')

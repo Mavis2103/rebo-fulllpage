@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const swiper = new Swiper('.swiper-container', {
   navigation: {
     nextEl: '.swiper-button-next',

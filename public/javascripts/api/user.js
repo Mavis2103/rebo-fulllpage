@@ -15,6 +15,8 @@ const user = async () => {
     const url = '/api/user/login-success';
     const res = await fetch(url, {
       method: 'GET',
+      credentials: 'same-origin',
+      mode: 'cors',
     });
     if (res.ok) {
       const result = await res.json();
