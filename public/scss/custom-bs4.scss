@@ -1,6 +1,7 @@
-@import 'respronsive.scss';
+@import "respronsive.scss";
 * {
-	font-family: SofiaPro;font-weight:lighter;
+	font-family: SofiaPro;
+	font-weight: lighter;
 	// font-size: 16px;
 	font-weight: 500;
 	a:hover {
@@ -133,15 +134,26 @@ h3 {
 .z-max {
 	z-index: 999;
 }
-.z-md-min{
-	@include responsive(md){
+.z-md-min {
+	@include responsive(md) {
 		z-index: -999;
 	}
 }
-.z-0{
+.z-0 {
 	z-index: 0;
 }
 
 .shadow-lite {
 	box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+// Flex
+.flex-center {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
 }
