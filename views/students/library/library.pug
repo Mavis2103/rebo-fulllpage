@@ -1,26 +1,36 @@
 extends ../template.pug
 block main
-  #bg-blur.position-absolute.z-max(style={width:'100vw',height:'100vh',top:'0',left:'0'})
-  .position-absolute.z-max.bg-white.shadow.flex-center(style={width:'90vw',height:'90vh'}).rounded-15px
+  #bg-blur.position-absolute.z-max(style={width:'100vw',height:'100vh',top:'0',left:'0'}).d-none
+  .position-absolute.z-max.bg-white.shadow.flex-center.p-4(style={width:'90vw',height:'90vh'}).rounded-15px.d-none
+    .d-flex
+      .lesson-img(style={width:'70%',height:'300px'})
+        img#lesson-img.d-block.mx-auto(src="https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/4dcb1d18e859573d8b60eb500d194d59", alt="",style={width:'500px',height:'300px','object-fit':'cover'})
+      .lesson-content
+        h1#lesson-name Yoooooooooo
+        p#lesson-auth.text-gray Yoooo
+        .py-2.btn.btn-primary(style={width:'300px'})
+          h6.mb-0 Mở khoá học
   .row.mt-4
     section.col-12
       .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
         h3.font-weight-bold.title_feature Thư viện
     section.col-12
-      //- Detail
+      //- Detail 
       //- Main
       .title.d-flex.justify-content-between.align-items-baseline
         h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
         a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
-      .row.registeredLesson
+      .row#s
         .swiper-container
           .swiper-wrapper
             -for(let i in lesson){
               .swiper-slide
-                img(data-src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, style={width:'100%'},alt='').swiper-lazy
+                a(href=`${lesson[i].lessonID}`)
+                  img(data-src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, style={width:'100%'},alt='').swiper-lazy
             -}
           .swiper-button-next.swiper-button-pagination-white
           .swiper-button-prev.swiper-button-pagination-white
 block append script
   script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
   script(src='/st/javascripts/swiper/swiper-library.js')
+  script(src='/st/javascripts/library/library-lesson.js')
