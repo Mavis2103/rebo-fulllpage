@@ -1,10 +1,10 @@
-@import "loading.scss";
-@import "color.scss";
-@import "respronsive.scss";
-@import "fonts.scss";
-@import "custom-bs4.scss";
-@import "swiper.scss";
-@import "action.scss";
+@import 'loading.scss';
+@import 'color.scss';
+@import 'respronsive.scss';
+@import 'fonts.scss';
+@import 'custom-bs4.scss';
+@import 'swiper.scss';
+@import 'action.scss';
 
 body {
 	-webkit-user-select: none;
@@ -72,6 +72,8 @@ body {
 #main {
 	//mb
 	// width: 100%;
+	height: 100vh;
+	overflow-y: scroll;
 	@include responsive(lg) {
 		padding-left: 96px;
 	}
@@ -136,7 +138,7 @@ body {
 		}
 
 		input:checked ~ h5::before {
-			content: "";
+			content: '';
 			width: 5px;
 			height: 20px;
 			background-color: $cornflower-blue;
@@ -181,11 +183,11 @@ body {
 .basic-info.fixed-top {
 	right: 0%;
 }
-@import "user-dropdown.scss";
-@import "dashboard.scss";
-@import "mylibrary.scss";
-@import "profile.scss";
-@import "style2.scss";
-@import "lesson-detail.scss";
-@import "library.scss";
-@import "darkmode.scss";
+@import 'user-dropdown.scss';
+@import 'dashboard.scss';
+@import 'mylibrary.scss';
+@import 'profile.scss';
+@import 'style2.scss';
+@import 'lesson-detail.scss';
+@import 'library.scss';
+@import 'darkmode.scss';

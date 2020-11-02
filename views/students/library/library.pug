@@ -1,15 +1,17 @@
 extends ../template.pug
 block main
   #bg-blur.position-absolute.z-max(style={width:'100vw',height:'100vh',top:'0',left:'0'}).d-none
-  .position-absolute.z-max.bg-white.shadow.flex-center.p-4(style={width:'90vw',height:'90vh'}).rounded-15px.d-none
+  #box.position-absolute.z-max.bg-white.shadow.flex-center.p-4(style={width:'90vw',height:'90vh'}).rounded-15px.d-none
     .d-flex
       .lesson-img(style={width:'70%',height:'300px'})
-        img#lesson-img.d-block.mx-auto(src="https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/4dcb1d18e859573d8b60eb500d194d59", alt="",style={width:'500px',height:'300px','object-fit':'cover'})
+        img#lesson-img.d-block.mx-auto(alt="",style={width:'500px',height:'300px','object-fit':'cover'})
       .lesson-content
-        h1#lesson-name Yoooooooooo
-        p#lesson-auth.text-gray Yoooo
+        h1#lesson-name
+        p#lesson-auth.text-gray
         .py-2.btn.btn-primary(style={width:'300px'})
           h6.mb-0 Mở khoá học
+    #close.border.rounded-circle.ver.d-flex.align-items-center.justify-content-center.shadow(style={width:'50px',height:'50px',top:'-10px',right:'-10px'}).position-absolute.bg-white
+        i.fas.fa-times
   .row.mt-4
     section.col-12
       .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
