@@ -5,6 +5,7 @@ const bg_override = document.getElementById('bg-blur');
 const box_override = document.getElementById('box');
 const click_s = document.querySelectorAll('#s .swiper-slide');
 const get_href = document.querySelectorAll('#s .swiper-slide a');
+
 for (let i = 0; click_s.length; i += 1) {
 	click_s[i].addEventListener('click', (e) => {
 		e.preventDefault();
