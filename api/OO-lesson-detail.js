@@ -9,7 +9,6 @@ const getLesson = (req, res, next) => {
 	db.query(get, [id], (err, data) => {
 		if (err) return next(err);
 		data[0].lessonID = Buffer.from(data[0].lessonID, 'hex').toString('utf8');
-		console.log(data);
 		res.json(data);
 	});
 };
