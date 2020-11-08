@@ -6,18 +6,20 @@ block content
   #loading-bg
       .loading
   section
-    .d-flex#menu-active
+    .d-flex#menu-active.overflow-hidden
       section#menu(style={'position':'fixed'}).menu.border-right.vh-100.overflow-hidden
         .row.mt-3.mb-3.px-3
-          .col-12.d-flex.align-items-center
+          .col-12.d-flex.align-items-center.justify-content-between
             .logo
               img.w-100.rounded-circle(src='/st/images/appicon.png', alt='')
+            #close(onclick='toggle()')
+              <i class="fas fa-times"></i>
         .row.tabs(style={'overflow-y':'scroll'})
           .col-12
-            ul.list-group.px-3
+            ul.list-group(style={'padding-left':'15px'})
               mixin menuItem(idName,icon,title,link)
                 a(href=link, title=idName).card-link.ml-0
-                  li(style={height:'56px'}).menu-item.list-group-item.border-0.d-flex.align-items-center.text-gray.pr-0.bg-clear
+                  li(style={height:'56px'}).menu-item.border-0.d-flex.justify-content-start.justify-content-lg-center.justify-content-xl-start.pl-xl-3.pl-lg-0.pl-3.align-items-center.text-gray.pr-0.bg-clear
                     div 
                       i(class= icon,style={'line-height':'24px'})
                     .menu_title.mb-0.ml-3.d-block.d-lg-none.d-xl-block(style={'font-weight':'600'})= title
@@ -40,7 +42,7 @@ block content
         //-         p.card-text.text-gray
         //-           | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
         //-         a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
-      section#main.w-100
+      section#main.vw-100
         section.d-flex.justify-content-end.align-items-center.py-3.px-md-5.position-relative
           #expand(onclick='toggle()')
             i.fas.fa-bars

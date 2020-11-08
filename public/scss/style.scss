@@ -82,11 +82,14 @@ body {
 	}
 }
 .menu-active-main {
-	padding-left: 256px;
+	@include responsive(xl) {
+		padding-left: 256px;
+	}
 }
 .menu-active {
+	background-color: white;
 	opacity: 1 !important;
-	z-index: 0 !important;
+	z-index: 999 !important;
 	transform: translateX(0);
 	-webkit-transform: translateX(0);
 	-moz-transform: translateX(0);
@@ -112,10 +115,16 @@ body {
 	}
 
 	.tabs {
-		height: 100vh;
-		// @include responsive(lg) {
-		// 	height: 100%;
-		// }
+		height: 392px;
+		@include responsive(lg) {
+			height: 100vh;
+		}
+	}
+	#close {
+		width: 30px;
+		height: 30px;
+		right: -30px;
+		font-size: 24px;
 	}
 }
 .menu {
