@@ -7,7 +7,7 @@ block append script
 block content
     .container-fluid
         .row.vh-100.position-relative
-            .col-md-6.bg-hidden#bg
+            .col-md-6.bg-hidden#bg.vh-100
                 img(src="https://res.cloudinary.com/mavis/image/upload/v1602261848/static/features-illustration-light_axx0km.svg", alt="",style={width:'100%'})
                 img(src="https://res.cloudinary.com/mavis/image/upload/v1602261851/static/hero-media-illustration-light_hdypvm.svg", alt="",style={width:'100%'})
                 img(src="/st/images/cta-illustration-light.svg", alt="",style={width:'100%'})
@@ -17,7 +17,7 @@ block content
                     label(for="switch")
                         p.mb-0 Đăng ký
                         input(type="checkbox", name="switch",id="switch",checked,hidden)
-            .col-md-6.my-md-auto.my-5.login.d-md-block
+            .col-md-6.py-5.my-5.login.d-md-block.vh-100
                 .form.text-center.my-auto
                     h1.mb-4 Đăng nhập
                     .form__link.d-flex
@@ -36,7 +36,7 @@ block content
                                 input(type="password", name="passwordInput",placeholder="Mật khẩu",required)
                             p Quên mật khẩu?
                             input(type="submit", value="Đăng nhập",style={padding:'15px 20px',width:'200px'}).mx-auto
-            .col-md-6.my-md-auto.my-5.signup.d-md-block
+            .col-md-6.my-md-auto.my-5.signup.d-md-block.vh-100
                 .form.text-center.my-auto
                     h1.mb-4 Đăng Ký
                     .form__link.d-flex
