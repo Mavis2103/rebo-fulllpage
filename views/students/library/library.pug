@@ -17,21 +17,19 @@ block main
       .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
         h3.font-weight-bold.title_feature Thư viện
     section.col-12
-      //- Detail 
-      //- Main
-      .title.d-flex.justify-content-between.align-items-baseline
-        h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
-        a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
-      .row#s
-        .swiper-container
-          .swiper-wrapper
-            -for(let i in lesson){
-              .swiper-slide
-                a(href=`${lesson[i].lessonID}`)
-                  img(data-src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, style={width:'100%'},alt='').swiper-lazy
-            -}
-          .swiper-button-next.swiper-button-pagination-white
-          .swiper-button-prev.swiper-button-pagination-white
+      each category in categories
+        h4.font-weight-bolder.mt-5= category.categoryName
+        .row#s(style={height:'240px'}).mb-5.mt-3
+          .swiper-container
+            .swiper-wrapper
+              each lesson in lessons
+                -if(Buffer.from(category.categoryID,'binary').toString('utf8') == Buffer.from(lesson.categoryID,'binary').toString('utf8')){
+                  .swiper-slide
+                    a(href=`${lesson.lessonID}`)
+                      img(data-src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${lesson.lessonID}`, style={width:'100%',height:'200px','object-fit':'cover'},alt='').swiper-lazy
+                -}
+            .swiper-button-next.swiper-button-pagination-white
+            .swiper-button-prev.swiper-button-pagination-white
 block append script
   script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
   script(src='/st/javascripts/swiper/swiper-library.js')

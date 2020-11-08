@@ -110,6 +110,13 @@ body {
 	@include responsive(xl) {
 		width: 256px;
 	}
+
+	.tabs {
+		height: 100vh;
+		// @include responsive(lg) {
+		// 	height: 100%;
+		// }
+	}
 }
 .menu {
 	// background-color: white;

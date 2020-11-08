@@ -6,13 +6,13 @@ block content
   #loading-bg
       .loading
   section
-    .d-flex#menu-active.overflow-hidden
-      section#menu(style={'position':'fixed'}).menu.border-right.vh-100
+    .d-flex#menu-active
+      section#menu(style={'position':'fixed'}).menu.border-right.vh-100.overflow-hidden
         .row.mt-3.mb-3.px-3
           .col-12.d-flex.align-items-center
             .logo
               img.w-100.rounded-circle(src='/st/images/appicon.png', alt='')
-        .row
+        .row.tabs(style={'overflow-y':'scroll'})
           .col-12
             ul.list-group.px-3
               mixin menuItem(idName,icon,title,link)
