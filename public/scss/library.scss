@@ -2,3 +2,40 @@
 	background-color: rgba(255, 255, 255, 0.4);
 	backdrop-filter: blur(8px);
 }
+#box {
+	overflow-y: scroll;
+	overflow: -moz-hidden-unscrollable;
+	@include responsive(lg) {
+		overflow: unset;
+	}
+	/* Hide scrollbar for IE, Edge and Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	/* Hide scrollbar for Chrome, Safari and Opera */
+}
+#box::-webkit-scrollbar {
+	display: none;
+}
+
+.lesson-img {
+	width: 70%;
+	height: 300px;
+	@include responsive(xl) {
+		width: 80%;
+		height: 400px;
+	}
+	@include responsive(lg) {
+		width: 70%;
+		height: 300px;
+	}
+	#lesson-img {
+		width: 100%;
+		height: inherit;
+		@include responsive(xl) {
+			width: 600px;
+		}
+		@include responsive(lg) {
+			width: 500px;
+		}
+	}
+}

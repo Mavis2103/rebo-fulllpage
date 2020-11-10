@@ -1,6 +1,8 @@
 const img = document.getElementById('lesson-img');
 const nameLesson = document.getElementById('lesson-name');
+const category = document.getElementById('category');
 const auth = document.getElementById('lesson-auth');
+const auth_avatar = document.getElementById('avatar-auth');
 const slide = document.getElementById('lesson-slide');
 const bg_override = document.getElementById('bg-blur');
 const box_override = document.getElementById('box');
@@ -16,6 +18,8 @@ for (let i = 0; click_s.length; i += 1) {
 		Get_Lesson(x).then((x) => {
 			nameLesson.textContent = x.lessonName;
 			auth.textContent = x.username;
+			category.textContent = x.categoryName;
+			auth_avatar.src = '/st/images/appicon.png';
 			img.src = `https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${x.lessonID}`;
 			slide.href = `/slide/${x.lessonID}`;
 		});
