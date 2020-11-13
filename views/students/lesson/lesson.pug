@@ -1,5 +1,43 @@
 extends ../template.pug
 block main
+  if role === 'teacher'
+    #bg-blur.position-absolute.z-max(style={width:'100vw',height:'100vh',top:'0',left:'0'}).d-none
+    #box.position-absolute.z-max.bg-white.shadow.flex-center.p-4(style={width:'50vw',height:'65vh'}).rounded-15px.d-none
+      #close.border.rounded-circle.ver.d-flex.align-items-center.justify-content-center.shadow(style={width:'50px',height:'50px',top:'-10px',right:'-10px'}).position-absolute.bg-white
+        i.fas.fa-times
+      form(action="/lesson", method="post",enctype="multipart/form-data").w-75.m-auto
+        .d-flex.justify-content-between.mb-3
+          h3 Tạo bài học mới
+          button.btn.btn-block.btn-primary(type="submit",style={width:'100px'}) New
+        .input-group.mb-3
+          .input-group-prepend
+            span.input-group-text Tên bài học
+          input(type="text",name="lessonName").form-control
+        .input-group.mb-3
+          .input-group-prepend
+            span.input-group-text Môn
+          select(name="categoryID").custom-select
+            option(selected) Vui lòng chọn Môn học
+            //- -for(let i in category){
+            each category in categories
+              option(value=category.categoryID)= category.categoryName
+            //- -}
+        .input-group.mb-3
+          .input-group-prepend
+            span.input-group-text Ảnh
+          .custom-file
+            input(type="file", name="lessonImage")#lessonImage.custom-file-input
+            label(for="lessonImage").custom-file-label Chọn File
+        .input-group.mb-3
+          .input-group-prepend
+            span.input-group-text Slide
+          .custom-file
+            input(type="file", name="lessonSlide").custom-file-input
+            label(for="lessonImage").custom-file-label Chọn File
+        .input-group.mb-3
+          .input-group-prepend
+            span.input-group-text Mô tả
+          textarea(name="lessonDescription").form-control
   .row.lesson.mt-4
     section.col-12
       .name-feature.d-flex.align-items-center.border-bottom.border-secondary.pb-4
@@ -38,7 +76,10 @@ block main
                         .progress
                           .progress-bar(role='progressbar', style=`width:${val.process}%;`, aria-valuenow=`${val.process}`, aria-valuemin='0', aria-valuemax='100')
                       p.text-gray.mt-1.mb-0.text-nowrap.text-align-end= val.process
-    section.col-12
+    if role === 'teacher'
+      section.col-12.mt-5
+        .d-flex.justify-content-end
+          button#new.btn.btn-primary.btn-block(type='button',style={width:'150px'}).font-weight-bolder Tạo bài học
       .title.d-flex.justify-content-between.align-items-baseline
         h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
         a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
@@ -62,3 +103,6 @@ block main
 //-   $('#todayLessonCard').click(function () {
 //-   $('#content').load('/html/lesson-detail.html');
 //-   });
+
+block append script
+  script(src='/st/javascripts/lesson.js')

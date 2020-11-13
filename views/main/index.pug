@@ -4,6 +4,7 @@ head
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1')
   title REBO
+  link(rel="stylesheet",href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp",crossorigin="anonymous")
   link(href='https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600', rel='stylesheet')
   link(rel='stylesheet', href='/st/stylesheets/landingpage/style.css')
 .body-wrap.boxed-container
@@ -22,9 +23,20 @@ head
       .container
         .hero-inner
           .hero-copy
-            h1.hero-title.mt-0 N&#x1EC1;n t&#x1EA3;ng c&ocirc;ng ngh&#x1EC7; gi&aacute;o d&#x1EE5;c 4.0
-            p.hero-paragraph
-              | &#x1EE8;ng d&#x1EE5;ng c&ocirc;ng ngh&#x1EC7; th&#x1EF1;c t&#x1EBF; &#x1EA3;o v&agrave; th&#x1EF1;c t&#x1EBF; &#x1EA3;o t&abreve;ng c&#x1B0;&#x1EDD;ng (AR/VR) nh&#x1EB1;m n&acirc;ng cao ch&#x1EA5;t l&#x1B0;&#x1EE3;ng ti&#x1EBF;t h&#x1ECD;c t&#x1EA1;i l&#x1EDB;p v&agrave; ph&#x1B0;&#x1A1;ng ph&aacute;p h&#x1ECD;c tr&#x1EF1;c tuy&#x1EBF;n d&agrave;nh cho c&aacute;c th&#x1EA7;y c&ocirc; v&agrave; h&#x1ECD;c sinh
+            h2.hero-title.mt-0 Nền tảng xây dựng bài giảng trực tuyến lý tưởng dành cho
+              br
+              |Giáo viên và Học sinh
+            mixin paragraph(text)
+              div(style={'display':'flex','align-items': 'center'}).hero-paragraph
+                i(style={'font-size':'36px','margin-right':'12px',color:'rgb(38, 184, 38)'}).far.fa-check-square
+                div
+                  |#{text}
+            +paragraph('Hỗ trợ thiết kế bài giảng trình chiếu: tạo và chỉnh sửa văn bản, biểu đồ, hình ảnh 2D, tệp thư mục pdf, mô hình 3D,..')
+            +paragraph('Sở hữu các chức năng đặc biệt phục vụ cho Giáo dục bao gồm: tạo các câu hỏi trắc nghiệm (multiple choice, single choice, true/false,...) và trả lời tự luận.')
+            +paragraph('Ứng dụng công nghệ thực tế ảo (AR) giúp bài giảng sinh động, gây hứng thú cho học sinh khi học trong lớp học.')
+
+            
+            
             .hero-cta
               a.button.button-primary(href='/template') Tr&#x1EA3;i nghi&#x1EC7;m ngay
               .lights-toggle

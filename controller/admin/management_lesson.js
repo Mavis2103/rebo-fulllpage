@@ -34,7 +34,7 @@ const new_lesson = (req, res, next) => {
 		const lessonID = id.split('-').join('');
 		const { lessonName, categoryID, lessonDescription } = fields;
 		const lessonImg = file.lessonImage.name;
-		if (0 < file.lessonImage.size && file.lessonSlide.size < 1 * 1024 * 1024 && file.lessonImage.size < 1 * 1024 * 1024 && file.lessonSlide.size > 0) {
+		if (0 < file.lessonImage.size && file.lessonSlide.size < 1 * 1024 * 1024 && file.lessonSlide.size > 0) {
 			const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription,lessonSlide) value(?,?,?,?,?,?,?)';
 			fs.readFile(file.lessonSlide.path, 'utf8', (err, slideData) => {
 				if (err) return next(err);
