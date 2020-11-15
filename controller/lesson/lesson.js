@@ -5,19 +5,27 @@ const cloud = require('../../config/cloudinary');
 const fs = require('fs');
 
 const show_lesson = (req, res, next) => {
-	const getLesson_client = 'select Lesson.lessonName,Lesson.lessonID,Lesson.lessonDescription,Lesson.userID,Account.username from ((Lesson inner join Category on Category.categoryID= Lesson.categoryID) inner join Account on Account.userID=Lesson.userID)';
-	const getCategory = 'select*from Category';
-	db.query(`${getLesson_client};${getCategory}`, (err, data) => {
-		if (err) return next(err);
-		const data_length = data[1].length;
-		for (let index = 0; index < data_length; index += 1) {
-			const element = data[1][index];
-			element.categoryID = Buffer.from(data[1][index].categoryID, 'hex').toString('utf8');
-		}
-		res.render('students/lesson/lesson', {
-			lesson: data[0],
-			categories: data[1],
-			role: req.session.role,
+	db.query('select Lesson.lessonName from Lesson', (error, dataL) => {
+		if (error) return next(error);
+		const numberPagination = req.params.numberPagination || 0;
+		const maxLesson = 2;
+		const pageSize = Math.ceil(dataL.length / maxLesson);
+		const getLesson_client = `select Lesson.lessonName,Lesson.lessonID,Lesson.lessonDescription,Lesson.userID,Account.username from ((Lesson inner join Category on Category.categoryID= Lesson.categoryID) inner join Account on Account.userID=Lesson.userID) limit ${numberPagination * maxLesson},${maxLesson}`;
+		const getCategory = 'select*from Category';
+		db.query(`${getLesson_client};${getCategory}`, (err, data) => {
+			if (err) return next(err);
+			const data_length = data[1].length;
+			for (let index = 0; index < data_length; index += 1) {
+				const element = data[1][index];
+				element.categoryID = Buffer.from(data[1][index].categoryID, 'hex').toString('utf8');
+			}
+
+			res.render('students/lesson/lesson', {
+				lesson: data[0],
+				categories: data[1],
+				role: req.session.role,
+				pagination: pageSize,
+			});
 		});
 	});
 };

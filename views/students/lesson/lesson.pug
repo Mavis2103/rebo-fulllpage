@@ -80,6 +80,7 @@ block main
       section.col-12.mt-5
         .d-flex.justify-content-end
           button#new.btn.btn-primary.btn-block(type='button',style={width:'150px'}).font-weight-bolder Tạo bài học
+    section.col-12.mt-5
       .title.d-flex.justify-content-between.align-items-baseline
         h4.mt-5.mb-4 B&agrave;i h&#x1ECD;c &dstrok;&#x1B0;&#x1EE3;c &dstrok;&#x1EC1; xu&#x1EA5;t
         a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
@@ -100,6 +101,12 @@ block main
                           i.far.fa-star
                       .registeredLesson__btn
         -}
+      .text-center
+        -for(let number = 0 ; number < pagination;number++){
+          a.p-3(href=`/lesson/${number}`)= number
+        -}
+    section.col-12.mt-5
+
 //-   $('#todayLessonCard').click(function () {
 //-   $('#content').load('/html/lesson-detail.html');
 //-   });

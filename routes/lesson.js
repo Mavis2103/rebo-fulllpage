@@ -5,6 +5,7 @@ const router = express.Router();
 const x = require('../controller/lesson/lesson');
 
 router.get('/', x.show_lesson);
+router.get('/:numberPagination', x.show_lesson);
 router.post('/', x.new_lesson);
 
 /** ---------------------------------------- */
