@@ -12,7 +12,7 @@ router.post('/', x.new_lesson);
 
 const y = require('../controller/lesson/lesson-detail');
 
-router.get('/:id', y.lesson_detail);
+router.get('/detail/:id', y.lesson_detail);
 router.get('/buyNow/:id', y.lesson_buy);
 
 /** ----------------------------------------- */

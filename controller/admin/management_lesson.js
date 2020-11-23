@@ -36,8 +36,11 @@ const new_lesson = (req, res, next) => {
 		const lessonImg = file.lessonImage.name;
 		if (0 < file.lessonImage.size && file.lessonSlide.size < 1 * 1024 * 1024 && file.lessonSlide.size > 0) {
 			const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription,lessonSlide) value(?,?,?,?,?,?,?)';
-			fs.readFile(file.lessonSlide.path, 'utf8', (err, slideData) => {
-				if (err) return next(err);
+			readStr = fs.createReadStream(file.lessonSlide.path, { encoding: 'utf8' });
+			readStr.on('error', (err) => {
+				return next(err);
+			});
+			readStr.on('data', (slideData) => {
 				db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription, slideData], (error) => {
 					if (error) return next(error);
 					cloud.uploader.upload(
