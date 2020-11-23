@@ -86,20 +86,21 @@ block main
         a.text-decoration-none(href='#') Xem t&#x1EA5;t c&#x1EA3;
       .row.registeredLesson
         -for(let i in lesson){
-          .col-lg-3.col-md-4.col-sm-6.mb-4
+          .col-md-4.col-sm-6.mb-4
             a.text-decoration-none(href=`/lesson/detail/${lesson[i].lessonID}`)
-              .card.registeredLesson__card.border-0.rounded-15px.shadow-lite
-                .card-body
+              .card.registeredLesson__card.border-0.rounded-15px.shadow-lite.h-100
+                .card-body.h-100.d-flex.flex-column.justify-content-between
                   .registeredLesson__img
                     img(src=`https://res.cloudinary.com/mavis/image/upload/v1601815231/Database_REBO/lessonImage/${lesson[i].lessonID}`, alt='')
-                  .registeredLesson__body.mt-3
+                  .registeredLesson__body.mt-3.h-100.d-flex.flex-column.justify-content-between
                     h4= lesson[i].lessonName
-                    h5= lesson[i].username
-                    .registeredLesson__regis.d-flex.align-items-center.justify-content-between
-                      .registeredLesson__stars
-                        each _ in Array(5)
-                          i.far.fa-star
-                      .registeredLesson__btn
+                    div
+                      h5= lesson[i].username
+                      .registeredLesson__regis.d-flex.align-items-center.justify-content-between
+                        .registeredLesson__stars
+                          each _ in Array(5)
+                            i.far.fa-star
+                        .registeredLesson__btn
         -}
       .text-center
         -for(let number = 0 ; number < pagination;number++){

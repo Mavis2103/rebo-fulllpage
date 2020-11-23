@@ -8,7 +8,7 @@ const show_lesson = (req, res, next) => {
 	db.query('select Lesson.lessonName from Lesson', (error, dataL) => {
 		if (error) return next(error);
 		const numberPagination = req.params.numberPagination || 0;
-		const maxLesson = 2;
+		const maxLesson = 6;
 		const pageSize = Math.ceil(dataL.length / maxLesson);
 		const getLesson_client = `select Lesson.lessonName,Lesson.lessonID,Lesson.lessonDescription,Lesson.userID,Account.username from ((Lesson inner join Category on Category.categoryID= Lesson.categoryID) inner join Account on Account.userID=Lesson.userID) limit ${numberPagination * maxLesson},${maxLesson}`;
 		const getCategory = 'select*from Category';
