@@ -16,4 +16,9 @@ router.get('/getFolder', getFolder);
 const { getLesson } = require('./OO-lesson-detail');
 
 router.route('/lesson/:id').get(getLesson);
+
+/** ------------------------------- */
+
+const fileSearch = require('./search');
+router.route('/data').get(fileSearch.returnData);
 module.exports = router;

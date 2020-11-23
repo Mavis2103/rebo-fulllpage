@@ -46,7 +46,10 @@ block content
         section.d-flex.justify-content-end.align-items-center.py-3.px-md-5.position-relative
           #expand(onclick='toggle()')
             i.fas.fa-bars
-          .ava-small.mr-4.d-flex.align-items-center#a.rounded-15px.border
+          #box-search
+            input#search(type="search", placeholder='Tìm kiếm bài học, môn học, giáo viên, học sinh,...')
+            #result(style={height:'100px'})
+          .ava-small.mr-4.d-flex.align-items-center#a
             img.ava.w-100.rounded-circle
             i.ml-2.fas.fa-caret-down
         section.position-relative.px-md-5
@@ -87,3 +90,4 @@ block script
   script(src='/st/javascripts/loading.js', async)
   script(src='/st/javascripts/event.js', defer)
   script(src='/st/javascripts/api/user.js')
+  script(src='/st/javascripts/api/search.js')
