@@ -7,6 +7,7 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const session = require('express-session');
 const path = require('path');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -37,10 +38,19 @@ app.use(
 );
 app.use(cookieParser());
 app.use(compression());
+app.use(cors());
 // app.use(helmet());
 
 app.use('/md', express.static(path.join(__dirname, '/node_modules')));
-app.use('/st', express.static(path.join(__dirname, '/public')));
+app.use(
+	'/st',
+	express.static(path.join(__dirname, '/public'), {
+		immutable: true,
+		setHeaders: function (res) {
+			res.set('Cache-control', 'public, max-age=31536000');
+		},
+	})
+);
 app.use(favicon(path.join(__dirname, 'public/images/appicon.png')));
 // session
 app.use(
