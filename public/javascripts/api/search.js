@@ -9,16 +9,28 @@ const showResults = async () => {
 	await fetchForSearch();
 	result.innerHTML = '';
 	rs.filter((item) => {
-		return item.lessonName.toLowerCase().includes(search_term);
+		return item.keyword.toLowerCase().includes(search_term);
 	}).forEach((e) => {
 		const li = document.createElement('li');
-		li.innerHTML = `<i>Name:</i>${e.lessonName}`;
+		const p = document.createElement('p');
+		if (e.role === 'category') {
+			p.innerHTML = `<span class='p-2 bg-primary rounded-15px text-white mr-2'>Môn</span>		${e.keyword}`;
+		} else if (e.role === 'teacher') {
+			p.innerHTML = `<span class='p-2 bg-danger rounded-15px text-white mr-2'>Giáo viên</span> 		${e.keyword}`;
+		} else {
+			p.innerHTML = e.keyword;
+		}
 		result.appendChild(li);
+		li.appendChild(p);
 	});
 };
-
 search.addEventListener('input', (e) => {
-	search_term = e.target.value.toLowerCase();
-	showResults();
+	console.time();
+	if (e.target.value.length === 0) {
+		result.innerHTML = '';
+	} else {
+		search_term = e.target.value.toLowerCase();
+		showResults();
+	}
+	console.timeEnd();
 });
-showResults();

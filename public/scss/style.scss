@@ -80,6 +80,30 @@ body {
 	@include responsive(xl) {
 		padding-left: 256px;
 	}
+	#box-search {
+		#search {
+			width: 200px;
+			@include responsive(sm) {
+				width: 400px;
+			}
+		}
+		ul {
+			max-height: 250px;
+			z-index: 1;
+			width: 500px;
+			overflow-y: scroll;
+			background-color: white;
+			li {
+				height: 50px;
+				display: flex;
+				align-items: center;
+				p {
+					margin-left: 20px;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
 }
 .menu-active-main {
 	@include responsive(xl) {
@@ -178,11 +202,15 @@ body {
 	width: 50px;
 	height: 50px;
 	position: absolute;
-	top: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	left: 0;
 	z-index: 1;
-
-	& i {
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	i {
 		position: absolute;
 		top: 50%;
 		left: 50%;

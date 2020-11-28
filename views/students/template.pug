@@ -43,12 +43,12 @@ block content
         //-           | Trải nghiệm cùng nhau. Nhân đôi điểm thưởng
         //-         a.btn.btn-red.py-3.px-4.rounded-15px.font-weight-bolder.text-white(name='', id='', href='#', role='button') Mời bạn bè
       section#main.vw-100
-        section.d-flex.justify-content-end.align-items-center.py-3.px-md-5.position-relative
+        section.d-flex.justify-content-end.align-items-center.py-3.px-md-5.position-relative.justify-content-between
           #expand(onclick='toggle()')
             i.fas.fa-bars
-          //- #box-search
-          //-   input#search(type="search", placeholder='Tìm kiếm bài học, môn học, giáo viên, học sinh,...')
-          //-   #result(style={height:'100px'})
+          #box-search.mr-3.position-relative.ml-5.ml-md-0
+            input#search(type="search", placeholder='Tìm kiếm bài học, môn học, giáo viên, học sinh,...',style={height:'50px'}).form-control.shadow.ml-3
+            ul#result.list-unstyled.position-absolute.shadow.rounded
           .ava-small.mr-4.d-flex.align-items-center#a
             img.ava.w-100.rounded-circle
             i.ml-2.fas.fa-caret-down
