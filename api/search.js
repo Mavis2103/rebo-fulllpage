@@ -3,7 +3,7 @@ const db = require('../config/mysql');
 module.exports.returnData = (req, res, next) => {
 	const lesson = 'select lessonID,lessonName from Lesson';
 	const category = 'select categoryID,categoryName from Category';
-	const teacher = 'select userID,username from Account';
+	const teacher = 'select userID,username from Account where role="teacher"';
 	db.query(`${lesson};${category};${teacher}`, (err, data) => {
 		if (err) return next(err);
 		data[0].forEach((item) => {
@@ -15,6 +15,9 @@ module.exports.returnData = (req, res, next) => {
 		data[2].forEach((item) => {
 			item.userID = Buffer.from(item.userID, 'base64').toString('utf8');
 		});
+		// const b64Tou8 = (str)=>{
+		// 	str = Buffer.from(str, 'base64').toString('utf8');
+		// }
 		let bigData = data[2].concat(data[1], data[0]);
 		let dataSearch = [];
 		bigData.forEach((element) => {

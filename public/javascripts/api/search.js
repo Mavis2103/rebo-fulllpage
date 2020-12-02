@@ -17,7 +17,7 @@ const showResults = async () => {
 			p.innerHTML = `<span class='p-2 bg-primary rounded-15px text-white mr-2'>Môn</span>		${e.keyword}`;
 		} else if (e.role === 'teacher') {
 			p.innerHTML = `<span class='p-2 bg-danger rounded-15px text-white mr-2'>Giáo viên</span> 		${e.keyword}`;
-		} else {
+		} else if (e.role === 'lesson') {
 			p.innerHTML = e.keyword;
 		}
 		result.appendChild(li);
@@ -25,12 +25,15 @@ const showResults = async () => {
 	});
 };
 search.addEventListener('input', (e) => {
-	console.time();
+	let t0 = performance.now();
+	// console.time();
 	if (e.target.value.length === 0) {
 		result.innerHTML = '';
 	} else {
 		search_term = e.target.value.toLowerCase();
 		showResults();
 	}
-	console.timeEnd();
+	// console.timeEnd();
+	let t1 = performance.now();
+	console.log(`Time:${t1 - t0}`);
 });
