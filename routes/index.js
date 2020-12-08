@@ -11,7 +11,8 @@ const lesson = require('./lesson');
 const myLibrary = require('./myLibrary');
 const library = require('./library');
 const slide = require('./slide');
-// var profile_child = require("./students/profile/profile");
+const search = require('./search');
+// var profile_child = require("./users/profile/profile");
 
 // Action profile
 router.use(express.static(path.join(__dirname, 'public')));
@@ -43,13 +44,16 @@ router.use('/library', library);
 router.use('/slide', slide);
 
 router.get('/dashboard', (req, res) => {
-	res.render('students/dashboard/dashboard');
+	res.render('users/dashboard/dashboard');
 });
 router.get('/tools', (req, res) => {
-	res.render('students/tools/tool');
+	res.render('users/tools/tool');
 });
 router.get('/gift', (req, res) => {
-	res.render('students/gift/gift');
+	res.render('users/gift/gift');
 });
+
+// -----------Search-----------
+router.use('/search', search);
 
 module.exports = router;

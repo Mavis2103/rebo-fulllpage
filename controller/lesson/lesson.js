@@ -20,7 +20,7 @@ const show_lesson = (req, res, next) => {
 				element.categoryID = Buffer.from(data[1][index].categoryID, 'hex').toString('utf8');
 			}
 
-			res.render('students/lesson/lesson', {
+			res.render('users/lesson/lesson', {
 				lesson: data[0],
 				categories: data[1],
 				role: req.session.role,

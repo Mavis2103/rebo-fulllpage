@@ -26,14 +26,14 @@ const show = (req, res, next) => {
 		}
 		if (arr.length === 0) {
 			const lesson_of_student = [];
-			res.render('students/myLibrary/myLibrary', {
+			res.render('users/myLibrary/myLibrary', {
 				folder,
 				lesson_of_student,
 			});
 		} else {
 			db.query(getLesson_client, [arr], (error, lesson_of_student) => {
 				if (error) return next(error);
-				res.render('students/myLibrary/myLibrary', {
+				res.render('users/myLibrary/myLibrary', {
 					folder,
 					lesson_of_student,
 				});
@@ -99,7 +99,7 @@ const openFolder = (req, res, next) => {
 	db.query('select library_list from Library_of_users where userID = ?', [req.session.userID], (err, data) => {
 		if (err) return next(err);
 		const arr = JSON.parse(data[0].library_list)[0];
-		res.render('students/myLibrary/contentFolder', {
+		res.render('users/myLibrary/contentFolder', {
 			arr,
 		});
 	});

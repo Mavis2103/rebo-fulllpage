@@ -9,7 +9,7 @@ const lesson_detail = (req, res, next) => {
 	const get = `select ${get_dt} from Lesson ${table_category} ${table_account} where Lesson.lessonID=?`;
 	db.query(get, [id], (err, data) => {
 		if (err) return next(err);
-		res.render('students/lesson/lesson-detail', {
+		res.render('users/lesson/lesson-detail', {
 			detail: data[0],
 		});
 	});

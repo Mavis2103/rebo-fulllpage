@@ -44,12 +44,15 @@ app.use(cors());
 app.use('/md', express.static(path.join(__dirname, '/node_modules')));
 app.use(
 	'/st',
-	express.static(path.join(__dirname, '/public'), {
-		immutable: true,
-		setHeaders: function (res) {
-			res.set('Cache-control', 'public, max-age=31536000');
-		},
-	})
+	express.static(
+		path.join(__dirname, '/public')
+		// , {
+		// 	immutable: true,
+		// 	setHeaders: function (res) {
+		// 		res.set('Cache-control', 'public, max-age=31536000');
+		// 	},
+		// }
+	)
 );
 app.use(favicon(path.join(__dirname, 'public/images/appicon.png')));
 // session

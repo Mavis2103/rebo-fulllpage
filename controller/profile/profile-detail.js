@@ -8,7 +8,7 @@ const user_detail = (req, res, next) => {
 	const { userID } = req.session;
 	db.query(detailUser, [userID], (err, data) => {
 		if (err) return next(err);
-		res.render('students/profile/profile-tab/user-detail', {
+		res.render('users/profile/profile-tab/user-detail', {
 			detail: data,
 			userID,
 		});

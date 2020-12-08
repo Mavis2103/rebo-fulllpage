@@ -5,7 +5,7 @@ const show = (req, res, next) => {
 	const category = 'select*from Category';
 	db.query(`${get};${category}`, (err, data) => {
 		if (err) return next(err);
-		res.render('students/library/library', {
+		res.render('users/library/library', {
 			lessons: data[0],
 			categories: data[1],
 		});
