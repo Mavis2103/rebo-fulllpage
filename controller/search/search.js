@@ -8,8 +8,9 @@ const searchInDB = (req, res, next) => {
 	res.render('users/search', { responseDataFromDB });
 };
 const fetchAllData = async () => {
+	let url = `http://localhost:3000/api/data` || 'http://rebo-vn2.herokuapp.com/api/data';
 	try {
-		resultAll = await fetch(`http://localhost:3000/api/data`).then((rs) => rs.json());
+		resultAll = await fetch(url).then((rs) => rs.json());
 	} catch (error) {
 		console.log(error);
 	}
