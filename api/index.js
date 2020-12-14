@@ -21,4 +21,10 @@ router.route('/lesson/:id').get(getLesson);
 
 const fileSearch = require('./search');
 router.route('/data').get(fileSearch.returnData);
+
+/** ------------------------------- */
+const lesson_saveOrNot = require('./save.notsave')
+router.post('/save',lesson_saveOrNot.lesson_save)
+router.post('/unsave',lesson_saveOrNot.lesson_unsave)
+
 module.exports = router;

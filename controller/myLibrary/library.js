@@ -3,8 +3,8 @@ const { v4: uuid } = require('uuid');
 const db = require('../../config/mysql');
 
 const show = (req, res, next) => {
-	const get = 'select*from Library_of_users where userID=?';
-	const getLessonPaid = 'select point,lessonID_list from Student where userID=?';
+	const get = 'select*from LibraryOfAccount where userID=?';
+	const getLessonPaid = 'select point,lessonID_list from LessonOfAccount where userID=?';
 	const getLesson_client = 'select Lesson.lessonName,Lesson.lessonID,Lesson.lessonDescription,Lesson.userID,Account.username from ((Lesson inner join Category on Category.categoryID= Lesson.categoryID) inner join Account on Account.userID=Lesson.userID) where lessonID in (?)';
 	db.query(`${get};${getLessonPaid}`, [req.session.userID, req.session.userID], (err, data) => {
 		if (err) return next(err);
@@ -48,9 +48,9 @@ const createFolder = (req, res, next) => {
 			content: req.body.name,
 		},
 	};
-	const create = 'insert into Library_of_users value(?,?)';
-	const get = 'select*from Library_of_users where userID=?';
-	const update = 'update Library_of_users set library_list=? where userID=?';
+	const create = 'insert into LibraryOfAccount value(?,?)';
+	const get = 'select*from LibraryOfAccount where userID=?';
+	const update = 'update LibraryOfAccount set library_list=? where userID=?';
 	if (req.body.name) {
 		db.query(get, [req.session.userID], (err, data) => {
 			if (err) return next(err);
@@ -82,11 +82,11 @@ const deleteFolder = (req, res, next) => {
 		return array.id === id;
 	}
 	const user = req.session.userID;
-	db.query('select library_list from Library_of_users where userID = ? ', [user], (err, data) => {
+	db.query('select library_list from LibraryOfAccount where userID = ? ', [user], (err, data) => {
 		if (err) return next(err);
 		const arr = JSON.parse(data[0].library_list);
 		arr.splice(arr.findIndex(findValue), 1);
-		const update = 'update Library_of_users set library_list=? where userID=?';
+		const update = 'update LibraryOfAccount set library_list=? where userID=?';
 		db.query(update, [JSON.stringify(arr), user], (error) => {
 			if (error) return next(error);
 			res.redirect('/myLibrary');
@@ -96,7 +96,7 @@ const deleteFolder = (req, res, next) => {
 
 const openFolder = (req, res, next) => {
 	// const { id } = req.params;
-	db.query('select library_list from Library_of_users where userID = ?', [req.session.userID], (err, data) => {
+	db.query('select library_list from LibraryOfAccount where userID = ?', [req.session.userID], (err, data) => {
 		if (err) return next(err);
 		const arr = JSON.parse(data[0].library_list)[0];
 		res.render('users/myLibrary/contentFolder', {

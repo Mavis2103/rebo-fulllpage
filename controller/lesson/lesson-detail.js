@@ -22,13 +22,13 @@ const lesson_buy = (req, res, next) => {
 	const str = {
 		id,
 	};
-	const getJson = 'select userID,lessonID_list from Student where userID = ?';
+	const getJson = 'select userID,lessonID_list from LessonOfAccount where userID = ?';
 	db.query(getJson, [u], (err, data) => {
 		if (err) return next(err);
 		if (data[0] === undefined) {
 			arr = [str];
 			const add = JSON.stringify(arr);
-			const insertJson = 'insert into Student (userID,lessonID_list) value(?,?)';
+			const insertJson = 'insert into LessonOfAccount (userID,lessonID_list) value(?,?)';
 			db.query(insertJson, [u, add], (error) => {
 				if (error) return next(error);
 				res.redirect('/lesson');
@@ -37,7 +37,7 @@ const lesson_buy = (req, res, next) => {
 			arr = JSON.parse(data[0].lessonID_list);
 			arr.push(str);
 			const add = JSON.stringify(arr);
-			const updateJson = 'update Student set lessonID_list=? where userID=?';
+			const updateJson = 'update LessonOfAccount set lessonID_list=? where userID=?';
 			db.query(updateJson, [add, u], (error) => {
 				if (error) return next(error);
 				res.redirect('/lesson');

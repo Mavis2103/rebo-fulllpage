@@ -1,3 +1,23 @@
 extends ./template.pug
 block main
-    h1 Yoo
+	if(resultNotDB)
+		h2 #{resultNotDB.length} kết quả tìm thấy cho "#{value_from_input}"
+			each rs in resultNotDB
+				each info in dataInfoLesson
+					if((info.lessonID===rs.id))
+						.d-flex.py-3
+							.pr-3
+								img(style={width:'250px',height:'170px','object-fit':'cover'},src=`https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${rs.id}`, alt='')
+							.flex-column
+								p(style={'font-size':'0.7em'})= rs.lessonName
+								p(style={'font-size':'0.6em'})= info.categoryName
+								p(style={'font-size':'0.5em'})= info.username
+						//- if((valueRole==='category')&&(info.categoryID===rs.id))
+						//- 	p(style={'font-size':'1.5em'})= rs.keyword
+						//- if((valueRole==='teacher')&&(info.userID===rs.id))
+						//- 	p(style={'font-size':'1.5em'})= rs.keyword
+
+	//- each val in data
+	//- 	h4= val.lessonID
+	//- if(responseDataFromDB)
+	//- 		h1= responseDataFromDB.id

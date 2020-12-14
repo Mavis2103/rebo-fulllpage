@@ -70,9 +70,11 @@ app.use(
 );
 
 const server = require('http').createServer(app);
-
-app.use('/', indexRouter);
+// No logged in
 app.use('/api', api);
+
+// Logged
+app.use('/', indexRouter);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
 	next(createError(404));
@@ -91,5 +93,5 @@ app.use((err, req, res, next) => {
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
-	console.log(`Server Started!${port}`);
+	console.log(`Server Started!${port}`, 'http://localhost:3000/');
 });

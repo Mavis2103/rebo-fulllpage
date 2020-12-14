@@ -21,6 +21,11 @@ const show_lesson = (req, res, next) => {
 	});
 };
 const new_lesson = (req, res, next) => {
+	const date = new Date();
+	let d = date.getDay() + 1;
+	let m = date.getMonth() + 1;
+	let y = date.getFullYear();
+	let timeDate = `${d}/${m}/${y}`;
 	const form = formidable.IncomingForm();
 	form.maxFileSize = 1 * 1024 * 1024;
 	form.parse(req, (err, fields, file) => {
@@ -35,24 +40,27 @@ const new_lesson = (req, res, next) => {
 		const { lessonName, categoryID, lessonDescription } = fields;
 		const lessonImg = file.lessonImage.name;
 		if (0 < file.lessonImage.size && file.lessonSlide.size < 1 * 1024 * 1024 && file.lessonSlide.size > 0) {
-			const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription,lessonSlide) value(?,?,?,?,?,?,?)';
+			const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription) value(?,?,?,?,?,?)';
 			readStr = fs.createReadStream(file.lessonSlide.path, { encoding: 'utf8' });
 			readStr.on('error', (err) => {
 				return next(err);
 			});
 			readStr.on('data', (slideData) => {
-				db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription, slideData], (error) => {
+				db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription], (error) => {
 					if (error) return next(error);
-					cloud.uploader.upload(
-						file.lessonImage.path,
-						{
-							public_id: `Database_REBO/lessonImage/${lessonID}`,
-						},
-						(errors) => {
-							if (errors) return next(errors);
-							res.redirect('/lesson_management');
-						}
-					);
+					db.query('insert into LessonContent (lessonID,lessonSlide,dateTime) value(?,?,?)', [lessonID, slideData, timeDate], (err) => {
+						if (err) return next(err);
+						cloud.uploader.upload(
+							file.lessonImage.path,
+							{
+								public_id: `Database_REBO/lessonImage/${lessonID}`,
+							},
+							(errors) => {
+								if (errors) return next(errors);
+								res.redirect('/lesson_management');
+							}
+						);
+					});
 				});
 			});
 		} else {

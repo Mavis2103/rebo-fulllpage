@@ -2,7 +2,7 @@ const db = require('../../config/mysql');
 const cloud = require('../../config/cloudinary');
 
 const show_user = (req, res, next) => {
-	const getUsers = "select userID,username,email,phone_number,role,birthFrom from Account where role!='admin'";
+	const getUsers = "select userID,username,email,phone_number,role,date_of_birth from Account where role!='admin'";
 	db.query(getUsers, (err, data) => {
 		if (err) return next(err);
 		res.render('admin/management_users', {

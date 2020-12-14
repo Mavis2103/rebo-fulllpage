@@ -4,7 +4,7 @@ const cloud = require('../../config/cloudinary');
 
 /** ------------------------------------------------------------------------------- */
 const user_detail = (req, res, next) => {
-	const detailUser = 'select username,email,phone_number,role,birthFrom,avatar,avatar_ver from Account where userID = ?';
+	const detailUser = 'select username,email,phone_number,role,date_of_birth,avatar,avatar_ver from Account where userID = ?';
 	const { userID } = req.session;
 	db.query(detailUser, [userID], (err, data) => {
 		if (err) return next(err);
@@ -22,7 +22,7 @@ const update_user_detail = (req, res, next) => {
 		const { username } = fields;
 		const { email } = fields;
 		const { phone_number } = fields;
-		const { birthFrom } = fields;
+		const { date_of_birth } = fields;
 		if (err) {
 			next(err);
 			return;
@@ -35,17 +35,17 @@ const update_user_detail = (req, res, next) => {
 				},
 				(error, result) => {
 					if (error) return next(error);
-					const updateUser = 'update Account set username=?,email=?,phone_number=?,birthFrom=?,avatar=?,avatar_ver=? where userID=?';
+					const updateUser = 'update Account set username=?,email=?,phone_number=?,date_of_birth=?,avatar=?,avatar_ver=? where userID=?';
 					const dataAvatar = `${req.session.userID}.${result.format}`;
-					db.query(updateUser, [username, email, phone_number, birthFrom, dataAvatar, result.version, userID], (errors) => {
+					db.query(updateUser, [username, email, phone_number, date_of_birth, dataAvatar, result.version, userID], (errors) => {
 						if (errors) return next(errors);
 						res.redirect('/profile');
 					});
 				}
 			);
 		} else {
-			const updateUser = 'update Account set username=?,email=?,phone_number=?,birthFrom=? where userID=?';
-			db.query(updateUser, [username, email, phone_number, birthFrom, userID], (error) => {
+			const updateUser = 'update Account set username=?,email=?,phone_number=?,date_of_birth=? where userID=?';
+			db.query(updateUser, [username, email, phone_number, date_of_birth, userID], (error) => {
 				if (error) return next(error);
 				res.redirect('/profile');
 			});

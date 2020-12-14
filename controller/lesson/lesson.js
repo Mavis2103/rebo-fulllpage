@@ -30,37 +30,44 @@ const show_lesson = (req, res, next) => {
 	});
 };
 const new_lesson = (req, res, next) => {
+	const date = new Date();
+	let d = date.getDay() + 1;
+	let m = date.getMonth() + 1;
+	let y = date.getFullYear();
+	let timeDate = `${d}/${m}/${y}`;
 	const form = formidable.IncomingForm();
 	// form.maxFileSize = 1 * 1024 * 1024;
 	form.parse(req, (err, fields, file) => {
-		if (err) {
-			return next(err);
-		}
+		if (err) return next(err);
 		const userID_createLesson = req.session.userID;
 		const namespace = '7695f1dc-8a89-49ef-8f88-22a193903249';
 		const id = uuidv5(uuidv4(), namespace);
 		const lessonID = id.split('-').join('');
 		const { lessonName, categoryID, lessonDescription } = fields;
-		const lessonImg = file.lessonImage.name;
+			const lessonImg = file.lessonImage.name;
 		if (0 < file.lessonImage.size && file.lessonSlide.size < 1 * 1024 * 1024 && file.lessonSlide.size > 0) {
-			const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription,lessonSlide) value(?,?,?,?,?,?,?)';
+			const newLesson = 'insert into Lesson (lessonID,lessonName,userID,categoryID,lessonImage,lessonDescription) value(?,?,?,?,?,?)';
 			readStr = fs.createReadStream(file.lessonSlide.path, { encoding: 'utf8' });
 			readStr.on('error', (err) => {
 				return next(err);
 			});
 			readStr.on('data', (slideData) => {
-				db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription, slideData], (error) => {
+				db.query(newLesson, [lessonID, lessonName, userID_createLesson, categoryID, lessonImg, lessonDescription], (error) => {
 					if (error) return next(error);
-					cloud.uploader.upload(
-						file.lessonImage.path,
-						{
-							public_id: `Database_REBO/lessonImage/${lessonID}`,
-						},
-						(errors) => {
-							if (errors) return next(errors);
-							res.redirect('/lesson');
-						}
-					);
+					let insertContentLesson = 'insert into LessonContent (lessonID,lessonSlide,dateTime) value(?,?,?)';;;
+					db.query(insertContentLesson, [lessonID, slideData, timeDate], (err) => {
+						if (err) return next(err);
+						cloud.uploader.upload(
+							file.lessonImage.path,
+							{
+								public_id: `Database_REBO/lessonImage/${lessonID}`,
+							},
+							(errors) => {
+								if (errors) return next(errors);
+								res.redirect('/lesson');
+							}
+						);
+					});
 				});
 			});
 		} else {

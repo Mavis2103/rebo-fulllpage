@@ -18,16 +18,10 @@ const search = require('./search');
 router.use(express.static(path.join(__dirname, 'public')));
 // router.use("/", profile_child);
 
-router.use(login_signup);
-
-router.get('/logout', (req, res) => {
-	req.session.destroy();
-	res.redirect('/login-signup');
-});
-
 router.get('/', (req, res) => {
 	res.render('main/index');
 });
+router.use(login_signup);
 
 router.use((req, res, next) => {
 	if (req.session.userID === undefined) {
@@ -51,6 +45,11 @@ router.get('/tools', (req, res) => {
 });
 router.get('/gift', (req, res) => {
 	res.render('users/gift/gift');
+});
+
+router.get('/logout', (req, res) => {
+	req.session.destroy();
+	res.redirect('/login-signup');
 });
 
 // -----------Search-----------
