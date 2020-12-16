@@ -10,7 +10,11 @@ const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
+
+
 const app = express();
+
+
 // const logger = require("morgan");
 const compression = require('compression');
 // const helmet = require('helmet');
@@ -22,6 +26,7 @@ require('dotenv').config();
 // const error = require('console');
 const indexRouter = require('./routes/index');
 const api = require('./api/index');
+const { isObject } = require('util');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +35,7 @@ app.use(
 	express.json({
 		limit: '1mb',
 	})
-);
+	);
 app.use(
 	bodyParser.urlencoded({
 		extended: false,
@@ -53,7 +58,7 @@ app.use(
 		// 	},
 		// }
 	)
-);
+	);
 app.use(favicon(path.join(__dirname, 'public/images/appicon.png')));
 // session
 app.use(
@@ -67,9 +72,10 @@ app.use(
 			maxAge: new Date(Date.now() + 30 * 86400 * 1000),
 		},
 	})
-);
-
-const server = require('http').createServer(app);
+	);
+	
+	const server = require('http').createServer(app);
+	const io = require('socket.io')(server);
 // No logged in
 app.use('/api', api);
 
@@ -79,6 +85,7 @@ app.use('/', indexRouter);
 app.use((req, res, next) => {
 	next(createError(404));
 });
+
 
 // error handler
 app.use((err, req, res, next) => {
@@ -91,7 +98,19 @@ app.use((err, req, res, next) => {
 	res.render('main/error');
 });
 
+// Tao socket
+io.on('connection', (socket) => {
+	const comment = require('./socket.io/comment')
+	socket.on('sendFromClient',data=>{
+		console.log(data);
+		io.emit('sendFromServer',data)
+	})
+});
+
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
 	console.log(`Server Started!${port}`, 'http://localhost:3000/');
 });
+module.exports = {
+	io,
+};

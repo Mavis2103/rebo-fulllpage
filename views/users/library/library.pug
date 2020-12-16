@@ -1,33 +1,40 @@
 extends ../template.pug
 block main
   #bg-blur.position-absolute.z-max(style={width:'100vw',height:'100vh',top:'0',left:'0'}).d-none
-  #box.position-absolute.z-max.bg-white.shadow.flex-center(style={width:'90vw',height:'90vh'}).rounded-15px.d-none
-    .d-flex.flex-column.flex-lg-row.p-4
-      .lesson-img.mx-5
-        img#lesson-img.d-lg-block.mx-auto(alt="",style={'object-fit':'cover'})
-      .lesson-content.mt-4.mt-lg-0.px-lg-0.px-3.mx-auto
-        h2(style={width:'70%'})#lesson-name
-        .d-inline-block.p-3.bg-gray.rounded-15px#category
-        .d-flex.align-items-center.mt-4
-          p.mb-0.text-gray.mr-2 Tạo bởi  
-          img#avatar-auth.rounded-circle(style={width:'50px',height:'50px'})
-          p.mb-0#lesson-auth
-        .text-align-end
-          p.text-gray Thời gian tạo 10/11/2020
-        a#lesson-slide.py-2.btn.btn-primary(style={width:'300px'}).d-block.mx-auto.mt-5
-          .mb-0 Mở bài học
-        .mt-5
-          .d-flex.align-items-center
-            i#lesson_save.far.fa-bookmark(style={'font-size':'24px'})
-            p#lesson_save--state.mb-0.ml-2 Lưu vào thư viện của tôi
-          .mt-3
-            p.text-center Đánh giá
-            .d-flex.justify-content-around
-              i(style={'font-size':'36px'}).far.fa-star
-              i(style={'font-size':'36px'}).far.fa-star
-              i(style={'font-size':'36px'}).far.fa-star
-              i(style={'font-size':'36px'}).far.fa-star
-              i(style={'font-size':'36px'}).far.fa-star
+  #box.position-absolute.z-max.bg-white.shadow.flex-center(style={width:'90vw',height:'90vh','overflow-y':'scroll'}).rounded-15px.d-none
+    .p-4
+      .d-flex.flex-column.flex-lg-row
+        .lesson-img.mx-5
+          img#lesson-img.d-lg-block.mx-auto(alt="",style={'object-fit':'cover'})
+        .lesson-content.mt-4.mt-lg-0.px-lg-0.px-3.mx-auto
+          h2(style={width:'70%'})#lesson-name
+          .d-inline-block.p-3.bg-gray.rounded-15px#category
+          .d-flex.align-items-center.mt-4
+            p.mb-0.text-gray.mr-2 Tạo bởi  
+            img#avatar-auth.rounded-circle(style={width:'50px',height:'50px'})
+            p.mb-0#lesson-auth
+          .text-align-end
+            p.text-gray Thời gian tạo 10/11/2020
+          a#lesson-slide.py-2.btn.btn-primary(style={width:'300px'}).d-block.mx-auto.mt-5
+            .mb-0 Mở bài học
+          .mt-5
+            .d-flex.align-items-center
+              i#lesson_save.far.fa-bookmark(style={'font-size':'24px'})
+              p#lesson_save--state.mb-0.ml-2 Lưu vào thư viện của tôi
+            .mt-3
+              p.text-center Đánh giá
+              .d-flex.justify-content-around
+                i(style={'font-size':'36px'}).far.fa-star
+                i(style={'font-size':'36px'}).far.fa-star
+                i(style={'font-size':'36px'}).far.fa-star
+                i(style={'font-size':'36px'}).far.fa-star
+                i(style={'font-size':'36px'}).far.fa-star
+      .comment
+        p '32 Bình luận'
+        #comment__history
+        .comment__form
+          input#comment__form--input(type="text")
+          button#comment__form--button(type="submit") Gửi
     #close.border.rounded-circle.ver.d-flex.align-items-center.justify-content-center.shadow(style={width:'50px',height:'50px',top:'-10px',right:'-10px'}).position-absolute.bg-white
         i.fas.fa-times
   .row.mt-4
@@ -54,4 +61,3 @@ block append script
   script(src='/st/javascripts/swiper/swiper-library.js')
   script(src='/st/javascripts/library/library-lesson.js')
   script(src='/st/javascripts/library/library-save.js')
-  

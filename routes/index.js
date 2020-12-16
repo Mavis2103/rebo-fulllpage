@@ -1,8 +1,8 @@
 const express = require('express');
 
+
 const router = express.Router();
 const path = require('path');
-/* GET home page. */
 
 const login_signup = require('./login-signup');
 const profile = require('./profile');
@@ -14,10 +14,8 @@ const slide = require('./slide');
 const search = require('./search');
 // var profile_child = require("./users/profile/profile");
 
-// Action profile
-router.use(express.static(path.join(__dirname, 'public')));
-// router.use("/", profile_child);
 
+router.use(express.static(path.join(__dirname, 'public')));
 router.get('/', (req, res) => {
 	res.render('main/index');
 });
@@ -29,6 +27,8 @@ router.use((req, res, next) => {
 	}
 	next();
 });
+
+
 
 router.use(profile);
 router.use(admin);

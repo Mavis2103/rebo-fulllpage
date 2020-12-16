@@ -10,6 +10,8 @@ html(lang="en")
       link(rel="stylesheet",href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp",crossorigin="anonymous")
       link(rel='shortcut icon', href='/st/images/appicon.png', type='image/x-icon')
       link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css',as='style')
+      script(defer,src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js")
+      script(type='module',defer,src='/st/javascripts/socket.io/socket.main.js')
   body
     block content
     block script
