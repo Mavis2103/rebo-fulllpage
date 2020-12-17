@@ -27,4 +27,9 @@ const lesson_saveOrNot = require('./save.notsave')
 router.post('/save',lesson_saveOrNot.lesson_save)
 router.post('/unsave',lesson_saveOrNot.lesson_unsave)
 
+/** ------------------------------- */
+const cmt = require('./comment')
+router.post('/addCmt',cmt.addCmt);
+router.get('/historyCmt/:lessonSelected',cmt.historyCmt)
+
 module.exports = router;

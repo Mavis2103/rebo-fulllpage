@@ -12,6 +12,9 @@ const login_success = (req, res, next) => {
 	//   avatar: req.session.avatar
 	// })
 };
+// const sessionIdUser = (req, res, next)=>{
+
+// }
 
 module.exports = {
 	login_success,

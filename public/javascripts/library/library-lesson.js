@@ -9,6 +9,7 @@ const box_override = document.getElementById('box');
 const click_s = document.querySelectorAll('#s .swiper-slide');
 const get_class = document.querySelectorAll('#s .swiper-slide div');
 let lesson_save = document.getElementById('lesson_save');
+let lessonSelected;
 
 let tag_loading = () => {
 	let div = document.createElement('div');
@@ -22,16 +23,16 @@ let tag_loading = () => {
 };
 
 let lengthSlide = click_s.length;
-for (let i = 0; lengthSlide; i += 1) {
+for (let i = 0; i < lengthSlide; i += 1) {
 	click_s[i].addEventListener('click', (e) => {
 		/* Call loading */
 		tag_loading();
 		e.preventDefault();
-		const x = get_class[i].getAttribute('class');
+		lessonSelected = get_class[i].getAttribute('class');
+		console.log(lessonSelected);
 		bg_override.classList.remove('d-none');
 		box_override.classList.remove('d-none');
-		Get_Lesson(x).then((ele) => {
-			console.time();
+		Get_Lesson(lessonSelected).then((ele) => {
 			/* Loading data when page loading */
 			nameLesson.textContent = ele.lessonName;
 			auth.textContent = ele.username;

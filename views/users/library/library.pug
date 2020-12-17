@@ -30,11 +30,12 @@ block main
                 i(style={'font-size':'36px'}).far.fa-star
                 i(style={'font-size':'36px'}).far.fa-star
       .comment
+        p(style={'font-size':'1.5em'}).font-weight-bolder Bình luận
         p '32 Bình luận'
         #comment__history
-        .comment__form
-          input#comment__form--input(type="text")
-          button#comment__form--button(type="submit") Gửi
+        .comment__form.d-flex.mt-4
+          input#comment__form--input.form-control(type="text",style={width:'200px'})
+          button#comment__form--button.btn.btn-primary(type="submit") Gửi
     #close.border.rounded-circle.ver.d-flex.align-items-center.justify-content-center.shadow(style={width:'50px',height:'50px',top:'-10px',right:'-10px'}).position-absolute.bg-white
         i.fas.fa-times
   .row.mt-4
