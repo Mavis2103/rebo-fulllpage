@@ -10,22 +10,35 @@ const show = (req, res, next) => {
 		if (err) return next(err);
 		const arr = [];
 		let folder = [];
-		if (data[1][0] == null) {
-			if (data[0][0] != null) {
-				folder = JSON.parse(data[0][0].library_list);
-			}
-		} else {
+
+		if  (!!data[0][0])  {
+			folder = JSON.parse(data[0][0].library_list);
+		}
+		if  (!!data[1][0].lessonID_list)  {
 			const list = JSON.parse(data[1][0].lessonID_list);
 			const list_length = list.length;
 			for (let i = 0; i < list_length; i += 1) {
 				arr.push(list[i].id);
 			}
-			if (data[0][0] != null) {
-				folder = JSON.parse(data[0][0].library_list);
-			}
 		}
+		// if (!!data[1][0]===false) {
+		// 	if (data[0][0] != null) {
+		// 		folder = JSON.parse(data[0][0].library_list);
+		// 	}
+		// } else {
+		// 	if  (!!data[1][0].library_list)  {
+		// 		const list = JSON.parse(data[1][0].lessonID_list);
+		// 		const list_length = list.length;
+		// 		for (let i = 0; i < list_length; i += 1) {
+		// 			arr.push(list[i].id);
+		// 		}
+		// 		if (data[0][0] != null) {
+		// 			folder = JSON.parse(data[0][0].library_list);
+		// 		}
+		// 	}
+		// }
+		const lesson_of_student = [];
 		if (arr.length === 0) {
-			const lesson_of_student = [];
 			res.render('users/myLibrary/myLibrary', {
 				folder,
 				lesson_of_student,

@@ -25,7 +25,7 @@ const lesson_buy = (req, res, next) => {
 	const getJson = 'select userID,lessonID_list from LessonOfAccount where userID = ?';
 	db.query(getJson, [u], (err, data) => {
 		if (err) return next(err);
-		if (data[0] === undefined) {
+		if (!!data[0] === false) {
 			arr = [str];
 			const add = JSON.stringify(arr);
 			const insertJson = 'insert into LessonOfAccount (userID,lessonID_list) value(?,?)';
@@ -34,14 +34,25 @@ const lesson_buy = (req, res, next) => {
 				res.redirect('/lesson');
 			});
 		} else if (Buffer.from(data[0].userID, 'hex').toString('utf8') === u) {
-			arr = JSON.parse(data[0].lessonID_list);
-			arr.push(str);
-			const add = JSON.stringify(arr);
-			const updateJson = 'update LessonOfAccount set lessonID_list=? where userID=?';
-			db.query(updateJson, [add, u], (error) => {
-				if (error) return next(error);
-				res.redirect('/lesson');
-			});
+			if (!!data[0].lessonID_list===true) {
+				arr = JSON.parse(data[0].lessonID_list);
+				arr.push(str);
+				const add = JSON.stringify(arr);
+				const updateJson = 'update LessonOfAccount set lessonID_list=? where userID=?';
+				db.query(updateJson, [add, u], (error) => {
+					if (error) return next(error);
+					res.redirect('/lesson');
+				});
+			}
+			else{
+				arr=[str];
+				const add = JSON.stringify(arr);
+				const updateJson = 'update LessonOfAccount set lessonID_list=? where userID=?';
+				db.query(updateJson, [add, u], (error) => {
+					if (error) return next(error);
+					res.redirect('/lesson');
+				});
+			}
 		} else {
 			res.redirect('/lesson');
 		}

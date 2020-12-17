@@ -19,7 +19,7 @@ const lesson_save = (req, res, next) => {
 				res.json({ state: 'success' });
 			});
 		} else if (Buffer.from(data[0].userID, 'hex').toString('utf8') === u) {
-			if (data[0].lessonID_list === '') {
+			if (!!data[0].lessonID_list === false) {
 				arr.push(str);
 				const add = JSON.stringify(arr);
 				const updateJson = 'update LessonOfAccount set lessonID_list=? where userID=?';
