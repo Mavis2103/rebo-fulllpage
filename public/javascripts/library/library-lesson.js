@@ -22,14 +22,46 @@ let tag_loading = () => {
 	box_override.insertBefore(div, box_override.childNodes[0]);
 };
 
-let lengthSlide = click_s.length;
-for (let i = 0; i < lengthSlide; i += 1) {
-	click_s[i].addEventListener('click', (e) => {
-		/* Call loading */
+// let lengthSlide = click_s.length;
+// for (let i = 0; i < lengthSlide; i += 1) {
+// 	click_s[i].addEventListener('click', (e) => {
+// 		/* Call loading */
+// 		tag_loading();
+// 		e.preventDefault();
+// 		lessonSelected = get_class[i].getAttribute('class');
+// 		bg_override.classList.remove('d-none');
+// 		box_override.classList.remove('d-none');
+// 		Get_Lesson(lessonSelected).then((ele) => {
+// 			/* Loading data when page loading */
+// 			nameLesson.textContent = ele.lessonName;
+// 			auth.textContent = ele.username;
+// 			category.textContent = ele.categoryName;
+// 			lesson_save.setAttribute('name', ele.lessonID);
+// 			auth_avatar.src = '/st/images/appicon.png';
+// 			img.src = `https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${ele.lessonID}`;
+// 			slide.href = `/slide/${ele.lessonID}`;
+// 			/* Remove Loading */
+// 			document.getElementById('loading-bg').remove();
+// 			let lesson_icon_term = lesson_save.getAttribute('class');
+// 			if (ele.state === 1) {
+// 				let replaceClass = lesson_icon_term.replace(/far/, 'fas');
+// 				lesson_save.setAttribute('class', replaceClass);
+// 			} else {
+// 				let replaceClass = lesson_icon_term.replace(/fas/, 'far');
+// 				lesson_save.setAttribute('class', replaceClass);
+// 			}
+// 		});
+// 		document.getElementById('close').addEventListener('click', () => {
+// 			bg_override.classList.add('d-none');
+// 			box_override.classList.add('d-none');
+// 		});
+// 	});
+// }
+document.body.addEventListener('click', (evt) => {
+	let el = evt.target;
+	if (el.classList.contains('swiper-lazy')) {
+		lessonSelected = el.dataset.lesson;
 		tag_loading();
-		e.preventDefault();
-		lessonSelected = get_class[i].getAttribute('class');
-		console.log(lessonSelected);
 		bg_override.classList.remove('d-none');
 		box_override.classList.remove('d-none');
 		Get_Lesson(lessonSelected).then((ele) => {
@@ -56,8 +88,8 @@ for (let i = 0; i < lengthSlide; i += 1) {
 			bg_override.classList.add('d-none');
 			box_override.classList.add('d-none');
 		});
-	});
-}
+	}
+});
 async function Get_Lesson(x) {
 	console.time();
 	const url = `/api/lesson/${x}`;

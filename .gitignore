@@ -11,3 +11,5 @@ prepros.config*
 yoo.js*
 .json
 test.css
+.prettierrc.json
+.eslintrc.js

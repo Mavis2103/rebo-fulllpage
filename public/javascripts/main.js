@@ -1,5 +1,3 @@
-import {
-  yo
-} from './test.js'
-console.log('Yeeeeeee');
+import { yo } from './test.js'
+console.log('Yeeeeeee')
 yo()

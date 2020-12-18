@@ -1,4 +1,4 @@
-const loading = document.getElementById('loading-bg');
+const loading = document.getElementById('loading-bg')
 // const loading_checked = document.body.contains(loading);
 // window.addEventListener("load", () => {
 //     setTimeout(function () {
@@ -7,5 +7,5 @@ const loading = document.getElementById('loading-bg');
 // })
 window.onload = () => {
   // Loaded complete 100%
-  loading.remove();
-};
+  loading.remove()
+}

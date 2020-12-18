@@ -1,3 +1,3 @@
 export function yo() {
-  console.log('Yooooooooo');
+  console.log('Yooooooooo')
 }
