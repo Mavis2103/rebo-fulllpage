@@ -1,7 +1,7 @@
 extends ../template.pug
 block main
   #bg-blur.position-absolute.z-max(style={width:'100vw',height:'100vh',top:'0',left:'0'}).d-none
-  #box.position-absolute.z-max.bg-white.shadow.flex-center(style={width:'90vw',height:'90vh','overflow-y':'scroll'}).rounded-15px.d-none
+  #box.position-absolute.z-max.bg-white.shadow.flex-center(style={width:'90vw',height:'90vh'}).rounded-15px.d-none
     .p-4
       .d-flex.flex-column.flex-lg-row
         .lesson-img.mx-5
@@ -21,21 +21,21 @@ block main
             .d-flex.align-items-center
               i#lesson_save.far.fa-bookmark(style={'font-size':'24px'})
               p#lesson_save--state.mb-0.ml-2 Lưu vào thư viện của tôi
-            .mt-3
-              p.text-center Đánh giá
-              .d-flex.justify-content-around
-                i(style={'font-size':'36px'}).far.fa-star
-                i(style={'font-size':'36px'}).far.fa-star
-                i(style={'font-size':'36px'}).far.fa-star
-                i(style={'font-size':'36px'}).far.fa-star
-                i(style={'font-size':'36px'}).far.fa-star
-      .comment
+      .d-flex
+        p(style={'font-size':'1.5em'}).font-weight-bolder Đánh giá
+        .d-flex.justify-content-around
+          i(style={'font-size':'25px'}).far.fa-star
+          i(style={'font-size':'25px'}).far.fa-star
+          i(style={'font-size':'25px'}).far.fa-star
+          i(style={'font-size':'25px'}).far.fa-star
+          i(style={'font-size':'25px'}).far.fa-star
+      .comment.shadow.w-50.p-4.rounded-15px
         p(style={'font-size':'1.5em'}).font-weight-bolder Bình luận
-        p '32 Bình luận'
-        #comment__history
-        .comment__form.d-flex.mt-4
-          input#comment__form--input.form-control(type="text",style={width:'200px'})
-          button#comment__form--button.btn.btn-primary(type="submit") Gửi
+        p#comment__count
+        #comment__history.p-3.border.rounded-15px(style={height:'350px','overflow-y':'scroll'})
+        .comment__form.d-flex.mt-4.w-100
+          input#comment__form--input.form-control.form-control-lg(type="text").mr-4
+          button#comment__form--button.btn.btn-primary(type="submit").font-weight-bolder Gửi
     #close.border.rounded-circle.ver.d-flex.align-items-center.justify-content-center.shadow(style={width:'50px',height:'50px',top:'-10px',right:'-10px'}).position-absolute.bg-white
         i.fas.fa-times
   .row.mt-4

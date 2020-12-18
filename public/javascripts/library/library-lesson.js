@@ -12,14 +12,14 @@ let lesson_save = document.getElementById('lesson_save');
 let lessonSelected;
 
 let tag_loading = () => {
-	let div = document.createElement('div');
-	let div_child = document.createElement('div');
-	div.style.width = '90vw';
-	div.style.height = '90vh';
-	div.setAttribute('id', 'loading-bg');
-	div_child.setAttribute('class', 'loading');
-	div.appendChild(div_child);
-	box_override.insertBefore(div, box_override.childNodes[0]);
+  let div = document.createElement('div');
+  let div_child = document.createElement('div');
+  div.style.width = '90vw';
+  div.style.height = '90vh';
+  div.setAttribute('id', 'loading-bg');
+  div_child.setAttribute('class', 'loading');
+  div.appendChild(div_child);
+  box_override.insertBefore(div, box_override.childNodes[0]);
 };
 
 // let lengthSlide = click_s.length;
@@ -58,47 +58,49 @@ let tag_loading = () => {
 // 	});
 // }
 document.body.addEventListener('click', (evt) => {
-	let el = evt.target;
-	if (el.classList.contains('swiper-lazy')) {
-		lessonSelected = el.dataset.lesson;
-		tag_loading();
-		bg_override.classList.remove('d-none');
-		box_override.classList.remove('d-none');
-		Get_Lesson(lessonSelected).then((ele) => {
-			/* Loading data when page loading */
-			nameLesson.textContent = ele.lessonName;
-			auth.textContent = ele.username;
-			category.textContent = ele.categoryName;
-			lesson_save.setAttribute('name', ele.lessonID);
-			auth_avatar.src = '/st/images/appicon.png';
-			img.src = `https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${ele.lessonID}`;
-			slide.href = `/slide/${ele.lessonID}`;
-			/* Remove Loading */
-			document.getElementById('loading-bg').remove();
-			let lesson_icon_term = lesson_save.getAttribute('class');
-			if (ele.state === 1) {
-				let replaceClass = lesson_icon_term.replace(/far/, 'fas');
-				lesson_save.setAttribute('class', replaceClass);
-			} else {
-				let replaceClass = lesson_icon_term.replace(/fas/, 'far');
-				lesson_save.setAttribute('class', replaceClass);
-			}
-		});
-		document.getElementById('close').addEventListener('click', () => {
-			bg_override.classList.add('d-none');
-			box_override.classList.add('d-none');
-		});
-	}
+  let el = evt.target;
+  if (el.classList.contains('swiper-lazy')) {
+    lessonSelected = el.dataset.lesson;
+    tag_loading();
+    bg_override.classList.remove('d-none');
+    box_override.classList.remove('d-none');
+    box_override.style.overflow = 'hidden';
+    Get_Lesson(lessonSelected).then((ele) => {
+      /* Loading data when page loading */
+      nameLesson.textContent = ele.lessonName;
+      auth.textContent = ele.username;
+      category.textContent = ele.categoryName;
+      lesson_save.setAttribute('name', ele.lessonID);
+      auth_avatar.src = '/st/images/appicon.png';
+      img.src = `https://res.cloudinary.com/mavis/image/upload/Database_REBO/lessonImage/${ele.lessonID}`;
+      slide.href = `/slide/${ele.lessonID}`;
+      /* Remove Loading */
+      document.getElementById('loading-bg').remove();
+      box_override.style.overflowY = 'scroll';
+      let lesson_icon_term = lesson_save.getAttribute('class');
+      if (ele.state === 1) {
+        let replaceClass = lesson_icon_term.replace(/far/, 'fas');
+        lesson_save.setAttribute('class', replaceClass);
+      } else {
+        let replaceClass = lesson_icon_term.replace(/fas/, 'far');
+        lesson_save.setAttribute('class', replaceClass);
+      }
+    });
+    document.getElementById('close').addEventListener('click', () => {
+      bg_override.classList.add('d-none');
+      box_override.classList.add('d-none');
+    });
+  }
 });
 async function Get_Lesson(x) {
-	console.time();
-	const url = `/api/lesson/${x}`;
-	try {
-		const response = await fetch(url).then((x) => x.json());
-		console.log(response.lesson);
-		return response.lesson.overview;
-	} catch (error) {
-		console.log(error);
-	}
-	console.timeEnd();
+  console.time();
+  const url = `/api/lesson/${x}`;
+  try {
+    const response = await fetch(url).then((x) => x.json());
+    console.log(response.lesson);
+    return response.lesson.overview;
+  } catch (error) {
+    console.log(error);
+  }
+  console.timeEnd();
 }

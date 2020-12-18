@@ -2,7 +2,9 @@ const cmtHistory = document.getElementById('comment__history');
 const cmtInput = document.getElementById('comment__form--input');
 const cmtButton = document.getElementById('comment__form--button');
 const cmtHistoryContent = document.getElementById('comment__form__content');
-const socket = io.connect(`http://rebo-vn2.herokuapp.com`);
+const cmtCount = document.getElementById('comment__count');
+const socket = io.connect('http://rebo-vn2.herokuapp.com');
+// const socket = io.connect('http://localhost:3000');
 const infoUSer = async () => {
   await user();
   return res;
@@ -21,8 +23,10 @@ function addLineCmt(data) {
     cmtAvatar.src = 'https://res.cloudinary.com/mavis/static/60111_oigwum.jpg';
   }
   cmtAvatar.style.width = cmtAvatar.style.height = '50px';
-  cmtAvatar.classList.add('rounded');
+  cmtAvatar.style.objectFit = 'cover';
+  cmtAvatar.classList.add('rounded-circle', 'mr-2');
   cmtUser.classList.add('mb-0', 'mr-1', 'font-weight-bold');
+  cmtUser.style.fontSize = '1.4em';
   cmtMsg.classList.add('mb-0', 'ml-2');
   const cmtMsg_text = document.createTextNode(data.msg);
   const cmtUser_text = document.createTextNode('Quan');
@@ -33,14 +37,13 @@ function addLineCmt(data) {
   div_content.appendChild(cmtMsg);
   div.appendChild(cmtAvatar);
   div.appendChild(div_content);
-  div.classList.add('align-items-center', 'd-flex', 'my-2');
+  div.classList.add('align-items-center', 'd-flex', 'mt-2', 'mb-4');
   cmtHistory.appendChild(div);
 }
 
 // const allLesson = document.querySelectorAll('#s .swiper-slide');
 document.body.addEventListener('click', (e) => {
   const el = e.target;
-  console.log(el);
   if (el.classList.contains('swiper-lazy')) {
     cmtHistory.innerHTML = '';
     const lessonSelectedSocket = el.dataset.lesson;
@@ -49,25 +52,29 @@ document.body.addEventListener('click', (e) => {
     socket.on('history', (sv) => {
       cmtHistory.innerHTML = '';
       if (sv.length > 0) {
+        cmtCount.textContent = `${sv.length} Bình luận`;
         sv.forEach((data) => {
           addLineCmt(data);
         });
       } else {
-        historyEmpty();
+        cmtCount.textContent = `Không có Bình luận`;
+        // historyEmpty();
       }
     });
   }
 });
 cmtButton.addEventListener('click', async (e) => {
   e.preventDefault();
-  info = await infoUSer();
-  const valueCmt = cmtInput.value;
-  socket.emit('sendFromClient', {
-    user: info[0].avatar,
-    avatar_ver: info[0].avatar_ver,
-    msg: valueCmt,
-  });
-  cmtInput.value = '';
+  if (!!cmtInput.value) {
+    info = await infoUSer();
+    const valueCmt = cmtInput.value;
+    socket.emit('sendFromClient', {
+      user: info[0].avatar,
+      avatar_ver: info[0].avatar_ver,
+      msg: valueCmt,
+    });
+    cmtInput.value = '';
+  }
 });
 
 // let allLesson_length = allLesson.length;

@@ -149,6 +149,9 @@ io.on('connection', async (socket) => {
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
+  console.log(
+    'Nhớ đổi url socket phía client LINE 5-6 | `/home/mavis/Documents/CNW_final/public/javascripts/socket.io/socket.main.js` ',
+  );
   console.log(`Server Started!${port}`, 'http://rebo-vn2.herokuapp.com/');
 });
 module.exports = {
