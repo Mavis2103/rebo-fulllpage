@@ -104,7 +104,9 @@ const fetchCmt = async (pkgData) => {
     },
   };
   try {
-    response = await fetch('http://localhost:3000/api/addCmt', options).then((x) => x.json());
+    response = await fetch('http://rebo-vn2.herokuapp.com/api/addCmt', options).then((x) =>
+      x.json(),
+    );
   } catch (error) {
     console.log(error);
   }
@@ -112,7 +114,7 @@ const fetchCmt = async (pkgData) => {
 let rsHistory;
 const fetchCmtHistory = async (selected) => {
   try {
-    rsHistory = await fetch(`http://localhost:3000/api/historyCmt/${selected}`).then((x) =>
+    rsHistory = await fetch(`http://rebo-vn2.herokuapp.com/api/historyCmt/${selected}`).then((x) =>
       x.json(),
     );
   } catch (error) {
@@ -147,7 +149,7 @@ io.on('connection', async (socket) => {
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
-  console.log(`Server Started!${port}`, 'http://localhost:3000/');
+  console.log(`Server Started!${port}`, 'http://rebo-vn2.herokuapp.com/');
 });
 module.exports = {
   io,

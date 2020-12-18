@@ -2,7 +2,7 @@ const cmtHistory = document.getElementById('comment__history');
 const cmtInput = document.getElementById('comment__form--input');
 const cmtButton = document.getElementById('comment__form--button');
 const cmtHistoryContent = document.getElementById('comment__form__content');
-const socket = io.connect(`http://localhost:3000`);
+const socket = io.connect(`http://rebo-vn2.herokuapp.com`);
 const infoUSer = async () => {
   await user();
   return res;
