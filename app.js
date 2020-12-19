@@ -127,12 +127,14 @@ io.on('connection', async (socket) => {
     // cap nhap variable lessonSelected
     lessonSelected = selected;
     await fetchCmtHistory(selected);
-    io.emit('history', rsHistory);
+    socket.join(lessonSelected);
+    io.to(lessonSelected).emit(`history`, rsHistory);
   });
   /*  
 	khong the goi lessonSelected o day 
 	boi vi ngoai nay chi chay 1 lan dau ( ngay luc khai bao) la null */
-  socket.on('sendFromClient', async (data) => {
+  socket.on(`sendFromClient`, async (data) => {
+    socket.join(lessonSelected);
     const jsonPOST = {};
     try {
       jsonPOST.lessonSelected = lessonSelected;
@@ -140,7 +142,7 @@ io.on('connection', async (socket) => {
       // POST arr cmt moi den csdl
       await fetchCmt(jsonPOST);
       // Gui data vua nhap den tat ca client
-      io.emit('sendFromServer', data);
+      io.to(lessonSelected).emit(`sendFromServer`, data);
     } catch (error) {
       console.log(error);
     }

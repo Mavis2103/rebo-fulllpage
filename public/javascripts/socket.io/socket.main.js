@@ -40,16 +40,16 @@ function addLineCmt(data) {
   div.classList.add('align-items-center', 'd-flex', 'mt-2', 'mb-4');
   cmtHistory.appendChild(div);
 }
-
+let lessonSelectedSocket;
 // const allLesson = document.querySelectorAll('#s .swiper-slide');
 document.body.addEventListener('click', (e) => {
   const el = e.target;
   if (el.classList.contains('swiper-lazy')) {
     cmtHistory.innerHTML = '';
-    const lessonSelectedSocket = el.dataset.lesson;
+    lessonSelectedSocket = el.dataset.lesson;
     // send id lesson to server
     socket.emit('selected', lessonSelectedSocket);
-    socket.on('history', (sv) => {
+    socket.on(`history`, (sv) => {
       cmtHistory.innerHTML = '';
       if (sv.length > 0) {
         cmtCount.textContent = `${sv.length} Bình luận`;
@@ -68,7 +68,7 @@ cmtButton.addEventListener('click', async (e) => {
   if (!!cmtInput.value) {
     info = await infoUSer();
     const valueCmt = cmtInput.value;
-    socket.emit('sendFromClient', {
+    socket.emit(`sendFromClient`, {
       user: info[0].avatar,
       avatar_ver: info[0].avatar_ver,
       msg: valueCmt,
@@ -97,7 +97,8 @@ cmtButton.addEventListener('click', async (e) => {
 // 		});
 // 	});
 // }
-socket.on('sendFromServer', (data) => {
+socket.on(`sendFromServer`, (data) => {
+  console.log(lessonSelectedSocket);
   addLineCmt(data);
 });
 
