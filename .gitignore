@@ -13,3 +13,4 @@ yoo.js*
 test.css
 .prettierrc.json
 .eslintrc.js
+.env
